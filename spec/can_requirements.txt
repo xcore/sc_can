@@ -1,0 +1,95 @@
+CAN 2.0 Peripheral Software Component Requirements 
+==================================================
+
+:Author: Dan Wilkinson
+:Version: 1.0
+
+Introduction
+============
+
+The XMOS CAN2.0 peripheral will be comprised of two threads and an inline library, which together will fully implement CAN as described in the Bosch CAN specification, Version 2.0, parts A and B, and present a rich featured client side interface to it.
+
+The thread implements the Part B physical (PHY) layer as described on page 34 of Part B, and the MAC layer described on the same page. This will be referred to as the CAN core component, and an initial basic implementation of this CAN core thread is provided by XMOS.
+
+The inline library functions to be implemented by MindTree will implement the LLC sublayer functions, and one or more client interfaces as described below, and a second component thread will be provided which uses this inline library and wraps it up in a thread with a simple interface for other client threads to access.  
+
+Development of CAN products requires a license from Bosch, which grants permission to sell products using the CAN protocol and also grants access to a reference C-model for testing. XMOS will obtain the license and reference model. 
+
+Specification and Testplan
+==========================
+
+MindTree should develop a full spec of the features of the CAN core and LLC Library, and a definition of the API of the LLC library. 
+
+The LLC thread spec should add features and refer to the LLC library spec as appropriate.
+
+Both the above should be developed using the BOSCH CAN 2.0 spec, and section 17 of the Stellaris Microcontroller Datasheet as a guide. Note that it is not intended that the components should mimic the exact interface presented by this Microcontroller, merely that the XMOS component should have a similar capability to this competing product.
+
+A testplan should be developed which covers all the above, but which is structured along the same lines as the BOSCH C-reference model test suite, and then adds additional checks for features of the LLC thread that are not covered by the reference model.
+
+Implementation
+==============
+
+1. CAN Core
+-----------
+
+The CAN core is currently as implemented in CanPhy.xc. The following work needs to be done on this thread:
+
+1.1. Dynamic Bit Rate Control
+
+Currently the bit rate, bit timing, system clock settings and so on are configured statically in CanIncludes.h. The CAN core should be extended with an API to configure these parameters dynamically.
+
+1.2 Extended identifier support. The current CAN core only supports 11-bit identifiers. MindTree should add support for 29 bit extended identifiers as per the Bosch spec.
+
+1.3 Support for Time Triggered CAN (TTCAN)
+
+From:http://www.can-cia.org/index.php?id=521
+
+"Basically all CAN controllers that support single-shot mode or are able to support the cancellation of a transmission request are able to support level 1 of TTCAN in software. For level 2 they additionally require the ability to time-stamp the Start of Frame-bit and send the time-stamp within the very same frame. For reasons of performance enhancement it makes sense to realize the protocol functions in hardware."
+
+The CAN core should have the ability to timestamp the Start of Frame of the TTCAN time reference message and pass that data to the LLC.
+
+ 
+2. LLC functions
+----------------
+
+2.2 LLC Library
+
+This should firstly be implemented as a set of inline library functions, to provide data transfer and remote request services, to perform message filtering (with up to 32 programmable message filters). The LLC basically implements the type of services outlined in the accompanying Stellaris Microcontroller datasheet in section 17, with the exception of the block labelled 'CAN core'. The CAN core in the Stellaris datasheet corresponds more or less exactly to the XMOS CAN Core in CANPhy.xc. This will be called the LLC library.
+
+2.3  LLC Thread
+
+After the library functions are ready, they should be assembled into a thread which will present an interface to other client threads, using one channel per client and which will maintain a routing table which directs messages matching given filters to the client thread which has registered that identifier. This thread will be called the LLC thread. 
+
+The intention is that customers can either use the LLC thread, or simply take the LLC library and implement their own LLC controller thread or application.
+
+Verification
+============
+
+Having obtained the CAN protocol license from Bosch, there will be access to the Bosch reference C-Model for the CAN 2.0 protocol. MindTree should integrate this model into a simulator plugin testbench to demonstrate full compliance of the CAN Core, LLC Library and LLC thread.
+
+XTA
+===
+
+The CAN core thread already has sufficient XTA pragmas, so these just need to be kept intact.
+
+Pragmas should be added to the LLC thread as required (since the CAN core component specifies that its client is not allowed to block or delay channel communication with it, otherwise the phy may fail.
+
+Optimisations
+=============
+
+The component should be optimised for minimum usage of MIPS. 
+
+The number of message objects should be configurable to keep buffering requirements to a minimum for any given usage of these components.
+
+Demonstrations
+==============
+
+There is no requirement for a HW demo at this time. The integrated CAN protocol reference model is sufficient.
+
+Documentation
+=============
+
+Documentation deliverables are as specified in the XMOS/MindTree Statement of Work
+
+ 
+
