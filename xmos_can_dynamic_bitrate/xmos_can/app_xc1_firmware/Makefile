@@ -13,8 +13,8 @@ EXCLUDE_FILES =
 
 USED_MODULES = module_can
 
--include ../module_xmos_common/build/Makefile.common
--include ../../xmos_common/module_xmos_common/build/Makefile.common
+-include ../module_xcommon/build/Makefile.common
+-include ../../xcore_common/module_xcommon/build/Makefile.common
 
 all: $(BIN_DIR)/xc1_firmware.xe
 	@echo Build complete
