@@ -1,0 +1,69 @@
+#ifndef _CANLLC_H_
+#define _CANLLC_H_
+
+#include <print.h>
+#include <stdlib.h>
+#include "CanIncludes.h"
+
+#define STATUS int
+
+#define CAN_EXTENDED_FRAME 1
+#define CAN_STANDARD_FRAME 0
+#define CAN_DATA_FRAME 0
+#define CAN_REMOTE_FRAME 1
+
+#define MALLOC malloc
+
+#define MAX_MESSAGE_OBJECT 32
+
+/*Global variable declaration for CAN LLC layer
+ * msgObject : which is the RAM memory allocated for storing
+ * 					received CAN packets with perticular configuration
+ * MsgHandler : this is a state machine that takes care of message tranmission & reception
+ * 					from PHY layer guaranting the data consistency
+ *
+ * mlBx : There is a mail box for each of the CAN node, which holds message object
+ * 		  till 32 .Each message object within mail box has unique priority value
+ *        For 1 it is maximum & for 32 it is minimum.
+ */
+//unsigned int Persistent_RAM[512];
+//
+
+typedef struct MessageRegister
+{
+	unsigned int reg_TxRequest;
+}MSGOBJECTREGTER;
+
+
+
+typedef struct MessageObject {
+	unsigned DATA[8]; // First in struct so that worst-case path is quicker
+
+	unsigned SOF;
+	unsigned ID;
+	unsigned SRR;
+	unsigned IEB;
+	unsigned EID;
+	unsigned RTR;
+	unsigned RB1;
+	unsigned RB0;
+	unsigned DLC;
+	unsigned CRC;
+	unsigned CRC_DEL;
+	unsigned ACK_DEL;
+	unsigned _EOF;
+}MSGOBJECT;
+
+typedef struct MailBox{
+	MSGOBJECTREGTER MsgObjRegisterSet ;
+	MSGOBJECT MessageObject[32];
+}MSGMEMORY;
+
+inline void can_read(struct CanPacket rxPacket,MSGOBJECT pstmsgObject[32]);
+inline void can_write(struct CanPacket &txPacket,MSGOBJECT &pstmsgObject);
+inline STATUS Set_acceptance_filter (struct CanPacket rxPacket, unsigned int Filter_Id, unsigned int Mask_Id);
+
+
+#endif
+
+
