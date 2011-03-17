@@ -101,6 +101,7 @@ struct CanPacket {
 	unsigned _EOF; /* Uses _ because EOF is reserved */
 };
 
+
 struct CanPhyState {
 	STATE        state;
 	ERROR        error;

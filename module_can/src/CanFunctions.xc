@@ -1,9 +1,10 @@
 #include <print.h>
 #include <stdlib.h>
 #include <xs1.h>
-
+#include "CanLLC.h"
 #include "CanIncludes.h"
 #include "CanFunctions.h"
+
 
 void printPacket(struct CanPacket &p) {
 	printstr("SOF: ");
@@ -158,3 +159,31 @@ void receivePacket(chanend c, struct CanPacket &p) {
 // Needing to be in a different file due to BUG 8295
 void rxReady(buffered in port:32 p, unsigned int &time) {
 }
+
+#if 1
+void init_LLC(MSGMEMORY stmsgMemory,unsigned int NodeId)
+{
+	unsigned int TxRequest = 0;
+	for(int j=0;j<32;j++){
+	stmsgMemory.MessageObject[j].SOF = 0;
+	stmsgMemory.MessageObject[j].ID  = 0;
+	stmsgMemory.MessageObject[j].SRR = 0;
+	stmsgMemory.MessageObject[j].IEB = 0;
+	stmsgMemory.MessageObject[j].EID = 0;
+	stmsgMemory.MessageObject[j].RTR = 0;
+	stmsgMemory.MessageObject[j].RB1 = 0;
+	stmsgMemory.MessageObject[j].RB0 = 0;
+	stmsgMemory.MessageObject[j].DLC = 0;
+	for (int i = 0; i < 8; i++) {
+		stmsgMemory.MessageObject[j].DATA[i] = 0;
+	}
+	stmsgMemory.MessageObject[j].CRC = 0;
+	stmsgMemory.MessageObject[j].CRC_DEL = 1;
+	stmsgMemory.MessageObject[j].ACK_DEL = 1;
+	stmsgMemory.MessageObject[j]._EOF = 0xf7;
+	}
+
+	stmsgMemory.MsgObjRegisterSet.reg_TxRequest = 0;
+}
+#endif
+
