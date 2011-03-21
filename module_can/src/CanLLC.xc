@@ -1,9 +1,9 @@
 #include "CanLLC.h"
 
+#define LED_RESOLUTION 16
 
 
-
-inline STATUS Set_acceptance_filter (struct CanPacket rxPacket, unsigned int Filter_Id, unsigned int Mask_Id)
+STATUS Set_acceptance_filter (struct CanPacket rxPacket, unsigned int Filter_Id, unsigned int Mask_Id)
 {
 
 	//ToDo: check for Frame Formats
@@ -38,14 +38,16 @@ inline STATUS Set_acceptance_filter (struct CanPacket rxPacket, unsigned int Fil
 	{
 		printstrln("Message with given identifier is accepted\n");
        return 0;
+       // return flag = 1;
 	}
 	else
 		return 1;
+	    //return flag = 0;
 
 }
 // can_read() will get called from client thread
 //OR message handler state machine
-inline void can_read(struct CanPacket rxPacket,MSGOBJECT pstmsgObject[32])
+void can_read(struct CanPacket rxPacket,MSGOBJECT pstmsgObject[32],unsigned index)
 {
 	//Todo : check for Frame Type : data frame OR Remote frame.
 
@@ -60,11 +62,11 @@ inline void can_read(struct CanPacket rxPacket,MSGOBJECT pstmsgObject[32])
 
 	if(frame_type == CAN_DATA_FRAME)
 	{
-		//Todo : either to update only data field OR
+		//Todo : either to update only data field(permanent message object) OR
 		//         whole message object in RAM.
 		// copy the data bytes from received CAN packet to message object
-		for(i=0;i<4;i++)
-		pstmsgObject[1].DATA[i] = rxPacket.DATA[i];
+		for(i=0;i<8;i++)
+		pstmsgObject[index].DATA[i] = rxPacket.DATA[i];
 	}
 	if(frame_type == CAN_REMOTE_FRAME)
 	{
@@ -75,7 +77,7 @@ inline void can_read(struct CanPacket rxPacket,MSGOBJECT pstmsgObject[32])
         //scan for the message matching with requested identifier
 		for(i=0;i<32;i++)
 		{
-		if(pstmsgObject[i].ID == rxPacket.ID)
+		if(pstmsgObject[index].ID == rxPacket.ID)
 			break;
 		}
 		// Next message with pending transmission pstmsgObject[i]
@@ -89,13 +91,21 @@ inline void can_read(struct CanPacket rxPacket,MSGOBJECT pstmsgObject[32])
 }
 //can_write() will get called from client thread
 //OR message handler state machine
-inline void can_write(struct CanPacket &txPacket,MSGOBJECT &pstmsgObject)
+void can_write(struct CanPacket &txPacket,MSGOBJECT pstmsgObject[32],unsigned index)
 {
 	unsigned int i =0;
+    unsigned txIndex = 0;
+    index = index & 0x1FFFFF ;
+    txIndex = index>>LED_RESOLUTION ;
 
-	for(i=0;i<4;i++)
-	txPacket.DATA[i] = pstmsgObject.DATA[i];
+	//for(i=0;i<4;i++)
+	//txPacket.DATA[i] = pstmsgObject[index].DATA[i];
 
+	for(i=0;i<8;i++)
+		txPacket.DATA[i] = pstmsgObject[index].DATA[i];
 
 }
+
+
+
 

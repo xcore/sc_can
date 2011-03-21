@@ -11,6 +11,7 @@
 #define CAN_STANDARD_FRAME 0
 #define CAN_DATA_FRAME 0
 #define CAN_REMOTE_FRAME 1
+#define ENABLE_FILTER 1
 
 #define MALLOC malloc
 
@@ -32,6 +33,7 @@
 typedef struct MessageRegister
 {
 	unsigned int reg_TxRequest;
+	unsigned char flag_filter ;
 }MSGOBJECTREGTER;
 
 
@@ -59,10 +61,9 @@ typedef struct MailBox{
 	MSGOBJECT MessageObject[32];
 }MSGMEMORY;
 
-inline void can_read(struct CanPacket rxPacket,MSGOBJECT pstmsgObject[32]);
-inline void can_write(struct CanPacket &txPacket,MSGOBJECT &pstmsgObject);
-inline STATUS Set_acceptance_filter (struct CanPacket rxPacket, unsigned int Filter_Id, unsigned int Mask_Id);
-
+void can_read(struct CanPacket rxPacket,MSGOBJECT pstmsgObject[32],unsigned index);
+void can_write(struct CanPacket &txPacket,MSGOBJECT pstmsgObject[32],unsigned index);
+STATUS Set_acceptance_filter (struct CanPacket rxPacket, unsigned int Filter_Id, unsigned int Mask_Id);
 
 #endif
 

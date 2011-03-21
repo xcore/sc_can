@@ -5,7 +5,6 @@
 #include "CanIncludes.h"
 #include "CanFunctions.h"
 
-
 void printPacket(struct CanPacket &p) {
 	printstr("SOF: ");
 	printhexln(p.SOF);
@@ -77,7 +76,8 @@ void randomizePacket(struct CanPacket &p, int bitZero) {
 	p._EOF = 0x7F;
 
 	p.ID  = rand() & 0x7ff;
-	if (rand() & 0x1) {
+	//if (rand() & 0x1) {
+	if (0) {
 		// Create extended packet
 		p.SRR = 0;
 		p.IEB = 1;
@@ -97,7 +97,7 @@ void randomizePacket(struct CanPacket &p, int bitZero) {
 		p.ID = (p.ID & ~1) | bitZero;
 	}
 
-	p.DLC = rand() % 9;
+	p.DLC = 8;//rand() % 9; // bug : it should be 8
 	for (int i = 0; i < p.DLC; i++) {
 		p.DATA[i] = rand() & 0xff;
 	}
@@ -129,6 +129,7 @@ void sendPacket(chanend c, struct CanPacket &p) {
 //	outuint(c, p.CRC_DEL);
 //	outuint(c, p.ACK_DEL);
 //	outuint(c, _EOF);
+	outuint(c, p.THREADNUM);
 }
 
 #pragma unsafe arrays
@@ -154,14 +155,14 @@ void receivePacket(chanend c, struct CanPacket &p) {
 //	p.CRC_DEL = 1;
 //	p.ACK_DEL = 1;
 //	p._EOF = 0x7f;
+	p.THREADNUM = inuint(c);
 }
 
 // Needing to be in a different file due to BUG 8295
 void rxReady(buffered in port:32 p, unsigned int &time) {
 }
 
-#if 1
-void init_LLC(MSGMEMORY stmsgMemory,unsigned int NodeId)
+void init_LLC(MSGMEMORY &stmsgMemory,unsigned int NodeId)
 {
 	unsigned int TxRequest = 0;
 	for(int j=0;j<32;j++){
@@ -175,7 +176,7 @@ void init_LLC(MSGMEMORY stmsgMemory,unsigned int NodeId)
 	stmsgMemory.MessageObject[j].RB0 = 0;
 	stmsgMemory.MessageObject[j].DLC = 0;
 	for (int i = 0; i < 8; i++) {
-		stmsgMemory.MessageObject[j].DATA[i] = 0;
+		stmsgMemory.MessageObject[j].DATA[i] = 0x55;//i+(j*100);
 	}
 	stmsgMemory.MessageObject[j].CRC = 0;
 	stmsgMemory.MessageObject[j].CRC_DEL = 1;
@@ -185,5 +186,3 @@ void init_LLC(MSGMEMORY stmsgMemory,unsigned int NodeId)
 
 	stmsgMemory.MsgObjRegisterSet.reg_TxRequest = 0;
 }
-#endif
-
