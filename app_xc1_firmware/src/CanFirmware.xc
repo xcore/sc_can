@@ -24,7 +24,7 @@ on stdcore[0] :             port    canTx_2    = XS1_PORT_1D;
 #define SEND_DONE     2
 #define THREAD_1	  3
 #define THREAD_2	  4
-
+#define ENABLE_FILTER 1
 #define LED_RESOLUTION 11
 #define LED_RESOLUTION1 0
 void init_LLC(MSGMEMORY &stmsgMemory,unsigned int NodeId);
@@ -36,6 +36,7 @@ void canTestRxTx(chanend controlChan, chanend rxChan, chanend txChan, chanend le
 	struct CanLLCState LLCState;
 	unsigned int index = 0 ;
 	unsigned int txIndex = 0;
+	unsigned int rxIndex = 0;
 	unsigned int bits = 0;
 	 	unsigned char flag_set_filter = 0;
 	unsigned int Filter_Id = 0;
@@ -44,9 +45,10 @@ void canTestRxTx(chanend controlChan, chanend rxChan, chanend txChan, chanend le
 
 	unsigned int txPacketCount = 0;
 	unsigned int rxPacketCount = 0;
-
-	randomizePacket(txPacket, bitZero);
+	randomizePacket(txPacket, bitZero);//
 	init_LLC(stmsgMemory, 2);
+	randomizeMsgObject(stmsgMemory.MessageObject, bitZero,index);//randomizePacket(txPacket, bitZero);//
+
 	LLCState.state = 0;
 	while (1) {
 		unsigned int command = COMMAND_NONE;
@@ -68,7 +70,7 @@ void canTestRxTx(chanend controlChan, chanend rxChan, chanend txChan, chanend le
 			break;
 		}
 
-
+		//message_handler_state_machine(stmsgMemory.MsgObjRegisterSet,LLCState,command,threadNum);
 #ifdef LLC
     	while(!done)
 		{
@@ -84,54 +86,89 @@ void canTestRxTx(chanend controlChan, chanend rxChan, chanend txChan, chanend le
 			case STATE_COMMAND_SEND://case STATE_COMMAND_SEND:
 				outuint(txChan, txPacketCount);
 				sendPacket(txChan, txPacket);
-				randomizePacket(txPacket, bitZero);
+				/**check for the available clear bits *
+				 *for(i=0;i<32;i++){
+				 * if(!((stmsgMemory.MsgObjRegisterSet.reg_TxRequest>>i)&(0x1)))
+				 * break;
+				 * }
+				 * index = i;
+				 * */
+				randomizeMsgObject(stmsgMemory.MessageObject,bitZero,index);//randomizePacket(txPacket, bitZero);//
+				/**Set the bit for pending tranmit request for corresponding index of message objects**/
+				//stmsgMemory.MsgObjRegisterSet.reg_TxRequest |= (0x1<<index);
+				/****/
 				txPacketCount++;
 				done = 1;
 				break;
 			case STATE_CONFIG_TX :
 				//call configure_transit_message()//set the bit corresponding to message with pending req. for transmission
-				index++ ;
-				index = index %32;
+
 				LLCState.state = STATE_TRNSMT_MSG_TO_PHY ;
 				break;
 			case STATE_TRNSMT_MSG_TO_PHY :
+				/**check for highest priority message pending for transmission**
+				 *for(i=0;i<32;i++){
+				 * if((stmsgMemory.MsgObjRegisterSet.reg_TxRequest>>i)&(0x1))
+				 * break;
+				 * }
+				 * index = i;
+				 */
 				can_write(txPacket,stmsgMemory.MessageObject,index);
+				/**clear the bit corresponding to the message objects set for tranmission
+				 * tReg = 0x0;
+				 * tReg = (0x1<<index);
+				 * tReg = ~tReg;
+				 * stmsgMemory.MsgObjRegisterSet.reg_TxRequest &= tReg;
+				 *
+				 */
+
+
+				/**manual change in index of message objects */
+				index++ ;
+				index = index %32;
+				/***/
 				LLCState.state = STATE_COMMAND_SEND ;
 				break;
 			case STATE_COMMAND_NONE :
+
 				outuint(controlChan, SEND_DONE);
 				rxPacketCount++;
 				LLCState.state = STATE_CONFIG_RX ;
 				break;
 			case STATE_CONFIG_RX :
 				//configure_receive_message();//set the bit corresponding to new message to be stored at perticular msg object.
+				Mask_Id = 0x0;
+				Filter_Id = 0x0;
 		    	if(ENABLE_FILTER)
 					flag_set_filter = Set_acceptance_filter (rxPacket, Filter_Id,Mask_Id);
-					flag_set_filter = 0 ; //temporary set . It should return 0 for specific Filter ID , which is for allowing all message.
-				if(!flag_set_filter) // accept the message for receiving in message RAM
+					//flag_set_filter = 0 ; //temporary set . It should return 0 for specific Filter ID , which is for allowing all message.
+				if(flag_set_filter){ // accept the message for receiving in message RAM
+					rxIndex = rxPacket.ID ;
 					LLCState.state = STATE_RECEIVE_MSG ;
+				}
 				else
 				{
-					outuint(ledChan,rxPacketCount>>LED_RESOLUTION);
+					//outuint(ledChan,rxPacketCount>>LED_RESOLUTION);
+					outuint(ledChan,0x0);
 					outct(ledChan, XS1_CT_END);
 					done = 1;
 				}
 				break;
 			case STATE_RECEIVE_MSG :
-				can_read(rxPacket,stmsgMemory.MessageObject,index);
+				can_read(rxPacket,stmsgMemory.MessageObject,rxIndex);
+				//rxIndex++;
+				//rxIndex = rxIndex %32;
 				//outuint(ledChan,rxPacketCount>>LED_RESOLUTION);
-				if((rxPacket.DATA[1]==0x0)&&(threadNum != THREAD_2))
-				outuint(ledChan,0x55);
-				else if((rxPacket.DATA[0]==0x1)&&(threadNum == THREAD_2))
-				outuint(ledChan,0x0);
-				else if ((rxPacket.DATA[0]!=0x0)&&(threadNum != THREAD_2))
-				outuint(ledChan,0x0);
+				if((stmsgMemory.MessageObject[rxIndex].DATA[1]==(31-rxIndex))&&(threadNum != THREAD_2))
+				outuint(ledChan,0x1);
+				//else if((rxPacket.DATA[0]==0x0)&&(threadNum == THREAD_2))
+				//outuint(ledChan,0x0);
+				//else if ((rxPacket.DATA[0]!=0x0)&&(threadNum != THREAD_2))
+				//outuint(ledChan,0x0);
 				else
 				outuint(ledChan,0x0);
 				//outuint(ledChan,rxPacket.DATA[0]);
 				outct(ledChan, XS1_CT_END);
-				index++;
-				index = index%32;
 				done = 1;
 				break;
 			}
@@ -276,9 +313,9 @@ void ledManager(chanend client0, chanend client1, chanend client2,
 		unsigned int bits = 0;
 
 		select {
-		case inuint_byref(client0, bits):
+		case inuint_byref(client0, green)://inuint_byref(client0, bits):
 			inct(client0);
-			green = 0;
+		    bits = 0xf;
 			value = (value & 0xff0) | (bits & 0xf);
 			value1 = (value1 & 0xff0) | (bits & 0xf);
 			//driveLeds(led0, led1, led2, ledGreen, ledRed, value, green);
@@ -319,10 +356,10 @@ int main() {
 		on stdcore[0]: ledManager(ledChan_0, ledChan_1, ledChan_2,
 				led0_0, led1_0, led2_0, ledGreen_0, ledRed_0);
 
-		on stdcore[1]: canTestRxTx(controlChan_0, rxChan_0, txChan_0, ledChan_0, 0);
-		on stdcore[1]: canTestRxTx(controlChan_1, rxChan_1, txChan_1, ledChan_1, 1);
+		on stdcore[0]: canTestRxTx(controlChan_0, rxChan_0, txChan_0, ledChan_0, 0);
+		on stdcore[0]: canTestRxTx(controlChan_1, rxChan_1, txChan_1, ledChan_1, 1);
 
-		on stdcore[1]: canController(controlChan_0, controlChan_1, ledChan_2);
+		on stdcore[0]: canController(controlChan_0, controlChan_1, ledChan_2);
 	}
 	return 0;
 }
