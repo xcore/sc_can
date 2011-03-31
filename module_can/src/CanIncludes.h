@@ -33,7 +33,7 @@
  */
 
 #define SYSTEM_CLOCK 100000000
-#define BAUD_RATE      500000 // 1000000
+#define BAUD_RATE  500000 //1000000 //
 
 #define QUANTA_SYNC      1
 #define QUANTA_PROP      8
@@ -74,6 +74,18 @@ typedef enum {
 } STATE;
 
 typedef enum {
+   STATE_CHK_COMMAND  = 0,
+   STATE_CONFIG_TX    = 1,
+   STATE_TRNSMT_MSG_TO_PHY = 2,
+   STATE_COMMAND_SEND = 3,
+   STATE_COMMAND_NONE = 4,
+   STATE_CONFIG_RX	  = 5,
+   STATE_RECEIVE_MSG  = 6,
+
+
+} LLC_STATE;
+
+typedef enum {
 	ERROR_NONE          = 0,
 	ERROR_BIT_ERROR     = 1,
 	ERROR_STUFF_ERROR   = 2,
@@ -99,11 +111,25 @@ struct CanPacket {
 	unsigned CRC_DEL;
 	unsigned ACK_DEL;
 	unsigned _EOF; /* Uses _ because EOF is reserved */
+	unsigned THREADNUM;
 };
-
 
 struct CanPhyState {
 	STATE        state;
+	ERROR        error;
+	unsigned int packetCrc;
+
+	int          txActive;
+	int          txComplete;
+
+	int          activeError;
+	int          rxErrorCount;
+	int          txErrorCount;
+	int          doCrc;
+};
+
+struct CanLLCState {
+	LLC_STATE    state;
 	ERROR        error;
 	unsigned int packetCrc;
 

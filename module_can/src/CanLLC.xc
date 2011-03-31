@@ -16,13 +16,20 @@ STATUS Set_acceptance_filter (struct CanPacket rxPacket, unsigned int Filter_Id,
 	 *   1          1          1          ACCEPT
 	 */
 	unsigned int Identifier = 0;
-	unsigned int tXOR = 0;
+	//unsigned int tXOR = 0;
+	unsigned int tOR = 0;
+
 
     unsigned frame_format = 0;
     frame_format = (!(rxPacket.IEB^CAN_EXTENDED_FRAME));
 
     if(frame_format == CAN_STANDARD_FRAME )
     {
+    	tOR = (rxPacket.ID) | Filter_Id ;
+    	if((tOR & Mask_Id) == Mask_Id)
+    		return 1;
+    	else
+    		return 0;
 
     }
 
@@ -31,7 +38,9 @@ STATUS Set_acceptance_filter (struct CanPacket rxPacket, unsigned int Filter_Id,
 
     }
 
+#if 0
 	Identifier = rxPacket.ID; //lower 11-bit value in case of Standrad Frame
+
 
 	tXOR = !(Identifier^Filter_Id);
 	if(((!Mask_Id)|tXOR)== 0xFFFF)
@@ -43,6 +52,9 @@ STATUS Set_acceptance_filter (struct CanPacket rxPacket, unsigned int Filter_Id,
 	else
 		return 1;
 	    //return flag = 0;
+#endif
+
+
 
 }
 // can_read() will get called from client thread
@@ -98,14 +110,50 @@ void can_write(struct CanPacket &txPacket,MSGOBJECT pstmsgObject[32],unsigned in
     index = index & 0x1FFFFF ;
     txIndex = index>>LED_RESOLUTION ;
 
-	//for(i=0;i<4;i++)
-	//txPacket.DATA[i] = pstmsgObject[index].DATA[i];
+    txPacket.ID = pstmsgObject[index].ID ;
 
 	for(i=0;i<8;i++)
 		txPacket.DATA[i] = pstmsgObject[index].DATA[i];
 
 }
 
+void message_handler_state_machine(MSGOBJECTREGTER regs_status,struct CanLLCState &LLCState,unsigned int command,unsigned int threadNum)
+{
+   unsigned int done = 0;
+#if 0
+	// applying acceptance filter
+	regs_status.flag_filter = ENABLE_FILTER ;
+	// setting pending request for transmission
+	regs_status.reg_TxRequest = 0xFFFFFFFF ; // set for tranmission of all 32 message objects
 
+	while(!done)
+	{
+	switch(LLCState.state)
+		{
+		case STATE_CHK_COMMAND :
+			if ((command == SEND_PACKET)&&(threadNum == THREAD_1))
+			LLCState.state = STATE_COMMAND_SEND ;
+			else
+			LLCState.state = STATE_COMMAND_NONE ;
+			break;
+		case COMMAND_SEND:
+			break;
+		case CONFIG_TX :
+			break;
+		case TRANSMIT_MSG :
+			break;
+		case COMMAND_NONE :
+			LLCState.state = RECEIVE_MSG ;
+			break;
+		case RECEIVE_MSG :
+			break;
+		case CONFIG_RX :
+			break;
+
+		}
+	}
+#endif
+
+}
 
 

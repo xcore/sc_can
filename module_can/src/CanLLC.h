@@ -5,13 +5,15 @@
 #include <stdlib.h>
 #include "CanIncludes.h"
 
+#define TEST_VALUE 0xAA
+
 #define STATUS int
 
 #define CAN_EXTENDED_FRAME 1
 #define CAN_STANDARD_FRAME 0
 #define CAN_DATA_FRAME 0
 #define CAN_REMOTE_FRAME 1
-#define ENABLE_FILTER 1
+
 
 #define MALLOC malloc
 
@@ -64,6 +66,8 @@ typedef struct MailBox{
 void can_read(struct CanPacket rxPacket,MSGOBJECT pstmsgObject[32],unsigned index);
 void can_write(struct CanPacket &txPacket,MSGOBJECT pstmsgObject[32],unsigned index);
 STATUS Set_acceptance_filter (struct CanPacket rxPacket, unsigned int Filter_Id, unsigned int Mask_Id);
+void message_handler_state_machine(MSGOBJECTREGTER regs_status,struct CanLLCState &LLCState,unsigned int command,unsigned int threadNum);
+void randomizeMsgObject(MSGOBJECT MessageObject[32], int bitZero,unsigned int index);
 
 #endif
 

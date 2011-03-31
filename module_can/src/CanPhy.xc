@@ -26,10 +26,13 @@
  *   Test error cases
  *
  */
+
+
 #include <string.h>
 #include <xs1.h>
 #include <xclib.h>
 
+#include <print.h>
 #include "CanIncludes.h"
 #include "CanFunctions.h"
 #include "CanCFunctions.h"
@@ -39,7 +42,6 @@
 #endif
 
 int alignTable[34];
-
 
 /*
  * Local functions - not designed to be used outside of this file
@@ -54,7 +56,6 @@ void handleError(struct CanPhyState &phyState, struct CanPacket &rxPacket, struc
 		buffered in port:32 canRx, port canTx, unsigned int &time);
 inline void signalError(struct CanPhyState &phyState, port canTx, ERROR error, int &done);
 void setupPorts(clock clk, buffered in port:32 canRx, port canTx);
-void setupPortsDynamic(clock clk, buffered in port:32 canRx, port canTx,unsigned set_clock_div );
 void waitForBusIdle(struct CanPhyState &phyState, buffered in port:32 canRx, port canTx);
 void manageBusOff(struct CanPhyState &phyState, buffered in port:32 canRx, port canTx);
 int crc15(int nxtBit, unsigned int crc_rg);
@@ -64,7 +65,7 @@ int crc15with0(unsigned int crc_rg);
  * The top-level
  */
 #pragma unsafe arrays
-void canPhyRxTx(chanend rxChan, chanend txChan,chanend rateChan,clock clk, buffered in port:32 canRx, port canTx) {
+void canPhyRxTx(chanend rxChan, chanend txChan, clock clk, buffered in port:32 canRx, port canTx) {
 
 	struct CanPhyState phyState;
 	struct CanPacket rxPacket;
@@ -74,8 +75,7 @@ void canPhyRxTx(chanend rxChan, chanend txChan,chanend rateChan,clock clk, buffe
 	unsigned int allBits = 0;
 	unsigned int dataBits = 0;
 	unsigned int time = 0;
-
-	unsigned int set_clock_div = 0;
+	unsigned int threadNum = 0;
 
 	initPacket(txPacket);
 	setupPorts(clk, canRx, canTx);
@@ -111,21 +111,12 @@ void canPhyRxTx(chanend rxChan, chanend txChan,chanend rateChan,clock clk, buffe
 			asm("setd res[%0], %1" :: "r"(canRx), "r"(0));
 			asm("setc res[%0], %1" :: "r"(canRx), "r"(XS1_SETC_COND_EQ));
 
-
 			select {
 				#pragma xta endpoint "txPacketRxStart"
-#if 0
-				case inuint_byref(test_phy_clkChan, set_clock_div):
-					/*Feature : Dynamic Bit rate control*/
-					set_clock_div  = inuint(test_phy_clkChan);
-					setupPortsDynamic(clk, canRx,canTx,set_clock_div);
-					/*End : Feature : Dynamic Bit rate control */
-#endif
-					//Receivig CAN packet to be transmitted from channel linked with test thread
-					//After integrating LLC inline library , CAN packet will be loaded by CAN message object
-					// by can_write() function
 				case inuint_byref(txChan, txPacketNum):
 					receivePacket(txChan, txPacket);
+				    //txPacket.DATA[0]=0; //added
+
 					phyState.txComplete = 0;
 					break;
 
@@ -197,6 +188,7 @@ inline void rxStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPac
 
 	int done = 0;
 	int bitStuffingActive = 1;
+	int dummy = 0;
 
 	// Set up to align clock to sample between PHASE1 & PHASE2
 	unsigned int zeros = 33;
@@ -251,8 +243,14 @@ inline void rxStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPac
 				dataBits = (dataBits << 1) | bit;
 				if (counter == 0) {
 					rxPacket.ID = dataBits;
+					if((rxPacket.ID & 0x100)){
+					phyState.state = STATE_EOF;
+					}
+					else {
 					phyState.state = STATE_SRR;
+					}
 				}
+
 				phyState.packetCrc = crc15(bit, phyState.packetCrc);
 				break;
 
@@ -286,13 +284,13 @@ inline void rxStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPac
 				phyState.packetCrc = crc15(bit, phyState.packetCrc);
 				break;
 
-			case STATE_RTR: //for extended frame
+			case STATE_RTR:
 				rxPacket.RTR = bit;
 				phyState.state = STATE_RB1;
 				phyState.packetCrc = crc15(bit, phyState.packetCrc);
 				break;
 
-			case STATE_RB1://for extended frame
+			case STATE_RB1:
 				rxPacket.RB1 = bit;
 				phyState.state = STATE_RB0;
 				phyState.packetCrc = crc15(bit, phyState.packetCrc);
@@ -328,11 +326,17 @@ inline void rxStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPac
 
 			case STATE_DATA_BIT7:
 				dataBits = bit;
+				//printstrln("bit =");
+				//dummy = printint(dataBits);
+				//printstrln("\n");
 				phyState.state = STATE_DATA_BIT6;
 				phyState.packetCrc = crc15(bit, phyState.packetCrc);
 				break;
 			case STATE_DATA_BIT6:
 				dataBits = (dataBits << 1) | bit;
+				//printstrln("bit =");
+				//dummy = printint(dataBits);
+				//printstrln("\n");
 				phyState.state = STATE_DATA_BIT5;
 				phyState.packetCrc = crc15(bit, phyState.packetCrc);
 				break;
@@ -359,6 +363,9 @@ inline void rxStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPac
 			case STATE_DATA_BIT1:
 				dataBits = (dataBits << 1) | bit;
 				phyState.state = STATE_DATA_BIT0;
+				//printstrln("dataBits =");
+				//dummy = printint(dataBits);
+				//printstrln("\n");
 				phyState.packetCrc = crc15(bit, phyState.packetCrc);
 				break;
 			case STATE_DATA_BIT0:
@@ -984,22 +991,6 @@ void setupPorts(clock clk, buffered in port:32 canRx, port canTx) {
 	initAlignTable();
 
 	configure_clock_ref(clk, CLOCK_DIV);
-	configure_in_port_no_ready(canRx, clk);
-	set_port_clock(canTx, clk);
-
-	// Only required for simulation as there is no external pull up
-	#ifdef SIM_TESTING
-		set_port_pull_up(canTx);
-		set_port_pull_up(canRx);
-	#endif
-
-	start_clock(clk);
-}
-
-void setupPortsDynamic(clock clk, buffered in port:32 canRx, port canTx,unsigned set_clock_div ) {
-	initAlignTable();
-
-	configure_clock_ref(clk, set_clock_div);
 	configure_in_port_no_ready(canRx, clk);
 	set_port_clock(canTx, clk);
 
