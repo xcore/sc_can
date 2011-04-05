@@ -101,6 +101,37 @@ void can_read(struct CanPacket rxPacket,MSGOBJECT pstmsgObject[32],unsigned inde
 
 
 }
+
+void can_read_changed_content (struct CanPacket rxPacket,MSGOBJECT pstmsgObject[32],unsigned index){
+	unsigned int frame_type = 0;
+	unsigned int i =0;
+
+	frame_type = (rxPacket.RTR | CAN_DATA_FRAME);
+
+	if(frame_type == CAN_DATA_FRAME)
+		{
+			// copy the data bytes from received CAN packet to message object
+			for(i=0;i<8;i++)
+			pstmsgObject[index].DATA[i] = rxPacket.DATA[i];
+		}
+
+	if(frame_type == CAN_REMOTE_FRAME)
+		{
+		 //scan for the message matching with requested identifier
+			for(i=0;i<32;i++)
+			{
+				if(pstmsgObject[index].ID == rxPacket.ID)
+				break;
+			}
+			// Next message with pending transmission pstmsgObject[i]
+
+			//Set the bit for tranmission for message object pstmsgObject[i]
+
+		}
+
+}
+
+
 //can_write() will get called from client thread
 //OR message handler state machine
 void can_write(struct CanPacket &txPacket,MSGOBJECT pstmsgObject[32],unsigned index)
@@ -114,6 +145,20 @@ void can_write(struct CanPacket &txPacket,MSGOBJECT pstmsgObject[32],unsigned in
 
 	for(i=0;i<8;i++)
 		txPacket.DATA[i] = pstmsgObject[index].DATA[i];
+
+}
+
+void configure_transit_message(MSGMEMORY &stmsgMemory,unsigned int index)
+{
+	unsigned tReg = 0x1;
+	stmsgMemory.MsgObjRegisterSet.reg_TxRequest = (tReg << index);
+	// index - mesage object with pending request for tranmission
+
+}
+
+void configure_receive_message(unsigned &Mask_Id,unsigned &Filter_Id){
+	Mask_Id = 0x0;
+	Filter_Id = 0x0;
 
 }
 
@@ -154,6 +199,18 @@ void message_handler_state_machine(MSGOBJECTREGTER regs_status,struct CanLLCStat
 	}
 #endif
 
+}
+
+LLC_STATE can_open(MSGMEMORY stmsgMemory){
+
+	return STATE_CAN_START;
+}
+
+
+
+LLC_STATE can_close(MSGMEMORY stmsgMemory){
+
+	return STATE_CAN_STOP;
 }
 
 

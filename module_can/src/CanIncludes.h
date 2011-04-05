@@ -33,7 +33,7 @@
  */
 
 #define SYSTEM_CLOCK 100000000
-#define BAUD_RATE  500000 //1000000 //
+#define BAUD_RATE  1000000 //1000000 //
 
 #define QUANTA_SYNC      1
 #define QUANTA_PROP      8
@@ -74,14 +74,15 @@ typedef enum {
 } STATE;
 
 typedef enum {
-   STATE_CHK_COMMAND  = 0,
-   STATE_CONFIG_TX    = 1,
-   STATE_TRNSMT_MSG_TO_PHY = 2,
-   STATE_COMMAND_SEND = 3,
-   STATE_COMMAND_NONE = 4,
-   STATE_CONFIG_RX	  = 5,
-   STATE_RECEIVE_MSG  = 6,
-
+   STATE_CAN_START    = 0,
+   STATE_CHK_COMMAND  = 1,
+   STATE_CONFIG_TX    = 2,
+   STATE_TRNSMT_MSG_TO_PHY = 3,
+   STATE_COMMAND_SEND = 4,
+   STATE_COMMAND_NONE = 5,
+   STATE_CONFIG_RX	  = 6,
+   STATE_RECEIVE_MSG  = 7,
+   STATE_CAN_STOP     = 8,
 
 } LLC_STATE;
 
