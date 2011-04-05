@@ -14,7 +14,7 @@ EXCLUDE_FILES =
 USED_MODULES = module_can
 
 -include ../module_xcommon/build/Makefile.common
--include ../../xcore_common/module_xcommon/build/Makefile.common
+-include ../../xcommon/module_xcommon/build/Makefile.common
 
 all: $(BIN_DIR)/xc1_firmware.xe
 	@echo Build complete
