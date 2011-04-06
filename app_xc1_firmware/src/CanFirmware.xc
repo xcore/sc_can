@@ -19,229 +19,11 @@ on stdcore[0] : clock               canClk_2   = XS1_CLKBLK_2;
 on stdcore[0] : buffered in port:32 canRx_2    = XS1_PORT_1C;
 on stdcore[0] :             port    canTx_2    = XS1_PORT_1D;
 
-#define COMMAND_NONE  0
-#define SEND_PACKET   1
-#define SEND_DONE     2
-#define THREAD_1	  3
-#define THREAD_2	  4
-#define ENABLE_FILTER 1
+
+
 #define LED_RESOLUTION 11
 #define LED_RESOLUTION1 0
-void init_LLC(MSGMEMORY &stmsgMemory,unsigned int NodeId);
-void canLLCRxTx(chanend controlChan, chanend rxChan, chanend txChan, chanend ledChan, int bitZero) {
-	struct CanPacket txPacket;
-	struct CanPacket rxPacket;
-	MSGMEMORY stmsgMemory;
-	MSGOBJECT tMessageObject[32];
-	struct CanLLCState LLCState;
-	unsigned int index = 0 ;
-	unsigned int txIndex = 0;
-	unsigned int rxIndex = 0;
-	unsigned int bits = 0;
-	 	unsigned char flag_set_filter = 0;
-	unsigned int Filter_Id = 0;
-	unsigned int Mask_Id = 0;
-	unsigned tReg = 0;
-	unsigned char flgChangedContent =0;
-	unsigned char Flag =0;
 
-	unsigned int txPacketCount = 0;
-	unsigned int rxPacketCount = 0;
-
-	randomizePacket(txPacket, bitZero);//
-	init_LLC(stmsgMemory, 2);
-	LLCState.state = can_open(stmsgMemory);
-	randomizeMsgObject(stmsgMemory.MessageObject, bitZero,index);//randomizePacket(txPacket, bitZero);//
-
-	while (1) {
-		unsigned int command = COMMAND_NONE;
-		unsigned int txAck;
-		unsigned int rxAck;
-		unsigned int threadNum = 0;
-		unsigned int i = 0;
-		 unsigned int done = 0;
-		LLCState.state = STATE_CHK_COMMAND;
-
-
-
-		select {
-		case inuint_byref(controlChan, command):
-			threadNum = inuint(controlChan);
-			 break;
-		case inuint_byref(rxChan, rxAck):
-			receivePacket(rxChan, rxPacket);
-			break;
-		}
-
-		//message_handler_state_machine(stmsgMemory.MsgObjRegisterSet,LLCState,command,threadNum);
-#ifdef LLC
-    	while(!done)
-		{
-		switch(LLCState.state)
-			{
-			case STATE_CHK_COMMAND :
-
-			   if ((command == SEND_PACKET)&&(threadNum == THREAD_2))
-				LLCState.state = STATE_CONFIG_TX ;
-			   else
-				LLCState.state = STATE_COMMAND_NONE ;
-				break;
-			case STATE_COMMAND_SEND://case STATE_COMMAND_SEND:
-				outuint(txChan, txPacketCount);
-				sendPacket(txChan, txPacket);
-				/**check for the available clear bits */
-				 for(i=0;i<32;i++){
-				  if(!((stmsgMemory.MsgObjRegisterSet.reg_TxRequest>>i)&(0x1)))
-				  break;
-				  }
-				  index = i;
-
-				randomizeMsgObject(stmsgMemory.MessageObject,bitZero,index);//randomizePacket(txPacket, bitZero);//
-				/**Set the bit for pending tranmit request for corresponding index of message objects**/
-				//stmsgMemory.MsgObjRegisterSet.reg_TxRequest |= (0x1<<index);
-				/****/
-				txPacketCount++;
-				done = 1;
-				break;
-			case STATE_CONFIG_TX :
-				//call configure_transit_message()//set the bit corresponding to message with pending req. for transmission
-				configure_transit_message(stmsgMemory,index);
-
-				LLCState.state = STATE_TRNSMT_MSG_TO_PHY ;
-				break;
-			case STATE_TRNSMT_MSG_TO_PHY :
-				/**check for highest priority message pending for transmission**/
-				 for(i=0;i<32;i++){
-				  if((stmsgMemory.MsgObjRegisterSet.reg_TxRequest>>i)&(0x1))
-				  break;
-				  }
-				  index = i;
-
-				can_write(txPacket,stmsgMemory.MessageObject,index);
-				/**clear the bit corresponding to the message objects set for tranmission*/
-				  tReg = 0x0;
-				  tReg = (0x1<<index);
-				  tReg = ~tReg;
-				  stmsgMemory.MsgObjRegisterSet.reg_TxRequest &= tReg;
-
-
-
-
-				/**manual change in index of message objects */
-				index++ ;
-				index = index %32;
-				/***/
-				LLCState.state = STATE_COMMAND_SEND ;
-				break;
-			case STATE_COMMAND_NONE :
-
-				outuint(controlChan, SEND_DONE);
-				rxPacketCount++;
-				LLCState.state = STATE_CONFIG_RX ;
-				break;
-			case STATE_CONFIG_RX :
-				//configure_receive_message();//set the bit corresponding
-				//to new message to be stored at perticular msg object.
-				configure_receive_message(Mask_Id,Filter_Id);
-				Flag = (rxIndex == rxPacket.ID);
-				for(i=0;i<(rxPacket.DLC);i++)
-				Flag &= (stmsgMemory.MessageObject[rxIndex].DATA[i] == rxPacket.DATA[i]);
-				flgChangedContent = !(Flag) ;
-		    	if(ENABLE_FILTER)
-					flag_set_filter = Set_acceptance_filter (rxPacket, Filter_Id,Mask_Id);
-					//flag_set_filter = 0 ; //temporary set . It should return 0 for specific Filter ID , which is for allowing all message.
-				if(flag_set_filter){ // accept the message for receiving in message RAM
-					//set the index based on identifier of the message.
-					rxIndex = rxPacket.ID ;
-					//
-					//
-					LLCState.state = STATE_RECEIVE_MSG ;
-				}
-				else
-				{
-					//outuint(ledChan,rxPacketCount>>LED_RESOLUTION);
-					outuint(ledChan,0x0);
-					outct(ledChan, XS1_CT_END);
-					done = 1;
-				}
-				break;
-			case STATE_RECEIVE_MSG :
-				if(flgChangedContent){
-					can_read_changed_content(rxPacket,stmsgMemory.MessageObject,rxIndex);
-				}
-				else{
-					can_read(rxPacket,stmsgMemory.MessageObject,rxIndex);
-				}
-				//clear the bit corresponding to the message object got received
-				//rxIndex++;
-				//rxIndex = rxIndex %32;
-				//outuint(ledChan,rxPacketCount>>LED_RESOLUTION);
-				if((stmsgMemory.MessageObject[rxIndex].DATA[1]==(31-rxIndex))&&(threadNum != THREAD_2))
-				outuint(ledChan,0x1);
-				//else if((rxPacket.DATA[0]==0x0)&&(threadNum == THREAD_2))
-				//outuint(ledChan,0x0);
-				//else if ((rxPacket.DATA[0]!=0x0)&&(threadNum != THREAD_2))
-				//outuint(ledChan,0x0);
-				else
-				outuint(ledChan,0x0);
-				//outuint(ledChan,rxPacket.DATA[0]);
-				outct(ledChan, XS1_CT_END);
-				done = 1;
-				break;
-			}
-		}
-
-
-
-#endif
-
-
-
-
-
-
-
-#ifndef LLC
-		if ((command == SEND_PACKET)&&(threadNum == THREAD_1)) {
-			outuint(txChan, txPacketCount);
-#ifndef LLC
-			for(i=0;i<8;i++)
-			txPacket.DATA[i] = 0x7F;
-			txPacket.THREADNUM = THREAD_1;
-			sendPacket(txChan, txPacket);
-			randomizePacket(txPacket, bitZero);
-#else
-
-			can_write(txPacket,stmsgMemory.MessageObject,txIndex);
-			txIndex++;
-	//		txIndex = txIndex%32;
-#endif
-			txPacketCount++;
-		}else if((command == SEND_PACKET)&&(threadNum == THREAD_2)) {
-			outuint(txChan, txPacketCount);
-			for(i=0;i<8;i++)
-			txPacket.DATA[i] = 0x3F;
-			//txPacket.THREADNUM = THREAD_2;
-			sendPacket(txChan, txPacket);
-			randomizePacket(txPacket, bitZero);
-			txPacketCount++;
-		}else if (command == COMMAND_NONE) {
-			outuint(controlChan, SEND_DONE);
-			rxPacketCount++;
-			can_read(rxPacket,stmsgMemory.MessageObject,index);
-			//outuint(ledChan,(stmsgMemory.MessageObject[index].DATA[0])>>LED_RESOLUTION1);
-			outuint(ledChan,rxPacketCount>>LED_RESOLUTION);
-			outct(ledChan, XS1_CT_END);
-			index++;
-			index = index%32;
-
-		}
-#endif
-
-
-	}
-	LLCState.state = can_close(stmsgMemory);
-}
 
 #define MAX_DELAY     5000
 
@@ -263,24 +45,8 @@ void canController(chanend controlChan0, chanend controlChan1, chanend ledChan) 
 					outuint(controlChan1, SEND_PACKET);
 					outuint(controlChan1, THREAD_2);
 
-/*
-		if (numPackets == 2) {
-			outuint(controlChan0, SEND_PACKET);
-			outuint(controlChan0, THREAD_1);
-			outuint(controlChan1, SEND_PACKET);
-			outuint(controlChan1, THREAD_2);
-		} else {
-			if (chanNum) {
-				outuint(controlChan0, SEND_PACKET);
-				outuint(controlChan0, THREAD_1);
-			} else {
-				outuint(controlChan1, SEND_PACKET);
-				outuint(controlChan1, THREAD_2);
-			}
-		}
 
-  */
-	//	while (rxPacketCount < numPackets)
+
 			{
 			unsigned int ack = 0;
 			select {
@@ -340,12 +106,12 @@ void ledManager(chanend client0, chanend client1, chanend client2,
 			break;
 		case inuint_byref(client1, bits):
 			inct(client1);
-//			if(bits ==2048)
-//			{
-//			driveLeds(led0, led1, led2, ledGreen, ledRed, 1, 0xaaa);
-//			}
-//			bits = inuint(client1);
-//			inct(client1);
+			if(bits ==2048)
+			{
+			driveLeds(led0, led1, led2, ledGreen, ledRed, 1, 0xaaa);
+			}
+			bits = inuint(client1);
+			inct(client1);
 			value = (value & 0xf0f) | (bits & 0xf) << 4;
 		    value1 = 0 ;
 			break;
