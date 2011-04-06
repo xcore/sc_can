@@ -32,8 +32,17 @@
  *  5000      400
  */
 
+/***/
+#define COMMAND_NONE  0
+#define SEND_PACKET   1
+#define SEND_DONE     2
+#define THREAD_1	  3
+#define THREAD_2	  4
+
+/****/
+
 #define SYSTEM_CLOCK 100000000
-#define BAUD_RATE  1000000 //1000000 //
+#define BAUD_RATE  500000 //1000000 //
 
 #define QUANTA_SYNC      1
 #define QUANTA_PROP      8

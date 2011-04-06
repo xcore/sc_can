@@ -133,13 +133,12 @@ void randomizeMsgObject(MSGOBJECT MessageObject[32], int bitZero,unsigned int in
 			MessageObject[index].RTR = 0;
 			MessageObject[index].RB1 = 0;
 
-			//MessageObject[index].ID = (MessageObject[index].ID & ~1) | bitZero;
-			MessageObject[index].ID  =(31-index);
+			MessageObject[index].ID = (31-index);//(MessageObject[index].ID & ~1) | bitZero;
 		}
 
 		MessageObject[index].DLC = 8;//rand() % 9; // bug : it should be 8
 		for (int i = 0; i < MessageObject[index].DLC; i++) {
-			MessageObject[index].DATA[i] = index;//0x55;//rand() & 0xff;//0x55;//
+			MessageObject[index].DATA[i] = index;
 		}
 
 		// CRC is calculated by transmitter
@@ -202,7 +201,7 @@ void receivePacket(chanend c, struct CanPacket &p) {
 void rxReady(buffered in port:32 p, unsigned int &time) {
 }
 
-void init_LLC(MSGMEMORY &stmsgMemory,unsigned int NodeId)
+void initLLC(MSGMEMORY &stmsgMemory,unsigned int NodeId)
 {
 	unsigned int TxRequest = 0;
 	for(int j=0;j<32;j++){
