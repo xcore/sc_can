@@ -1,2 +1,0 @@
-The XC-1 demo CAN application shows two threads simultaneously doing 
-send and receive. They are controlled by one master thread.
