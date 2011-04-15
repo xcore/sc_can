@@ -168,7 +168,7 @@ void sendPacket(chanend c, struct CanPacket &p) {
 //	outuint(c, p.CRC_DEL);
 //	outuint(c, p.ACK_DEL);
 //	outuint(c, _EOF);
-	outuint(c, p.THREADNUM);
+//	outuint(c, p.THREADNUM);
 }
 
 #pragma unsafe arrays
@@ -194,7 +194,7 @@ void receivePacket(chanend c, struct CanPacket &p) {
 //	p.CRC_DEL = 1;
 //	p.ACK_DEL = 1;
 //	p._EOF = 0x7f;
-	p.THREADNUM = inuint(c);
+//	p.THREADNUM = inuint(c);
 }
 
 // Needing to be in a different file due to BUG 8295

@@ -5,59 +5,89 @@
 #include "CanFunctions.h"
 #include "CanPhy.h"
 
-#define LED_RESOLUTION 16
+
 #define LLC
 void canLLCRxTx(chanend controlChan, chanend rxChan, chanend txChan, chanend ledChan, int bitZero) {
 	struct CanPacket txPacket;
 	struct CanPacket rxPacket;
+	unsigned int txPacketCount = 0;
+	unsigned int rxPacketCount = 0;
+
+
+#ifdef LLC
 	MSGMEMORY stmsgMemory;
-	MSGOBJECT tMessageObject[32];
 	struct CanLLCState LLCState;
 	unsigned int index = 0 ;
-	unsigned int txIndex = 0;
+
 	unsigned int rxIndex = 0;
-	unsigned int bits = 0;
 	unsigned char flag_set_filter = 0;
 	unsigned int Filter_Id = 0;
 	unsigned int Mask_Id = 0;
 	unsigned char flgChangedContent =0;
 	unsigned char Flag =0;
-
-
-	unsigned int txPacketCount = 0;
-	unsigned int rxPacketCount = 0;
-	randomizePacket(txPacket, bitZero);//
+#endif
+	randomizePacket(txPacket, bitZero);
+#ifdef LLC
 	initLLC(stmsgMemory, 2);
 	randomizeMsgObject(stmsgMemory.MessageObject, bitZero,index);//randomizePacket(txPacket, bitZero);//
 
 	LLCState.state = canOpen(stmsgMemory);
 
+#endif
+
+
 	while (1) {
 		unsigned int command = COMMAND_NONE;
 		unsigned int txAck;
 		unsigned int rxAck;
+
+#ifdef LLC
 		unsigned int threadNum = 0;
 		unsigned int i = 0;
 		unsigned int done = 0;
 
 		 LLCState.state = STATE_CHK_COMMAND;
+#endif
 
+#ifndef LLC
 		select {
 		case inuint_byref(controlChan, command):
-			threadNum = inuint(controlChan);
+			break;
+		case inuint_byref(rxChan, rxAck):
+			receivePacket(rxChan, rxPacket);
+			break;
+		}
+
+		if (command == SEND_PACKET) {
+			outuint(txChan, txPacketCount);
+			sendPacket(txChan, txPacket);
+			randomizePacket(txPacket, bitZero);
+			txPacketCount++;
+		} else if (command == COMMAND_NONE) {
+			outuint(controlChan, SEND_DONE);
+			rxPacketCount++;
+			outuint(ledChan, rxPacketCount >> LED_RESOLUTION);
+			outct(ledChan, XS1_CT_END);
+		}
+#endif
+#ifdef LLC
+		select {
+		case inuint_byref(controlChan, command):
+		//	threadNum = inuint(controlChan);
 			 break;
 		case inuint_byref(rxChan, rxAck):
 			receivePacket(rxChan, rxPacket);
 			break;
 		}
 
-#ifdef LLC
+
     	while(!done)
 		{
 		switch(LLCState.state)
 			{
 			case STATE_CHK_COMMAND :
-			   if ((command == SEND_PACKET)&&(threadNum == THREAD_2))
+			   //if ((command == SEND_PACKET)&&(threadNum == THREAD_2))
+				if (command == SEND_PACKET)
 				LLCState.state = STATE_CONFIG_TX ;
 			   else
 				LLCState.state = STATE_COMMAND_NONE ;
@@ -123,7 +153,8 @@ void canLLCRxTx(chanend controlChan, chanend rxChan, chanend txChan, chanend led
 				else{
 				canRead(rxPacket,stmsgMemory.MessageObject,rxIndex);
 				}
-				if((stmsgMemory.MessageObject[rxIndex].DATA[1]==(31-rxIndex))&&(threadNum != THREAD_2))
+				//if((stmsgMemory.MessageObject[rxIndex].DATA[1]==(31-rxIndex))&&(threadNum != THREAD_2))
+				if(stmsgMemory.MessageObject[rxIndex].DATA[1]==(31-rxIndex))
 				outuint(ledChan,0x1);
 				else
 				outuint(ledChan,0x0);
@@ -132,11 +163,14 @@ void canLLCRxTx(chanend controlChan, chanend rxChan, chanend txChan, chanend led
 				break;
 			}
 		}
-
 #endif
+
 	}
+#ifdef LLC
 	LLCState.state = canClose(stmsgMemory);
+#endif
 }
+
 
 STATUS SetAcceptanceFilter (struct CanPacket rxPacket, unsigned int Filter_Id, unsigned int Mask_Id)
 {

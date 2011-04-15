@@ -1,6 +1,7 @@
 #ifndef _CAN_INCLUDES
 #define _CAN_INCLUDES
 
+#define LLC
 //#define DEBUG
 
 /*
@@ -38,6 +39,7 @@
 #define SEND_DONE     2
 #define THREAD_1	  3
 #define THREAD_2	  4
+#define LED_RESOLUTION 11
 
 /****/
 
@@ -121,7 +123,7 @@ struct CanPacket {
 	unsigned CRC_DEL;
 	unsigned ACK_DEL;
 	unsigned _EOF; /* Uses _ because EOF is reserved */
-	unsigned THREADNUM;
+//	unsigned THREADNUM;
 };
 
 struct CanPhyState {
