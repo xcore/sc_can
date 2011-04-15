@@ -1,5 +1,5 @@
 cd app_xc1_firmware && xmake all
-xmake[1]: Entering directory `D:/CAN/test2/workspace/workspace/xmos_can/app_xc1_firmware'
+xmake[1]: Entering directory `D:/CAN/for_xta_test2/xmos_can/app_xc1_firmware'
 Creating dependencies for CanPhy.h
 Compiling CanCFunctions.c
 Compiling CanFirmware.xc
@@ -8,16 +8,16 @@ Compiling CanLLC.xc
 Compiling CanPhy.xc
 Creating xc1_firmware.xe
 Constraint check for node 0, core 0:
-  Stack available:   0000d788,   used: 000045d4 .  OKAY
-  Threads available:        8,   used:        6 .  OKAY
-  Timers available:        10,   used:        1 .  OKAY
-  Chanends available:      32,   used:       19 .  OKAY
+  Stack available:   0000df10,   used: 00000384 .  OKAY
+  Threads available:        8,   used:        3 .  OKAY
+  Timers available:        10,   used:        0 .  OKAY
+  Chanends available:      32,   used:        8 .  OKAY
     Constraints checks PASSED.
 Constraint check for node 0, core 1:
-  Stack available:   0000fb50,   used: 00000008 .  OKAY
-  Threads available:        8,   used:        1 .  OKAY
-  Timers available:        10,   used:        0 .  OKAY
-  Chanends available:      32,   used:        1 .  OKAY
+  Stack available:   0000f2b8,   used: 00002d34 .  OKAY
+  Threads available:        8,   used:        3 .  OKAY
+  Timers available:        10,   used:        1 .  OKAY
+  Chanends available:      32,   used:       12 .  OKAY
     Constraints checks PASSED.
 Constraint check for node 0, core 2:
   Stack available:   0000fb50,   used: 00000008 .  OKAY
@@ -32,45 +32,49 @@ Constraint check for node 0, core 3:
   Chanends available:      32,   used:        1 .  OKAY
     Constraints checks PASSED.
 Route(0) endpoints: startRx to startRx
-    Fail with 4 unknowns, Num Paths: 121, Violation: 300.0 ns, Required: 840.0 ns, Worst: 1.1 us, Min Core Frequency: 542 MHz
+    Pass with 4 unknowns, Num Paths: 121, Slack: 80.0 ns, Required: 840.0 ns, Worst: 760.0 ns, Min Core Frequency: 361 MHz
 
 Route(1) endpoints: startRx to startRx
-    Fail with 4 unknowns, Num Paths: 121, Violation: 300.0 ns, Required: 840.0 ns, Worst: 1.1 us, Min Core Frequency: 542 MHz
+    Pass with 4 unknowns, Num Paths: 121, Slack: 80.0 ns, Required: 840.0 ns, Worst: 760.0 ns, Min Core Frequency: 361 MHz
 
 Route(2) endpoints: txCheckBit to txCheckBit
-    Fail with 4 unknowns, Num Paths: 392, Violation: 520.0 ns, Required: 980.0 ns, Worst: 1.5 us, Min Core Frequency: 612 MHz
+    Pass with 4 unknowns, Num Paths: 392, Slack: 0.0 ns, Required: 980.0 ns, Worst: 980.0 ns, Min Core Frequency: 400 MHz
 
 Route(3) endpoints: txCheckBit to sendBit
-    Fail with 2 unknowns, Num Paths: 3, Violation: 105.0 ns, Required: 300.0 ns, Worst: 405.0 ns, Min Core Frequency: 540 MHz
+    Pass with 2 unknowns, Num Paths: 3, Slack: 50.0 ns, Required: 300.0 ns, Worst: 250.0 ns, Min Core Frequency: 333 MHz
 
 Route(4) endpoints: txCheckBit to startRx
-    Fail with 3 unknowns, Num Paths: 14, Violation: 290.0 ns, Required: 1.0 us, Worst: 1.3 us, Min Core Frequency: 516 MHz
+    Pass with 3 unknowns, Num Paths: 14, Slack: 140.0 ns, Required: 1.0 us, Worst: 860.0 ns, Min Core Frequency: 344 MHz
 
 Route(5) endpoints: txPacketRxStart to txPacketRxEnd
-    Fail with 16 unknowns, Num Paths: 2, Violation: 320.0 ns, Required: 1.0 us, Worst: 1.3 us, Min Core Frequency: 528 MHz
+    Pass with 15 unknowns, Num Paths: 2, Slack: 160.0 ns, Required: 1.0 us, Worst: 840.0 ns, Min Core Frequency: 336 MHz
 
 Route(6) function: sendPacket
-    Pass with 15 unknowns, Num Paths: 1, Slack: 475.0 ns, Required: 1.0 us, Worst: 525.0 ns, Min Core Frequency: 210 MHz
+    Pass with 14 unknowns, Num Paths: 1, Slack: 680.0 ns, Required: 1.0 us, Worst: 320.0 ns, Min Core Frequency: 128 MHz
 
-Route(7) endpoints: startRx to sendError
-    Fail with 1 unknown, Num Paths: 9, Violation: 385.0 ns, Required: 320.0 ns, Worst: 705.0 ns, Min Core Frequency: 881 MHz
+Route(7) function: sendPacket
+    Pass with 14 unknowns, Num Paths: 1, Slack: 680.0 ns, Required: 1.0 us, Worst: 320.0 ns, Min Core Frequency: 128 MHz
 
 Route(8) endpoints: startRx to sendError
-    Fail with 1 unknown, Num Paths: 9, Violation: 385.0 ns, Required: 320.0 ns, Worst: 705.0 ns, Min Core Frequency: 881 MHz
+    Fail with 1 unknown, Num Paths: 9, Violation: 150.0 ns, Required: 320.0 ns, Worst: 470.0 ns, Min Core Frequency: 587 MHz
 
-Route(9) endpoints: txCheckBit to sendError
-    Fail with 1 unknown, Num Paths: 16, Violation: 55.0 ns, Required: 320.0 ns, Worst: 375.0 ns, Min Core Frequency: 468 MHz
+Route(9) endpoints: startRx to sendError
+    Fail with 1 unknown, Num Paths: 9, Violation: 150.0 ns, Required: 320.0 ns, Worst: 470.0 ns, Min Core Frequency: 587 MHz
 
-Fail, 9/10, Max Violation: 520.0 ns
-xta: .././src/script.xta:17: warning: route(0)     Fail with 4 unknowns, Num Paths: 121, Violation: 300.0 ns, Required: 840.0 ns, Worst: 1.1 us, Min Core Frequency: 542 MHz
-xta: .././src/script.xta:17: warning: route(1)     Fail with 4 unknowns, Num Paths: 121, Violation: 300.0 ns, Required: 840.0 ns, Worst: 1.1 us, Min Core Frequency: 542 MHz
-xta: .././src/script.xta:29: warning: route(2)     Fail with 4 unknowns, Num Paths: 392, Violation: 520.0 ns, Required: 980.0 ns, Worst: 1.5 us, Min Core Frequency: 612 MHz
-xta: .././src/script.xta:36: warning: route(3)     Fail with 2 unknowns, Num Paths: 3, Violation: 105.0 ns, Required: 300.0 ns, Worst: 405.0 ns, Min Core Frequency: 540 MHz
-xta: .././src/script.xta:51: warning: route(4)     Fail with 3 unknowns, Num Paths: 14, Violation: 290.0 ns, Required: 1.0 us, Worst: 1.3 us, Min Core Frequency: 516 MHz
-xta: .././src/script.xta:63: warning: route(5)     Fail with 16 unknowns, Num Paths: 2, Violation: 320.0 ns, Required: 1.0 us, Worst: 1.3 us, Min Core Frequency: 528 MHz
-xta: .././src/script.xta:70: warning: route(6)     Pass with 15 unknowns, Num Paths: 1, Slack: 475.0 ns, Required: 1.0 us, Worst: 525.0 ns, Min Core Frequency: 210 MHz
-xta: .././src/script.xta:83: warning: route(7)     Fail with 1 unknown, Num Paths: 9, Violation: 385.0 ns, Required: 320.0 ns, Worst: 705.0 ns, Min Core Frequency: 881 MHz
-xta: .././src/script.xta:83: warning: route(8)     Fail with 1 unknown, Num Paths: 9, Violation: 385.0 ns, Required: 320.0 ns, Worst: 705.0 ns, Min Core Frequency: 881 MHz
-xta: .././src/script.xta:95: warning: route(9)     Fail with 1 unknown, Num Paths: 16, Violation: 55.0 ns, Required: 320.0 ns, Worst: 375.0 ns, Min Core Frequency: 468 MHz
+Route(10) endpoints: txCheckBit to sendError
+    Pass with 1 unknown, Num Paths: 16, Slack: 70.0 ns, Required: 320.0 ns, Worst: 250.0 ns, Min Core Frequency: 312 MHz
+
+Fail, 2/11, Max Violation: 150.0 ns
+xta: .././src/script.xta:17: warning: route(0)     Pass with 4 unknowns, Num Paths: 121, Slack: 80.0 ns, Required: 840.0 ns, Worst: 760.0 ns, Min Core Frequency: 361 MHz
+xta: .././src/script.xta:17: warning: route(1)     Pass with 4 unknowns, Num Paths: 121, Slack: 80.0 ns, Required: 840.0 ns, Worst: 760.0 ns, Min Core Frequency: 361 MHz
+xta: .././src/script.xta:29: warning: route(2)     Pass with 4 unknowns, Num Paths: 392, Slack: 0.0 ns, Required: 980.0 ns, Worst: 980.0 ns, Min Core Frequency: 400 MHz
+xta: .././src/script.xta:36: warning: route(3)     Pass with 2 unknowns, Num Paths: 3, Slack: 50.0 ns, Required: 300.0 ns, Worst: 250.0 ns, Min Core Frequency: 333 MHz
+xta: .././src/script.xta:51: warning: route(4)     Pass with 3 unknowns, Num Paths: 14, Slack: 140.0 ns, Required: 1.0 us, Worst: 860.0 ns, Min Core Frequency: 344 MHz
+xta: .././src/script.xta:63: warning: route(5)     Pass with 15 unknowns, Num Paths: 2, Slack: 160.0 ns, Required: 1.0 us, Worst: 840.0 ns, Min Core Frequency: 336 MHz
+xta: .././src/script.xta:70: warning: route(6)     Pass with 14 unknowns, Num Paths: 1, Slack: 680.0 ns, Required: 1.0 us, Worst: 320.0 ns, Min Core Frequency: 128 MHz
+xta: .././src/script.xta:70: warning: route(7)     Pass with 14 unknowns, Num Paths: 1, Slack: 680.0 ns, Required: 1.0 us, Worst: 320.0 ns, Min Core Frequency: 128 MHz
+xta: .././src/script.xta:83: warning: route(8)     Fail with 1 unknown, Num Paths: 9, Violation: 150.0 ns, Required: 320.0 ns, Worst: 470.0 ns, Min Core Frequency: 587 MHz
+xta: .././src/script.xta:83: warning: route(9)     Fail with 1 unknown, Num Paths: 9, Violation: 150.0 ns, Required: 320.0 ns, Worst: 470.0 ns, Min Core Frequency: 587 MHz
+xta: .././src/script.xta:95: warning: route(10)     Pass with 1 unknown, Num Paths: 16, Slack: 70.0 ns, Required: 320.0 ns, Worst: 250.0 ns, Min Core Frequency: 312 MHz
 Build complete
-xmake[1]: Leaving directory `D:/CAN/test2/workspace/workspace/xmos_can/app_xc1_firmware'
+xmake[1]: Leaving directory `D:/CAN/for_xta_test2/xmos_can/app_xc1_firmware'
