@@ -5,7 +5,7 @@
 #include "CanFunctions.h"
 #include "CanPhy.h"
 
-#define LLC
+
 on stdcore[0] : clock               canClk_0   = XS1_CLKBLK_1;
 on stdcore[0] : buffered in port:32 canRx_0    = XS1_PORT_1A;
 on stdcore[0] :             port    canTx_0    = XS1_PORT_1B;
@@ -21,8 +21,7 @@ on stdcore[0] :             port    canTx_2    = XS1_PORT_1D;
 
 
 
-#define LED_RESOLUTION 11
-#define LED_RESOLUTION1 0
+
 
 
 #define MAX_DELAY     5000
@@ -43,7 +42,7 @@ void canController(chanend controlChan0, chanend controlChan1, chanend ledChan) 
 
 
 					outuint(controlChan1, SEND_PACKET);
-					outuint(controlChan1, THREAD_2);
+					//outuint(controlChan1, THREAD_2);
 
 
 
@@ -140,10 +139,10 @@ int main() {
 		on stdcore[0]: ledManager(ledChan_0, ledChan_1, ledChan_2,
 				led0_0, led1_0, led2_0, ledGreen_0, ledRed_0);
 
-		on stdcore[0]: canLLCRxTx(controlChan_0, rxChan_0, txChan_0, ledChan_0, 0);
-		on stdcore[0]: canLLCRxTx(controlChan_1, rxChan_1, txChan_1, ledChan_1, 1);
+		on stdcore[1]: canLLCRxTx(controlChan_0, rxChan_0, txChan_0, ledChan_0, 0);
+		on stdcore[1]: canLLCRxTx(controlChan_1, rxChan_1, txChan_1, ledChan_1, 1);
 
-		on stdcore[0]: canController(controlChan_0, controlChan_1, ledChan_2);
+		on stdcore[1]: canController(controlChan_0, controlChan_1, ledChan_2);
 	}
 	return 0;
 }
