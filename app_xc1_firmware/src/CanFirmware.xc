@@ -139,10 +139,10 @@ int main() {
 		on stdcore[0]: ledManager(ledChan_0, ledChan_1, ledChan_2,
 				led0_0, led1_0, led2_0, ledGreen_0, ledRed_0);
 
-		on stdcore[1]: canLLCRxTx(controlChan_0, rxChan_0, txChan_0, ledChan_0, 0);
-		on stdcore[1]: canLLCRxTx(controlChan_1, rxChan_1, txChan_1, ledChan_1, 1);
+		on stdcore[0]: canLLCRxTx(controlChan_0, rxChan_0, txChan_0, ledChan_0, 0);
+		on stdcore[0]: canLLCRxTx(controlChan_1, rxChan_1, txChan_1, ledChan_1, 1);
 
-		on stdcore[1]: canController(controlChan_0, controlChan_1, ledChan_2);
+		on stdcore[0]: canController(controlChan_0, controlChan_1, ledChan_2);
 	}
 	return 0;
 }
