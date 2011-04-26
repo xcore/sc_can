@@ -1,8 +1,9 @@
-# load "C:\Documents and Settings\peter.XMOS\workspace\CAN\Release\CAN.xe"
 
 remove core *
 add core stdcore[0]
 add core stdcore[1]
+
+config freq 0 500000000
 
 #
 # RX loop: worst-case time is where the synchronization brings edge forward by 4 samples (4 * 40 = 160ns)
@@ -94,4 +95,3 @@ add exclusion excludeSignalError
 analyze endpoints txCheckBit sendError
 set required - 640 ns
 
-print summary
