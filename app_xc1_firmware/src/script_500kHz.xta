@@ -1,9 +1,10 @@
 
 remove core *
 add core stdcore[0]
-add core stdcore[1]
 
-config freq 0 400000000
+config threads stdcore[0] 5
+
+config freq 0 400
 
 #
 # RX loop: worst-case time is where the synchronization brings edge forward by 4 samples (4 * 40 = 160ns)
