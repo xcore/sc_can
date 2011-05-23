@@ -203,7 +203,6 @@ void rxReady(buffered in port:32 p, unsigned int &time) {
 
 void initLLC(MSGMEMORY &stmsgMemory,unsigned int NodeId)
 {
-	unsigned int TxRequest = 0;
 	for(int j=0;j<32;j++){
 	stmsgMemory.MessageObject[j].SOF = 0;
 	stmsgMemory.MessageObject[j].ID  = 0;

@@ -75,7 +75,6 @@ void canPhyRxTx(chanend rxChan, chanend txChan, clock clk, buffered in port:32 c
 	unsigned int allBits = 0;
 	unsigned int dataBits = 0;
 	unsigned int time = 0;
-	unsigned int threadNum = 0;
 
 	initPacket(txPacket);
 	setupPorts(clk, canRx, canTx);
@@ -188,7 +187,6 @@ inline void rxStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPac
 
 	int done = 0;
 	int bitStuffingActive = 1;
-	int dummy = 0;
 
 	// Set up to align clock to sample between PHASE1 & PHASE2
 	unsigned int zeros = 33;
@@ -326,17 +324,11 @@ inline void rxStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPac
 
 			case STATE_DATA_BIT7:
 				dataBits = bit;
-				//printstrln("bit =");
-				//dummy = printint(dataBits);
-				//printstrln("\n");
 				phyState.state = STATE_DATA_BIT6;
 				phyState.packetCrc = crc15(bit, phyState.packetCrc);
 				break;
 			case STATE_DATA_BIT6:
 				dataBits = (dataBits << 1) | bit;
-				//printstrln("bit =");
-				//dummy = printint(dataBits);
-				//printstrln("\n");
 				phyState.state = STATE_DATA_BIT5;
 				phyState.packetCrc = crc15(bit, phyState.packetCrc);
 				break;
@@ -363,9 +355,6 @@ inline void rxStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPac
 			case STATE_DATA_BIT1:
 				dataBits = (dataBits << 1) | bit;
 				phyState.state = STATE_DATA_BIT0;
-				//printstrln("dataBits =");
-				//dummy = printint(dataBits);
-				//printstrln("\n");
 				phyState.packetCrc = crc15(bit, phyState.packetCrc);
 				break;
 			case STATE_DATA_BIT0:
