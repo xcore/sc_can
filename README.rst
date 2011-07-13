@@ -1,11 +1,10 @@
 XCORE.com CAN SOFTWARE COMPONENT
 .................................
 
+:Stable release:
 :Status:  Feature complete
-
-:Maintainer:  Dan Wilkinson (gi
-
-Firmware Release Version:
+:Maintainer:  https://github.com/DavidNorman
+:Description: Controller Area Network component including RX/TX and LLC (Link Layer Controller)
 
 Key Features
 ============
