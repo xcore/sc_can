@@ -114,7 +114,6 @@ void canPhyRxTx(chanend rxChan, chanend txChan, clock clk, buffered in port:32 c
 				#pragma xta endpoint "txPacketRxStart"
 				case inuint_byref(txChan, txPacketNum):
 					receivePacket(txChan, txPacket);
-				    //txPacket.DATA[0]=0; //added
 
 					phyState.txComplete = 0;
 					break;
@@ -228,6 +227,7 @@ inline void rxStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPac
 
 		} else {
 			switch (phyState.state) {
+
 			case STATE_SOF:
 				rxPacket.SOF = bit;
 				counter = 11;
@@ -242,10 +242,10 @@ inline void rxStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPac
 				if (counter == 0) {
 					rxPacket.ID = dataBits;
 					if((rxPacket.ID & 0x100)){
-					phyState.state = STATE_EOF;
+						phyState.state = STATE_EOF;
 					}
 					else {
-					phyState.state = STATE_SRR;
+						phyState.state = STATE_SRR;
 					}
 				}
 
@@ -294,14 +294,6 @@ inline void rxStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPac
 				phyState.packetCrc = crc15(bit, phyState.packetCrc);
 				break;
 
-			case STATE_RB0:
-				rxPacket.RB0 = bit;
-				counter = 4;
-				dataBits = 0;
-				phyState.state = STATE_DLC;
-				phyState.packetCrc = crc15(bit, phyState.packetCrc);
-				break;
-
 			case STATE_DLC:
 				counter--;
 				dataBits = (dataBits << 1) | bit;
@@ -310,11 +302,11 @@ inline void rxStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPac
 					rxPacket.DLC = dlc;
 
 					dataBits = 0;
-					if (dlc == 0) {
+					if (dlc > 8) {
+						signalError(phyState, canTx, ERROR_FORM_ERROR, done);
+					} else if (dlc == 0) {
 						counter = 15;
 						phyState.state = STATE_CRC;
-					} else if (dlc > 8) {
-						signalError(phyState, canTx, ERROR_FORM_ERROR, done);
 					} else {
 						phyState.state = STATE_DATA_BIT7;
 					}
@@ -322,6 +314,13 @@ inline void rxStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPac
 				phyState.packetCrc = crc15(bit, phyState.packetCrc);
 				break;
 
+			case STATE_RB0:
+				rxPacket.RB0 = bit;
+				counter = 4;
+				dataBits = 0;
+				phyState.state = STATE_DLC;
+				phyState.packetCrc = crc15(bit, phyState.packetCrc);
+				break;
 			case STATE_DATA_BIT7:
 				dataBits = bit;
 				phyState.state = STATE_DATA_BIT6;

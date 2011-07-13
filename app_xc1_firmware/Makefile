@@ -1,22 +1,44 @@
-TARGET ?= XC-1
-BASE_DIR = .
+# The TARGET variable determines what target system the application is 
+# compiled for. It either refers to an XN file in the source directories
+# or a valid argument for the --target option when compiling.
 
-DEMO_SOURCE_DIRS = src
+TARGET = XC-1
 
-SOURCE_DIRS += $(DEMO_SOURCE_DIRS)
+# The APP_NAME variable determines the name of the final .xe file. It should
+# not include the .xe postfix. If left blank the name will default to 
+# the project name
 
-INCLUDE_DIRS += $(DEMO_SOURCE_DIRS) 
+APP_NAME =
 
-XCC_FLAGS += -Xmapper --map -Xmapper map.out -O3 -save-temps -g -report
+# The flags passed to xcc when building the application
+# You can also set the following to override flags for a particular language:
+#
+#    XCC_XC_FLAGS, XCC_C_FLAGS, XCC_ASM_FLAGS, XCC_CPP_FLAGS
+#
+# If the variable XCC_MAP_FLAGS is set it overrides the flags passed to 
+# xcc for the final link (mapping) stage.
 
-EXCLUDE_FILES = 
+XCC_FLAGS = -O3
 
-USED_MODULES = module_can
+# The USED_MODULES variable lists other module used by the application. 
 
+USED_MODULES =  module_can
+
+#=============================================================================
+# The following part of the Makefile includes the common build infrastructure
+# for compiling XMOS applications. You should not need to edit below here.
+
+
+# Use the latest 1v* version of module_xmos_common
 -include ../module_xcommon/build/Makefile.common
 -include ../../xcommon/module_xcommon/build/Makefile.common
 
-all: $(BIN_DIR)/xc1_firmware.xe
-	@echo Build complete
+# The final target of the build. This is usually dependent on a binary file
+# in the $(BIN_DIR) directory e.g.
+#
+#  all : $(BIN_DIR)/my_app.xe
+
+all: $(BIN_DIR)/app_xc1_firmware.xe
+	@echo Build Complete
 
 clean: clean_common

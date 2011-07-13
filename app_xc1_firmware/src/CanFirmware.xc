@@ -89,7 +89,6 @@ void ledManager(chanend client0, chanend client1, chanend client2,
 	unsigned int green = 1;
 	unsigned int value = 0;
 	unsigned value1 = 0;
-	unsigned int i = 0;
 
 	driveLeds(led0, led1, led2, ledGreen, ledRed, 1, 0xaaa);
 	while(1) {

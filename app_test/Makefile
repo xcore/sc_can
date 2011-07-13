@@ -30,7 +30,8 @@ USED_MODULES =  module_can
 
 
 # Use the latest 1v* version of module_xmos_common
-include $(lastword $(sort $(wildcard ../module_xmos_common.1v*)))/build/Makefile.common
+-include ../module_xcommon/build/Makefile.common
+-include ../../xcommon/module_xcommon/build/Makefile.common
 
 # The final target of the build. This is usually dependent on a binary file
 # in the $(BIN_DIR) directory e.g.

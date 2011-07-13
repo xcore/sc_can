@@ -194,7 +194,7 @@ STATUS SetAcceptanceFilter (struct CanPacket rxPacket, unsigned int Filter_Id, u
     if(frame_format == CAN_STANDARD_FRAME )
     {
     	tOR = Identifier | Filter_Id ;
-    	if(tOR & Mask_Id == Mask_Id)
+    	if((tOR & Mask_Id) == Mask_Id)
     		return 1;
     	else
     		return 0;
@@ -205,7 +205,7 @@ STATUS SetAcceptanceFilter (struct CanPacket rxPacket, unsigned int Filter_Id, u
     {
 
     }
-
+    return 0;
 }
 
 void canReadChangedContent (struct CanPacket rxPacket,MSGOBJECT pstmsgObject[32],unsigned index){
