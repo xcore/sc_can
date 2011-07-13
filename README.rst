@@ -10,7 +10,7 @@ Key Features
 ============
 
    * two threads for each of the node one for LLC & other for PHY layer.
-   * Baud Rates up to 1Mbps
+   * Baud Rates up to 500kbps (1Mbps alpha included)
    * Support for extended identifier(29-bit) for PHY layer
    * Support for dynamic bit rate control
    
@@ -25,7 +25,7 @@ A demo appliction is included.
 KNOWN ISSUES
 ============
 
-none
+The 1Mbps version will not run within the timing constraints.
 
 Required Modules
 ================
@@ -68,7 +68,9 @@ This will display the CAN packet on the console window, which are monitored by t
 On successful CAN communication by LLC & PHY layer from one node to another node , glow 4 LEDs green on the board , else 
 4 LEDs red.
  
- Support
+Support
 =======
 
 Issues may be submitted via the Issues tab in this github repo. Response to any issues submitted as at the discretion of the maintainer for this line.
+
+
