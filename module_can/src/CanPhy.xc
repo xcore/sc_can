@@ -54,7 +54,7 @@ inline void txStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPac
 		int &counter, unsigned int &allBits, unsigned int &dataBits, unsigned int &time);
 void handleError(struct CanPhyState &phyState, struct CanPacket &rxPacket, struct CanPacket &txPacket,
 		buffered in port:32 canRx, port canTx, unsigned int &time);
-inline void signalError(struct CanPhyState &phyState, port canTx, ERROR error, int &done);
+inline void signalError(struct CanPhyState &phyState, port canTx, const ERROR error, int &done);
 void setupPorts(clock clk, buffered in port:32 canRx, port canTx);
 void waitForBusIdle(struct CanPhyState &phyState, buffered in port:32 canRx, port canTx);
 void manageBusOff(struct CanPhyState &phyState, buffered in port:32 canRx, port canTx);
@@ -217,7 +217,8 @@ inline void rxStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPac
 		// and the state machine. They are also only active from SOF till the
 		// end of the CRC.
 		#pragma xta label "excludeRx"
-		if (bitStuffingActive && (((sext(allBits >> 1, 5) + 1) >> 1) == 0)) {
+		//if (bitStuffingActive && (((sext(allBits >> 1, 5) + 1) >> 1) == 0)) {
+		if (bitStuffingActive && (((allBits+0x2)&0x3c) == 0)) {
 			// If there have been six in a row it is an error
 			if (((sext(allBits, 6) + 1) >> 1) == 0) {
 				signalError(phyState, canTx, ERROR_STUFF_ERROR, done);
@@ -298,18 +299,17 @@ inline void rxStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPac
 				counter--;
 				dataBits = (dataBits << 1) | bit;
 				if (counter == 0) {
-					int dlc = dataBits;
-					rxPacket.DLC = dlc;
-
-					dataBits = 0;
-					if (dlc > 8) {
+					if (dataBits > 8) {
 						signalError(phyState, canTx, ERROR_FORM_ERROR, done);
-					} else if (dlc == 0) {
+					} else if (dataBits == 0) {
 						counter = 15;
+						dataBits = 0;
 						phyState.state = STATE_CRC;
 					} else {
 						phyState.state = STATE_DATA_BIT7;
 					}
+
+					rxPacket.DLC = dataBits;
 				}
 				phyState.packetCrc = crc15(bit, phyState.packetCrc);
 				break;
@@ -373,13 +373,12 @@ inline void rxStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPac
 				counter--;
 				dataBits |= bit << counter;
 				if (counter == 0) {
-					rxPacket.CRC = dataBits;
-
 					if (rxPacket.CRC != (phyState.packetCrc & 0x7FFF)) {
 						signalError(phyState, canTx, ERROR_CRC_ERROR, done);
 					} else {
 						phyState.state = STATE_CRC_DEL;
 					}
+					rxPacket.CRC = dataBits;
 				}
 				break;
 
@@ -907,7 +906,7 @@ inline void handleError(struct CanPhyState &phyState, struct CanPacket &rxPacket
 /*
  * Errors need to be flagged as soon as possible - next bit in most cases
  */
-inline void signalError(struct CanPhyState &phyState, port canTx, ERROR error, int &done) {
+inline void signalError(struct CanPhyState &phyState, port canTx, const ERROR error, int &done) {
 	if (phyState.error == ERROR_CRC_ERROR) {
 		// Do nothing now - error signalled after ACK_DEL
 	} else {
@@ -919,6 +918,7 @@ inline void signalError(struct CanPhyState &phyState, port canTx, ERROR error, i
 	phyState.error = error;
 	done = 1;
 }
+
 
 
 /*

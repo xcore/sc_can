@@ -109,7 +109,7 @@ typedef enum {
 
 struct CanPacket {
 	unsigned DATA[8]; // First in struct so that worst-case path is quicker
-
+	unsigned CRC;     // Less than 12 to reduce worst-case path (2rus instead of 3r+load)
 	unsigned SOF;
 	unsigned ID;
 	unsigned SRR;
@@ -119,7 +119,6 @@ struct CanPacket {
 	unsigned RB1;
 	unsigned RB0;
 	unsigned DLC;
-	unsigned CRC;
 	unsigned CRC_DEL;
 	unsigned ACK_DEL;
 	unsigned _EOF; /* Uses _ because EOF is reserved */
