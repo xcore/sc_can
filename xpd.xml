@@ -8,6 +8,7 @@
     <location>git@github.com:xcore/sc_can</location>
     <name>sc_can</name>
     <maintainer>DavidNorman</maintainer>
+    <release parenthash = "e1e1aff1991dd782e79ae4ea6e4cc73a164d270a" version = "1.0.0beta0"></release>
     <scope>example</scope>
     <vendor>XMOS</vendor>
     <xpd_version>1.0</xpd_version>
