@@ -106,37 +106,26 @@ void randomizePacket(struct CanPacket &p, int bitZero) {
 	p.CRC = 0;
 }
 
-void randomizeMsgObject(MSGOBJECT MessageObject[32], int bitZero,unsigned int index){
-			// Fields which are fixed unless injecting errors
+void clearMsgObject(MSGOBJECT MessageObject[32], unsigned int index){
+
 		MessageObject[index].SOF = 0;
 		MessageObject[index].RB0 = 0;
 		MessageObject[index].CRC_DEL = 1;
 		MessageObject[index].ACK_DEL = 1;
 		MessageObject[index]._EOF = 0x7F;
 
-		MessageObject[index].ID  = (31-index);//rand() & 0x7ff;
-		//if (rand() & 0x1) {
-		if (0) {
-			// Create extended packet
-			MessageObject[index].SRR = 0;
-			MessageObject[index].IEB = 1;
-			MessageObject[index].EID = rand() & 0x3ffff;
-			MessageObject[index].RTR = 0;
-			MessageObject[index].RB1 = 0;
+		MessageObject[index].ID  = (31-index);
 
-			MessageObject[index].EID = (MessageObject[index].EID & ~1) | bitZero;
-		} else {
-			// Create normal packet
-			MessageObject[index].SRR = 0;
-			MessageObject[index].IEB = 0;
-			MessageObject[index].EID = 0;
-			MessageObject[index].RTR = 0;
-			MessageObject[index].RB1 = 0;
+		// Create normal packet
+		MessageObject[index].SRR = 0;
+		MessageObject[index].IEB = 0;
+		MessageObject[index].EID = 0;
+		MessageObject[index].RTR = 0;
+		MessageObject[index].RB1 = 0;
 
-			MessageObject[index].ID = (31-index);//(MessageObject[index].ID & ~1) | bitZero;
-		}
+		MessageObject[index].ID = (31-index);
 
-		MessageObject[index].DLC = 8;//rand() % 9; // bug : it should be 8
+		MessageObject[index].DLC = 8;
 		for (int i = 0; i < MessageObject[index].DLC; i++) {
 			MessageObject[index].DATA[i] = index;
 		}
@@ -147,14 +136,11 @@ void randomizeMsgObject(MSGOBJECT MessageObject[32], int bitZero,unsigned int in
 
 #pragma unsafe arrays
 void sendPacket(chanend c, struct CanPacket &p) {
-//	outuint(c, p.SOF);
 	outuint(c, p.ID);
 	outuint(c, p.SRR);
 	outuint(c, p.IEB);
 	outuint(c, p.EID);
 	outuint(c, p.RTR);
-//	outuint(c, p.RB1);
-//	outuint(c, p.RB0);
 	outuint(c, p.DLC);
 	outuint(c, p.DATA[0]);
 	outuint(c, p.DATA[1]);
@@ -164,23 +150,15 @@ void sendPacket(chanend c, struct CanPacket &p) {
 	outuint(c, p.DATA[5]);
 	outuint(c, p.DATA[6]);
 	outuint(c, p.DATA[7]);
-//	outuint(c, p.CRC);
-//	outuint(c, p.CRC_DEL);
-//	outuint(c, p.ACK_DEL);
-//	outuint(c, _EOF);
-//	outuint(c, p.THREADNUM);
 }
 
 #pragma unsafe arrays
 void receivePacket(chanend c, struct CanPacket &p) {
-//	p.SOF = 0;
 	p.ID  = inuint(c);
 	p.SRR = inuint(c);
 	p.IEB = inuint(c);
 	p.EID = inuint(c);
 	p.RTR = inuint(c);
-//	p.RB1 = 0;
-//	p.RB0 = 0;
 	p.DLC = inuint(c);
 	p.DATA[0] = inuint(c);
 	p.DATA[1] = inuint(c);
@@ -190,11 +168,6 @@ void receivePacket(chanend c, struct CanPacket &p) {
 	p.DATA[5] = inuint(c);
 	p.DATA[6] = inuint(c);
 	p.DATA[7] = inuint(c);
-//	p.CRC = 0;
-//	p.CRC_DEL = 1;
-//	p.ACK_DEL = 1;
-//	p._EOF = 0x7f;
-//	p.THREADNUM = inuint(c);
 }
 
 // Needing to be in a different file due to BUG 8295

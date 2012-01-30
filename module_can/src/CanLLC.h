@@ -76,7 +76,7 @@ void canWrite(struct CanPacket &txPacket,MSGOBJECT pstmsgObject[32],unsigned ind
 STATUS SetAcceptanceFilter (struct CanPacket rxPacket, unsigned int Filter_Id, unsigned int Mask_Id);
 void configureTransitMessage(MSGMEMORY &stmsgMemory,unsigned int index);
 void configureReceiveMessage(unsigned &Mask_Id,unsigned &Filter_Id);
-void randomizeMsgObject(MSGOBJECT MessageObject[32], int bitZero,unsigned int index);
+void clearMsgObject(MSGOBJECT MessageObject[32], unsigned int index);
 LLC_STATE canClose(MSGMEMORY stmsgMemory);
 #endif
 

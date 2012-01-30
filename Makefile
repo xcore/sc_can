@@ -1,5 +1,5 @@
-BUILD_SUBDIRS = app_xc1_firmware 
-TEST_SUBDIRS = app_xc1_firmware
+BUILD_SUBDIRS = app_xc1_firmware app_can_phy_example
+TEST_SUBDIRS = app_test
 
 %.all:
 	cd $* && xmake all

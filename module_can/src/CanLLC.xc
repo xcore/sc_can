@@ -26,10 +26,10 @@ void canLLCRxTx(chanend controlChan, chanend rxChan, chanend txChan, chanend led
 	unsigned char flgChangedContent =0;
 	unsigned char Flag =0;
 #endif
-	randomizePacket(txPacket, bitZero);
+
 #ifdef LLC
 	initLLC(stmsgMemory, 2);
-	randomizeMsgObject(stmsgMemory.MessageObject, bitZero,index);//randomizePacket(txPacket, bitZero);//
+	clearMsgObject(stmsgMemory.MessageObject, index);
 
 	LLCState.state = canOpen(stmsgMemory);
 
@@ -61,7 +61,6 @@ void canLLCRxTx(chanend controlChan, chanend rxChan, chanend txChan, chanend led
 		if (command == SEND_PACKET) {
 			outuint(txChan, txPacketCount);
 			sendPacket(txChan, txPacket);
-			randomizePacket(txPacket, bitZero);
 			txPacketCount++;
 		} else if (command == COMMAND_NONE) {
 			outuint(controlChan, SEND_DONE);
@@ -73,7 +72,6 @@ void canLLCRxTx(chanend controlChan, chanend rxChan, chanend txChan, chanend led
 #ifdef LLC
 		select {
 		case inuint_byref(controlChan, command):
-		//	threadNum = inuint(controlChan);
 			 break;
 		case inuint_byref(rxChan, rxAck):
 			receivePacket(rxChan, rxPacket);
@@ -96,7 +94,7 @@ void canLLCRxTx(chanend controlChan, chanend rxChan, chanend txChan, chanend led
 			case STATE_COMMAND_SEND://case STATE_COMMAND_SEND:
 				outuint(txChan, txPacketCount);
 				sendPacket(txChan, txPacket);
-				randomizeMsgObject(stmsgMemory.MessageObject,bitZero,index);//randomizePacket(txPacket, bitZero);//
+				clearMsgObject(stmsgMemory.MessageObject,index);
 				txPacketCount++;
 				done = 1;
 				break;
