@@ -1,0 +1,3 @@
+This is a demonstration of a simple device that can send and receive data through the CAN PHY layer.  It is
+targetted at the XMOS control board.
+
