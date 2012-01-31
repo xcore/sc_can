@@ -37,9 +37,6 @@
 #define COMMAND_NONE  0
 #define SEND_PACKET   1
 #define SEND_DONE     2
-#define THREAD_1	  3
-#define THREAD_2	  4
-#define LED_RESOLUTION 11
 
 /****/
 

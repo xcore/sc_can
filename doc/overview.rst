@@ -1,3 +1,18 @@
-The XMOS CAN component implements the CAN 2.0 specification, including the link layer. On a 500 MHz
-part, a bit rate of 500 kbps can be acheived.
+Overview
+========
+
+The XMOS CAN component implements the CAN 2.0 specification. The data rates
+which are achievable are:
+
++=============+==================+
+| Bit rate    | MIPS required    |
++=============+==================+
+| 500 kbps    | 31.25            |
++-------------+------------------+
+| 1 Mbps      | 125              |
++-------------+------------------+
+
+
+
+
 

@@ -102,7 +102,7 @@ void canLLCRxTx(chanend controlChan, chanend rxChan, chanend txChan, chanend app
 				}
 				else
 				{
-					outuint(appChan,rxPacketCount>>LED_RESOLUTION);
+					outuint(appChan,rxPacketCount);
 					outct(appChan, XS1_CT_END);
 					done = 1;
 				}
@@ -222,9 +222,8 @@ void canRead(struct CanPacket rxPacket,MSGOBJECT pstmsgObject[32],unsigned index
 void canWrite(struct CanPacket &txPacket,MSGOBJECT pstmsgObject[32],unsigned index)
 {
 	unsigned int i =0;
-    unsigned txIndex = 0;
+
     index = index & 0x1FFFFF ;
-    txIndex = index>>LED_RESOLUTION ;
 
     txPacket.ID = pstmsgObject[index].ID ;
 

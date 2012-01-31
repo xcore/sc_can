@@ -5,6 +5,7 @@
 #include "CanFunctions.h"
 #include "CanPhy.h"
 
+#define LED_RESOLUTION 11
 
 on stdcore[0] : clock               canClk_0   = XS1_CLKBLK_1;
 on stdcore[0] : buffered in port:32 canRx_0    = XS1_PORT_1A;
@@ -40,12 +41,7 @@ void canController(chanend controlChan0, chanend controlChan1, chanend ledChan) 
 		t :> time;
 		t when timerafter(time + delay) :> time;
 
-
-					outuint(controlChan1, SEND_PACKET);
-					//outuint(controlChan1, THREAD_2);
-
-
-
+		outuint(controlChan1, SEND_PACKET);
 			{
 			unsigned int ack = 0;
 			select {

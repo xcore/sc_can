@@ -886,17 +886,6 @@ inline void handleError(struct CanPhyState &phyState, struct CanPacket &rxPacket
 	}
 	phyState.activeError = (phyState.txErrorCount < 128) && (phyState.rxErrorCount < 128);
 
-#ifdef DEBUG
-	printstr("Error ");
-	printint(phyState.error);
-	printstr(" in state ");
-	printint(phyState.state);
-	printstr(" phyState.CRC ");
-	printhexln(phyState.packetCrc & 0x7FFF);
-	printPacket(rxPacket);
-	//while(1);
-#endif
-
 	if (phyState.txErrorCount >= 256) {
 		manageBusOff(phyState, canRx, canTx);
 	}
