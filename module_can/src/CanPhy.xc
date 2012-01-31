@@ -374,7 +374,8 @@ inline void rxStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPac
 				dataBits |= bit << counter;
 				if (counter == 0) {
 					if (rxPacket.CRC != (phyState.packetCrc & 0x7FFF)) {
-						signalError(phyState, canTx, ERROR_CRC_ERROR, done);
+						phyState.error = ERROR_CRC_ERROR;
+						done = 1;
 					} else {
 						phyState.state = STATE_CRC_DEL;
 					}
@@ -901,20 +902,17 @@ inline void handleError(struct CanPhyState &phyState, struct CanPacket &rxPacket
 	}
 
 	phyState.state = STATE_BUS_IDLE;
+	phyState.error = ERROR_NONE;
 }
 
 /*
  * Errors need to be flagged as soon as possible - next bit in most cases
  */
 inline void signalError(struct CanPhyState &phyState, port canTx, const ERROR error, int &done) {
-	if (phyState.error == ERROR_CRC_ERROR) {
-		// Do nothing now - error signalled after ACK_DEL
-	} else {
-		// Send first error bit instantly
-		#pragma xta endpoint "sendError"
-		canTx <: ~phyState.activeError;
-	}
-	#pragma xta label "excludeSignalError"
+	// Send first error bit instantly
+	#pragma xta endpoint "sendError"
+	canTx <: ~phyState.activeError;
+
 	phyState.error = error;
 	done = 1;
 }

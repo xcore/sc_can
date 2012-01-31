@@ -6,15 +6,11 @@
 #include "CanPhy.h"
 
 
-#define LLC
-void canLLCRxTx(chanend controlChan, chanend rxChan, chanend txChan, chanend ledChan, int bitZero) {
+void canLLCRxTx(chanend controlChan, chanend rxChan, chanend txChan, chanend appChan, int bitZero) {
 	struct CanPacket txPacket;
 	struct CanPacket rxPacket;
-	unsigned int txPacketCount = 0;
 	unsigned int rxPacketCount = 0;
 
-
-#ifdef LLC
 	MSGMEMORY stmsgMemory;
 	struct CanLLCState LLCState;
 	unsigned int index = 0 ;
@@ -25,51 +21,22 @@ void canLLCRxTx(chanend controlChan, chanend rxChan, chanend txChan, chanend led
 	unsigned int Mask_Id = 0;
 	unsigned char flgChangedContent =0;
 	unsigned char Flag =0;
-#endif
 
-#ifdef LLC
 	initLLC(stmsgMemory, 2);
 	clearMsgObject(stmsgMemory.MessageObject, index);
 
-	LLCState.state = canOpen(stmsgMemory);
-
-#endif
-
+	LLCState.state = STATE_CAN_START;
 
 	while (1) {
 		unsigned int command = COMMAND_NONE;
 		unsigned int txAck;
 		unsigned int rxAck;
-
-#ifdef LLC
 		unsigned int threadNum = 0;
 		unsigned int i = 0;
 		unsigned int done = 0;
 
 		 LLCState.state = STATE_CHK_COMMAND;
-#endif
 
-#ifndef LLC
-		select {
-		case inuint_byref(controlChan, command):
-			break;
-		case inuint_byref(rxChan, rxAck):
-			receivePacket(rxChan, rxPacket);
-			break;
-		}
-
-		if (command == SEND_PACKET) {
-			outuint(txChan, txPacketCount);
-			sendPacket(txChan, txPacket);
-			txPacketCount++;
-		} else if (command == COMMAND_NONE) {
-			outuint(controlChan, SEND_DONE);
-			rxPacketCount++;
-			outuint(ledChan, rxPacketCount >> LED_RESOLUTION);
-			outct(ledChan, XS1_CT_END);
-		}
-#endif
-#ifdef LLC
 		select {
 		case inuint_byref(controlChan, command):
 			 break;
@@ -84,18 +51,16 @@ void canLLCRxTx(chanend controlChan, chanend rxChan, chanend txChan, chanend led
 		switch(LLCState.state)
 			{
 			case STATE_CHK_COMMAND :
-			   //if ((command == SEND_PACKET)&&(threadNum == THREAD_2))
 				if (command == SEND_PACKET)
 				LLCState.state = STATE_CONFIG_TX ;
 			   else
 				LLCState.state = STATE_COMMAND_NONE ;
 				break;
 
-			case STATE_COMMAND_SEND://case STATE_COMMAND_SEND:
-				outuint(txChan, txPacketCount);
+			case STATE_COMMAND_SEND:
+				outuint(txChan, 0);
 				sendPacket(txChan, txPacket);
 				clearMsgObject(stmsgMemory.MessageObject,index);
-				txPacketCount++;
 				done = 1;
 				break;
 
@@ -125,7 +90,7 @@ void canLLCRxTx(chanend controlChan, chanend rxChan, chanend txChan, chanend led
 				Flag = (rxIndex == rxPacket.ID);
 
 				for(i=0;i<(rxPacket.DLC);i++)
-				Flag &= (stmsgMemory.MessageObject[rxIndex].DATA[i] == rxPacket.DATA[i]);
+					Flag &= (stmsgMemory.MessageObject[rxIndex].DATA[i] == rxPacket.DATA[i]);
 				flgChangedContent = !(Flag) ;
 
 		    	if(ENABLE_FILTER)
@@ -137,8 +102,8 @@ void canLLCRxTx(chanend controlChan, chanend rxChan, chanend txChan, chanend led
 				}
 				else
 				{
-					outuint(ledChan,rxPacketCount>>LED_RESOLUTION);
-					outct(ledChan, XS1_CT_END);
+					outuint(appChan,rxPacketCount>>LED_RESOLUTION);
+					outct(appChan, XS1_CT_END);
 					done = 1;
 				}
 				break;
@@ -149,31 +114,24 @@ void canLLCRxTx(chanend controlChan, chanend rxChan, chanend txChan, chanend led
 					canReadChangedContent(rxPacket,stmsgMemory.MessageObject,rxIndex);
 				}
 				else{
-				canRead(rxPacket,stmsgMemory.MessageObject,rxIndex);
+					canRead(rxPacket,stmsgMemory.MessageObject,rxIndex);
 				}
-				//if((stmsgMemory.MessageObject[rxIndex].DATA[1]==(31-rxIndex))&&(threadNum != THREAD_2))
+
 				if(stmsgMemory.MessageObject[rxIndex].DATA[1]==(31-rxIndex))
-				outuint(ledChan,0x1);
+					outuint(appChan,0x1);
 				else
-				outuint(ledChan,0x0);
-				outct(ledChan, XS1_CT_END);
+					outuint(appChan,0x0);
+				outct(appChan, XS1_CT_END);
 				done = 1;
 				break;
 			}
 		}
-#endif
-
 	}
-#ifdef LLC
-	LLCState.state = canClose(stmsgMemory);
-#endif
 }
 
 
 STATUS SetAcceptanceFilter (struct CanPacket rxPacket, unsigned int Filter_Id, unsigned int Mask_Id)
 {
-
-
 	/* MASK ID    FILTERID  IDENTIFIER    RECEPTION
 	 *   0          X          X          ACCEPT
 	 *   1          0          0          ACCEPT
@@ -182,7 +140,6 @@ STATUS SetAcceptanceFilter (struct CanPacket rxPacket, unsigned int Filter_Id, u
 	 *   1          1          1          ACCEPT
 	 */
 	unsigned int Identifier = 0;
-	//unsigned int tXOR = 0;
 	unsigned int tOR = 0;
 
 
@@ -196,13 +153,8 @@ STATUS SetAcceptanceFilter (struct CanPacket rxPacket, unsigned int Filter_Id, u
     		return 1;
     	else
     		return 0;
-
     }
 
-    if(frame_format == CAN_EXTENDED_FRAME)
-    {
-
-    }
     return 0;
 }
 
@@ -218,20 +170,17 @@ void canReadChangedContent (struct CanPacket rxPacket,MSGOBJECT pstmsgObject[32]
 		{
 			// copy the data bytes from received CAN packet to message object
 			for(i=0;i<8;i++)
-			pstmsgObject[index].DATA[i] = rxPacket.DATA[i];
+				pstmsgObject[index].DATA[i] = rxPacket.DATA[i];
 		}
 
 	if(frame_type == CAN_REMOTE_FRAME)
+	{
+		for(i=0;i<32;i++)
 		{
-		 //scan for the message matching with requested identifier
-			for(i=0;i<32;i++)
-			{
-				if(pstmsgObject[index].ID == rxPacket.ID)
+			if(pstmsgObject[index].ID == rxPacket.ID)
 				break;
-			}
-
 		}
-
+	}
 }
 
 // can_read() will get called from client thread
@@ -265,12 +214,9 @@ void canRead(struct CanPacket rxPacket,MSGOBJECT pstmsgObject[32],unsigned index
 		if(pstmsgObject[index].ID == rxPacket.ID)
 			break;
 		}
-
 	}
-
-
-
 }
+
 //can_write() will get called from client thread
 //OR message handler state machine
 void canWrite(struct CanPacket &txPacket,MSGOBJECT pstmsgObject[32],unsigned index)
@@ -298,21 +244,6 @@ void configureTransitMessage(MSGMEMORY &stmsgMemory,unsigned int index)
 void configureReceiveMessage(unsigned &Mask_Id,unsigned &Filter_Id){
 	Mask_Id = 0x0;
 	Filter_Id = 0x0;
-
 }
-
-LLC_STATE canOpen(MSGMEMORY stmsgMemory){
-
-	return STATE_CAN_START;
-}
-
-
-
-LLC_STATE canClose(MSGMEMORY stmsgMemory){
-
-	return STATE_CAN_STOP;
-}
-
-
 
 

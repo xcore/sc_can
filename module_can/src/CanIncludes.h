@@ -93,8 +93,6 @@ typedef enum {
    STATE_COMMAND_NONE = 5,
    STATE_CONFIG_RX	  = 6,
    STATE_RECEIVE_MSG  = 7,
-   STATE_CAN_STOP     = 8,
-
 } LLC_STATE;
 
 typedef enum {
@@ -122,7 +120,6 @@ struct CanPacket {
 	unsigned CRC_DEL;
 	unsigned ACK_DEL;
 	unsigned _EOF; /* Uses _ because EOF is reserved */
-//	unsigned THREADNUM;
 };
 
 struct CanPhyState {

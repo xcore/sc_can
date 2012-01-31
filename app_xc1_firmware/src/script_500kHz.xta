@@ -14,7 +14,7 @@ add exclusion phyLoop
 add exclusion excludeTx
 add exclusion excludeRxEof
 add exclusion excludeHandleError
-add exclusion excludeSignalError
+add exclusion sendError
 analyze endpoints startRx startRx
 set required - 1680 ns
 
@@ -26,7 +26,7 @@ add exclusion phyLoop
 add exclusion startRx
 add exclusion excludeRxEof
 add exclusion excludeHandleError
-add exclusion excludeSignalError
+add exclusion sendError
 analyze endpoints txCheckBit txCheckBit
 set required - 1960 ns
 
@@ -48,7 +48,7 @@ add exclusion txCheckBit
 add exclusion excludeRxEof
 add exclusion sendBit
 add exclusion excludeHandleError
-add exclusion excludeSignalError
+add exclusion sendError
 analyze endpoints txCheckBit startRx
 set required - 2.0 us
 
@@ -80,7 +80,6 @@ add exclusion excludeRxEof
 add exclusion excludeTx
 add exclusion rxLoop
 add exclusion excludeHandleError
-add exclusion excludeSignalError
 analyze endpoints startRx sendError
 set required - 640 ns
 
@@ -92,7 +91,6 @@ add exclusion excludeTx
 add exclusion txLoop
 add exclusion startRx
 add exclusion excludeHandleError
-add exclusion excludeSignalError
 analyze endpoints txCheckBit sendError
 set required - 640 ns
 

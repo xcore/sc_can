@@ -1,11 +1,7 @@
 #ifndef _CANLLC_H_
 #define _CANLLC_H_
 
-#include <print.h>
-#include <stdlib.h>
 #include "CanIncludes.h"
-
-#define TEST_VALUE 0xAA
 
 #define STATUS int
 
@@ -14,8 +10,6 @@
 #define CAN_DATA_FRAME 0
 #define CAN_REMOTE_FRAME 1
 #define ENABLE_FILTER 1
-
-#define MALLOC malloc
 
 #define MAX_MESSAGE_OBJECT 32
 
@@ -29,8 +23,6 @@
  * 		  till 32 .Each message object within mail box has unique priority value
  *        For 1 it is maximum & for 32 it is minimum.
  */
-//unsigned int Persistent_RAM[512];
-//
 
 typedef struct MessageRegister
 {
@@ -65,7 +57,7 @@ typedef struct MailBox{
 
 
 #ifdef __XC__
-void canLLCRxTx(chanend controlChan, chanend rxChan, chanend txChan, chanend ledChan, int bitZero);
+void canLLCRxTx(chanend controlChan, chanend rxChan, chanend txChan, chanend appChan, int bitZero);
 #endif
 
 LLC_STATE canOpen(MSGMEMORY stmsgMemory);
@@ -77,7 +69,7 @@ STATUS SetAcceptanceFilter (struct CanPacket rxPacket, unsigned int Filter_Id, u
 void configureTransitMessage(MSGMEMORY &stmsgMemory,unsigned int index);
 void configureReceiveMessage(unsigned &Mask_Id,unsigned &Filter_Id);
 void clearMsgObject(MSGOBJECT MessageObject[32], unsigned int index);
-LLC_STATE canClose(MSGMEMORY stmsgMemory);
+
 #endif
 
 
