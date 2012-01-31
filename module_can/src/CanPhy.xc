@@ -155,7 +155,6 @@ void canPhyRxTx(chanend rxChan, chanend txChan, clock clk, buffered in port:32 c
 
 			} else {
 				// Move state machine past SOF bit
-				rxPacket.SOF = 0;
 				counter = 11;
 				dataBits = 0;
 				phyState.state = STATE_ID;
@@ -230,7 +229,6 @@ inline void rxStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPac
 			switch (phyState.state) {
 
 			case STATE_SOF:
-				rxPacket.SOF = bit;
 				counter = 11;
 				dataBits = 0;
 				phyState.state = STATE_ID;
@@ -385,8 +383,7 @@ inline void rxStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPac
 
 			case STATE_CRC_DEL:
 				bitStuffingActive = 0;
-				rxPacket.CRC_DEL = bit;
-				if (rxPacket.CRC_DEL == 0) {
+				if (bit == 0) {
 					signalError(phyState, canTx, ERROR_BIT_ERROR, done);
 				} else {
 					canTx <: 0; // Drive the ACK for next bit time
@@ -401,8 +398,7 @@ inline void rxStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPac
 				break;
 
 			case STATE_ACK_DEL:
-				rxPacket.ACK_DEL = bit;
-				if (rxPacket.CRC_DEL == 0) {
+				if (bit == 0) {
 					signalError(phyState, canTx, ERROR_BIT_ERROR, done);
 				} else {
 					phyState.state = STATE_EOF;

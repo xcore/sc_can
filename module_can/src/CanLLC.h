@@ -35,7 +35,6 @@ typedef struct MessageRegister
 typedef struct MessageObject {
 	unsigned DATA[8]; // First in struct so that worst-case path is quicker
 
-	unsigned SOF;
 	unsigned ID;
 	unsigned SRR;
 	unsigned IEB;
@@ -45,9 +44,6 @@ typedef struct MessageObject {
 	unsigned RB0;
 	unsigned DLC;
 	unsigned CRC;
-	unsigned CRC_DEL;
-	unsigned ACK_DEL;
-	unsigned _EOF;
 }MSGOBJECT;
 
 typedef struct MailBox{

@@ -162,8 +162,6 @@ void canReadChangedContent (struct CanPacket rxPacket,MSGOBJECT pstmsgObject[32]
 	unsigned int frame_type = 0;
 	unsigned int i =0;
 
-	pstmsgObject[index].SOF = rxPacket.SOF ;
-
 	frame_type = (rxPacket.RTR | CAN_DATA_FRAME);
 
 	if(frame_type == CAN_DATA_FRAME)
@@ -189,9 +187,6 @@ void canRead(struct CanPacket rxPacket,MSGOBJECT pstmsgObject[32],unsigned index
 {
 	unsigned int frame_type = 0;
 	unsigned int i =0;
-
-	pstmsgObject[index].SOF = rxPacket.SOF ;
-
 
 	frame_type = (rxPacket.RTR | CAN_DATA_FRAME);
 	/* RTR bit | CAN_DATA_FRAME   frame_type

@@ -6,7 +6,6 @@
 #include "CanFunctions.h"
 
 void initPacket(struct CanPacket &p) {
-	p.SOF = 0;
 	p.ID  = 0;
 	p.SRR = 0;
 	p.IEB = 0;
@@ -19,18 +18,11 @@ void initPacket(struct CanPacket &p) {
 		p.DATA[i] = 0;
 	}
 	p.CRC = 0;
-	p.CRC_DEL = 1;
-	p.ACK_DEL = 1;
-	p._EOF = 0xf7;
 }
 
 void randomizePacket(struct CanPacket &p, int bitZero) {
 	// Fields which are fixed unless injecting errors
-	p.SOF = 0;
 	p.RB0 = 0;
-	p.CRC_DEL = 1;
-	p.ACK_DEL = 1;
-	p._EOF = 0x7F;
 
 	p.ID  = rand() & 0x7ff;
 
@@ -54,11 +46,7 @@ void randomizePacket(struct CanPacket &p, int bitZero) {
 
 void clearMsgObject(MSGOBJECT MessageObject[32], unsigned int index){
 
-		MessageObject[index].SOF = 0;
 		MessageObject[index].RB0 = 0;
-		MessageObject[index].CRC_DEL = 1;
-		MessageObject[index].ACK_DEL = 1;
-		MessageObject[index]._EOF = 0x7F;
 
 		MessageObject[index].ID  = (31-index);
 
@@ -123,7 +111,6 @@ void rxReady(buffered in port:32 p, unsigned int &time) {
 void initLLC(MSGMEMORY &stmsgMemory,unsigned int NodeId)
 {
 	for(int j=0;j<32;j++){
-	stmsgMemory.MessageObject[j].SOF = 0;
 	stmsgMemory.MessageObject[j].ID  = 0;
 	stmsgMemory.MessageObject[j].SRR = 0;
 	stmsgMemory.MessageObject[j].IEB = 0;
@@ -136,9 +123,6 @@ void initLLC(MSGMEMORY &stmsgMemory,unsigned int NodeId)
 		stmsgMemory.MessageObject[j].DATA[i] = 0x55;//i+(j*100);
 	}
 	stmsgMemory.MessageObject[j].CRC = 0;
-	stmsgMemory.MessageObject[j].CRC_DEL = 1;
-	stmsgMemory.MessageObject[j].ACK_DEL = 1;
-	stmsgMemory.MessageObject[j]._EOF = 0xf7;
 	}
 
 	stmsgMemory.MsgObjRegisterSet.reg_TxRequest = 0;
