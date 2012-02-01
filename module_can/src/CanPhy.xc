@@ -58,7 +58,7 @@ void manageBusOff(struct CanPhyState &phyState, buffered in port:32 canRx, port 
 int crc15(int nxtBit, unsigned int crc_rg);
 int crc15with0(unsigned int crc_rg);
 
-const int alignTable[33] = {
+const char alignTable[33] = {
 	QUANTA_TOTAL,
 
 	(QUANTA_SJW > 16)?(QUANTA_TOTAL+16):(QUANTA_TOTAL),
