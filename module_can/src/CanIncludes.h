@@ -43,14 +43,6 @@
 #define SYSTEM_CLOCK 100000000
 #define BAUD_RATE  500000 //1000000 //
 
-#define QUANTA_SYNC      1
-#define QUANTA_PROP      8
-#define QUANTA_PHASE1    8
-#define QUANTA_PHASE2    8
-#define QUANTA_SJW       4
-#define QUANTA_TOTAL    (QUANTA_SYNC + QUANTA_PROP + QUANTA_PHASE1 + QUANTA_PHASE2)
-#define CLOCK_DIV       (SYSTEM_CLOCK / (BAUD_RATE * QUANTA_TOTAL * 2))
-
 typedef enum {
 	STATE_SOF          =  0,
 	STATE_ID           =  1,
