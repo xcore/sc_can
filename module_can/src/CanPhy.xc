@@ -68,17 +68,20 @@ int crc15with0(unsigned int crc_rg);
 #define CLOCK_DIV       (SYSTEM_CLOCK / (BAUD_RATE * QUANTA_TOTAL * 2))
 
 // This table is constructed for QUANTA_TOTAL=25, QUANTA_SJW=4
-const char alignTable[33] = {
-	25,
+const char alignTable[34] = {
+	QUANTA_TOTAL,
 
-	25,25,25,25,25,25,25,25,25,25,25,25,
+	29,29,29,29,29,29,29,29,29,29,29,29,
 	29,28,27,26,
 	25,
-	26,27,28,29,
-	25,25,25,25,25,25,25,25,25,25,
+	24,23,22,21,
+	21,21,21,21,21,21,21,21,21,21,
 
-	25
+	25, // All zeros - no transition
+
+	QUANTA_TOTAL-QUANTA_PHASE2
 };
+
 
 /*
  * The top-level
@@ -219,7 +222,8 @@ inline void rxStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPac
 
 		// Read the port at the end of a bit time. There are 25 samples per bit,
 		// so the 32-bit buffered port gives enough history to read the bit and
-		// manage synchronization.
+		// manage synchronizatio In fact, we see 32/25 = 1.28 bit periods into
+		// the past.  We are arranging to sample, nominally, on.
 		#pragma xta endpoint "startRx"
 		canRx @ time :> rxWord;
 
