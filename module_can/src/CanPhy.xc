@@ -45,7 +45,7 @@
  */
 inline void rxStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPacket,
 		chanend rxChan, buffered in port:32 canRx, port canTx,
-		int &counter, unsigned int &allBits, unsigned int &dataBits, unsigned int &time, int alignTable[]);
+		int &counter, unsigned int &allBits, unsigned int &dataBits, unsigned int &time);
 inline void txStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPacket, struct CanPacket &txPacket,
 		buffered in port:32 canRx, port canTx,
 		int &counter, unsigned int &allBits, unsigned int &dataBits, unsigned int &time);
@@ -58,39 +58,42 @@ void manageBusOff(struct CanPhyState &phyState, buffered in port:32 canRx, port 
 int crc15(int nxtBit, unsigned int crc_rg);
 int crc15with0(unsigned int crc_rg);
 
-#pragma unsafe arrays
-void initAlignTable(int alignTable[]) {
-	int aligned = QUANTA_TOTAL - QUANTA_PHASE2;
+const int alignTable[33] = {
+	QUANTA_TOTAL,
 
-	for (int zeros = 0; zeros < 33; zeros++) {
-		alignTable[zeros] = QUANTA_TOTAL;
-	}
-
-	for (int zeros = 1; zeros < 32; zeros++) {
-		if (zeros < aligned) {
-			// Edge is late, in the propagation delay segment need to extend the bit time
-			int phaseError = aligned - zeros;
-			if (phaseError <= QUANTA_SJW) {
-				// Maximum compensation allowed by spec
-				alignTable[zeros] = QUANTA_TOTAL + phaseError;
-			}
-		} else if (zeros > aligned) {
-			// Edge is early, in the propagation delay segment need to reduce the bit time
-			int phaseError = zeros - aligned;
-			if (phaseError <= QUANTA_SJW) {
-				// Maximum compensate allowed by spec
-				alignTable[zeros] = QUANTA_TOTAL - phaseError;
-			}
-		}
-	}
-
-	/*
-	 * Used when starting the RX state machine in order to align to the sample time
-	 * in one instruction
-	 */
-	alignTable[33] = QUANTA_TOTAL - QUANTA_PHASE2;
-}
-
+	(QUANTA_SJW > 16)?(QUANTA_TOTAL+16):(QUANTA_TOTAL),
+	(QUANTA_SJW > 15)?(QUANTA_TOTAL + 15):(QUANTA_TOTAL),
+	(QUANTA_SJW > 14)?(QUANTA_TOTAL + 14):(QUANTA_TOTAL),
+	(QUANTA_SJW > 13)?(QUANTA_TOTAL + 13):(QUANTA_TOTAL),
+	(QUANTA_SJW > 12)?(QUANTA_TOTAL + 12):(QUANTA_TOTAL),
+	(QUANTA_SJW > 11)?(QUANTA_TOTAL + 11):(QUANTA_TOTAL),
+	(QUANTA_SJW > 10)?(QUANTA_TOTAL + 10):(QUANTA_TOTAL),
+	(QUANTA_SJW >  9)?(QUANTA_TOTAL +  9):(QUANTA_TOTAL),
+	(QUANTA_SJW >  8)?(QUANTA_TOTAL +  8):(QUANTA_TOTAL),
+	(QUANTA_SJW >  7)?(QUANTA_TOTAL +  7):(QUANTA_TOTAL),
+	(QUANTA_SJW >  6)?(QUANTA_TOTAL +  6):(QUANTA_TOTAL),
+	(QUANTA_SJW >  5)?(QUANTA_TOTAL +  5):(QUANTA_TOTAL),
+	(QUANTA_SJW >  4)?(QUANTA_TOTAL +  4):(QUANTA_TOTAL),
+	(QUANTA_SJW >  3)?(QUANTA_TOTAL +  3):(QUANTA_TOTAL),
+	(QUANTA_SJW >  2)?(QUANTA_TOTAL +  2):(QUANTA_TOTAL),
+	(QUANTA_SJW >  1)?(QUANTA_TOTAL +  1):(QUANTA_TOTAL),
+	QUANTA_TOTAL,
+	(QUANTA_SJW >  1)?(QUANTA_TOTAL -  1):(QUANTA_TOTAL),
+	(QUANTA_SJW >  2)?(QUANTA_TOTAL -  2):(QUANTA_TOTAL),
+	(QUANTA_SJW >  3)?(QUANTA_TOTAL -  3):(QUANTA_TOTAL),
+	(QUANTA_SJW >  4)?(QUANTA_TOTAL -  4):(QUANTA_TOTAL),
+	(QUANTA_SJW >  5)?(QUANTA_TOTAL -  5):(QUANTA_TOTAL),
+	(QUANTA_SJW >  6)?(QUANTA_TOTAL -  6):(QUANTA_TOTAL),
+	(QUANTA_SJW >  7)?(QUANTA_TOTAL -  7):(QUANTA_TOTAL),
+	(QUANTA_SJW >  8)?(QUANTA_TOTAL -  8):(QUANTA_TOTAL),
+	(QUANTA_SJW >  9)?(QUANTA_TOTAL -  9):(QUANTA_TOTAL),
+	(QUANTA_SJW > 10)?(QUANTA_TOTAL - 10):(QUANTA_TOTAL),
+	(QUANTA_SJW > 11)?(QUANTA_TOTAL - 11):(QUANTA_TOTAL),
+	(QUANTA_SJW > 12)?(QUANTA_TOTAL - 12):(QUANTA_TOTAL),
+	(QUANTA_SJW > 13)?(QUANTA_TOTAL - 13):(QUANTA_TOTAL),
+	(QUANTA_SJW > 14)?(QUANTA_TOTAL - 14):(QUANTA_TOTAL),
+	QUANTA_TOTAL
+};
 
 /*
  * The top-level
@@ -101,7 +104,6 @@ void canPhyRxTx(chanend rxChan, chanend txChan, clock clk, buffered in port:32 c
 	struct CanPhyState phyState;
 	struct CanPacket rxPacket;
 	struct CanPacket txPacket;
-	int alignTable[34];
 
 	int          counter = 0;
 	unsigned int allBits = 0;
@@ -110,7 +112,6 @@ void canPhyRxTx(chanend rxChan, chanend txChan, clock clk, buffered in port:32 c
 
 	initPacket(txPacket);
 	setupPorts(clk, canRx, canTx);
-	initAlignTable(alignTable);
 
 	phyState.state = STATE_BUS_IDLE;
 	phyState.error = ERROR_NONE;
@@ -197,12 +198,12 @@ void canPhyRxTx(chanend rxChan, chanend txChan, clock clk, buffered in port:32 c
 				// TX not complete - continue receiving the packet
 				phyState.txActive = 0;
 				rxStateMachine(phyState, rxPacket, rxChan, canRx, canTx,
-						counter, allBits, dataBits, time, alignTable);
+						counter, allBits, dataBits, time);
 			}
 
 		} else {
 			rxStateMachine(phyState, rxPacket, rxChan, canRx, canTx,
-					counter, allBits, dataBits, time, alignTable);
+					counter, allBits, dataBits, time);
 		}
 
 		if (phyState.error) {
@@ -214,7 +215,7 @@ void canPhyRxTx(chanend rxChan, chanend txChan, clock clk, buffered in port:32 c
 #pragma unsafe arrays
 inline void rxStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPacket,
 		chanend rxChan, buffered in port:32 canRx, port canTx,
-		int &counter, unsigned int &allBits, unsigned int &dataBits, unsigned int &time, int alignTable[]) {
+		int &counter, unsigned int &allBits, unsigned int &dataBits, unsigned int &time) {
 
 	int done = 0;
 	int bitStuffingActive = 1;
