@@ -40,14 +40,12 @@
 #include <print.h>
 #endif
 
-int alignTable[34];
-
 /*
  * Local functions - not designed to be used outside of this file
  */
 inline void rxStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPacket,
 		chanend rxChan, buffered in port:32 canRx, port canTx,
-		int &counter, unsigned int &allBits, unsigned int &dataBits, unsigned int &time);
+		int &counter, unsigned int &allBits, unsigned int &dataBits, unsigned int &time, int alignTable[]);
 inline void txStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPacket, struct CanPacket &txPacket,
 		buffered in port:32 canRx, port canTx,
 		int &counter, unsigned int &allBits, unsigned int &dataBits, unsigned int &time);
@@ -61,7 +59,7 @@ int crc15(int nxtBit, unsigned int crc_rg);
 int crc15with0(unsigned int crc_rg);
 
 #pragma unsafe arrays
-void initAlignTable() {
+void initAlignTable(int alignTable[]) {
 	int aligned = QUANTA_TOTAL - QUANTA_PHASE2;
 
 	for (int zeros = 0; zeros < 33; zeros++) {
@@ -103,6 +101,7 @@ void canPhyRxTx(chanend rxChan, chanend txChan, clock clk, buffered in port:32 c
 	struct CanPhyState phyState;
 	struct CanPacket rxPacket;
 	struct CanPacket txPacket;
+	int alignTable[34];
 
 	int          counter = 0;
 	unsigned int allBits = 0;
@@ -111,6 +110,7 @@ void canPhyRxTx(chanend rxChan, chanend txChan, clock clk, buffered in port:32 c
 
 	initPacket(txPacket);
 	setupPorts(clk, canRx, canTx);
+	initAlignTable(alignTable);
 
 	phyState.state = STATE_BUS_IDLE;
 	phyState.error = ERROR_NONE;
@@ -197,12 +197,12 @@ void canPhyRxTx(chanend rxChan, chanend txChan, clock clk, buffered in port:32 c
 				// TX not complete - continue receiving the packet
 				phyState.txActive = 0;
 				rxStateMachine(phyState, rxPacket, rxChan, canRx, canTx,
-						counter, allBits, dataBits, time);
+						counter, allBits, dataBits, time, alignTable);
 			}
 
 		} else {
 			rxStateMachine(phyState, rxPacket, rxChan, canRx, canTx,
-					counter, allBits, dataBits, time);
+					counter, allBits, dataBits, time, alignTable);
 		}
 
 		if (phyState.error) {
@@ -214,7 +214,7 @@ void canPhyRxTx(chanend rxChan, chanend txChan, clock clk, buffered in port:32 c
 #pragma unsafe arrays
 inline void rxStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPacket,
 		chanend rxChan, buffered in port:32 canRx, port canTx,
-		int &counter, unsigned int &allBits, unsigned int &dataBits, unsigned int &time) {
+		int &counter, unsigned int &allBits, unsigned int &dataBits, unsigned int &time, int alignTable[]) {
 
 	int done = 0;
 	int bitStuffingActive = 1;
@@ -992,7 +992,6 @@ void manageBusOff(struct CanPhyState &phyState, buffered in port:32 canRx, port 
  * samples per bit time.
  */
 void setupPorts(clock clk, buffered in port:32 canRx, port canTx) {
-	initAlignTable();
 
 	configure_clock_ref(clk, CLOCK_DIV);
 	configure_in_port_no_ready(canRx, clk);
