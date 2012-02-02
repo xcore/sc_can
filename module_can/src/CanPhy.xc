@@ -67,21 +67,33 @@ int crc15with0(unsigned int crc_rg);
 #define QUANTA_TOTAL    (QUANTA_SYNC + QUANTA_PROP + QUANTA_PHASE1 + QUANTA_PHASE2)
 #define CLOCK_DIV       (SYSTEM_CLOCK / (BAUD_RATE * QUANTA_TOTAL * 2))
 
-// This table is constructed for QUANTA_TOTAL=25, QUANTA_SJW=4
+// The timing looks like:
+//
+//                     1111111111222222222233
+//        ...01234567890123456789012345678901...
+// CAN Bit:             ...||       |       |       |...
+// IO Data:  --------------+----------------^
+//
+// The bit is divided into 25 quanta. 1 quanta of Sync, 8 for Prop, 8 for Phase 1 and
+// 8 for Phase 2.  The sample point is between phase 1 and 2 (^ in the diagram).
+//
+// The leading edge of the bit is at the Sync point. Therefore we should see a leading
+// edge transition in bit 14 (from the diagram above)
+//
+// This table is constructed for QUANTA_TOTAL=25, QUANTA_SJW=4.  The first element in
+// the table applies to words which were all 1 (two recessive bits in a row).  The
+// element 32 applies to leading bit is zero (dominant bit is first bit).  Element 33
+// is special for aligning the leading edge of the SOF with the sample point
+
 const char alignTable[34] = {
-	QUANTA_TOTAL,
+ 25,
 
-	29,29,29,29,29,29,29,29,29,29,29,29,
-	29,28,27,26,
-	25,
-	24,23,22,21,
-	21,21,21,21,21,21,21,21,21,21,
+ 23,23,23,23,23,23,23,23,23,23,23,23,23,24,
+ 25,25,25,
+ 26,27,27,27,27,27,27,27,27,27,27,27,27,27,
 
-	25, // All zeros - no transition
-
-	QUANTA_TOTAL-QUANTA_PHASE2
+ 25,25-8
 };
-
 
 /*
  * The top-level
@@ -232,7 +244,7 @@ inline void rxStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPac
 		allBits = (allBits << 1) | bit;
 
 		// The leading zeros count allows synchronization to falling edges
-		zeros = clz(rxWord);
+		zeros = clz(~rxWord);
 
 		// Manage bit stuffing. If 5 consecutive bits have been received, then
 		// expect the inverse stuffing bit. Stuffing bits are ignored for CRC
