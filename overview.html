@@ -1,0 +1,206 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Overview &mdash; CAN Component v1v0 documentation</title>
+    <link rel="stylesheet" href="_static/xdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1v0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://mathjax.connectmv.com/MathJax.js"></script>
+    <script type="text/javascript" src="_static/xcomment.js"></script>
+    <link rel="top" title="CAN Component v1v0 documentation" href="index.html" />
+    <link rel="next" title="Design" href="design.html" />
+    <link rel="prev" title="XMOS CAN Component" href="index.html" /> 
+
+<script>
+function setheight() {
+h1 = document.getElementById('d1').style.height;
+h2 = document.getElementById('d2').style.height;
+
+if (parseInt(h1) > parseInt(h2)) {
+document.getElementById('d2').style.height=h1 + "px";
+}
+else {
+document.getElementById('d1').style.height=h2 + "px";
+}
+
+}
+</script>
+</head>
+
+<body onload="setheight();">
+
+  
+
+    <div class="document" id='d1'>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+<div style="float: right">
+<a href="index.html"
+                        title="previous chapter"> &lt&lt </a>
+<a href="design.html"
+                        title="next chapter"> &gt&gt </a></p>
+</div>
+
+            
+  <div class="section" id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<p>The XMOS CAN component implements the CAN 2.0 specification. This specification is available
+at <a class="reference external" href="http://www.can-cia.org/fileadmin/cia/specifications/CAN20B.pdf"><span>http://www.can-cia.org/fileadmin/cia/specifications/CAN20B.pdf</span></a></p>
+<p>The following parts of the specification are implemented in the core CAN Phy component.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Transmit and receive timing and synchronization</li>
+<li>Bit stuffing</li>
+<li>Arbitration</li>
+<li>Error detection</li>
+<li>Error signalling</li>
+<li>Acknowledgement</li>
+<li>Bus-Off Fault recovery</li>
+</ul>
+</div></blockquote>
+<p>A CAN LLC layer is provided, but is not complete.  It handles.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Message filtering</li>
+<li>Responding to REMOTE frames</li>
+<li>Overload management</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="resource-usage">
+<h1>Resource usage<a class="headerlink" href="#resource-usage" title="Permalink to this headline">¶</a></h1>
+<p>The following applies to the use of the CAN Phy thread.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="46%" />
+<col width="54%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Resource</th>
+<th class="head">Requirement</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Threads</td>
+<td>1</td>
+</tr>
+<tr><td>Channels</td>
+<td>2</td>
+</tr>
+<tr><td>Ports</td>
+<td>2 x 1 bit</td>
+</tr>
+<tr><td>Clocks</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="memory-usage">
+<h2>Memory usage<a class="headerlink" href="#memory-usage" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="45%" />
+<col width="55%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Component</th>
+<th class="head">Memory usage / Bytes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>CAN Phy thread</td>
+<td>5600</td>
+</tr>
+<tr><td>Client functions</td>
+<td>140</td>
+</tr>
+<tr><td>Memory buffer</td>
+<td>Minimum 1 of 16</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="mips-required">
+<h2>MIPS required<a class="headerlink" href="#mips-required" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Bit rate</th>
+<th class="head">MIPS required</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>500 kbps</td>
+<td>25</td>
+</tr>
+<tr><td>1 Mbps</td>
+<td>100</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" id='d2'>
+        <div class="sphinxsidebarwrapper">
+<h3><a href="index.html">CAN Component (1v0)</a></h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#resource-usage">Resource usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#memory-usage">Memory usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mips-required">MIPS required</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+
+<div id="searchbox" style="display: none;margin-bottom: 10px;">
+  <h3>Search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+
+
+    <div class="footer">
+    </div>
+  </body>
+</html>
+
+
+

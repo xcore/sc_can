@@ -1,0 +1,197 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>API &mdash; CAN Component v1v0 documentation</title>
+    <link rel="stylesheet" href="_static/xdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1v0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://mathjax.connectmv.com/MathJax.js"></script>
+    <script type="text/javascript" src="_static/xcomment.js"></script>
+    <link rel="top" title="CAN Component v1v0 documentation" href="index.html" />
+    <link rel="prev" title="Design" href="design.html" /> 
+
+<script>
+function setheight() {
+h1 = document.getElementById('d1').style.height;
+h2 = document.getElementById('d2').style.height;
+
+if (parseInt(h1) > parseInt(h2)) {
+document.getElementById('d2').style.height=h1 + "px";
+}
+else {
+document.getElementById('d1').style.height=h2 + "px";
+}
+
+}
+</script>
+</head>
+
+<body onload="setheight();">
+
+  
+
+    <div class="document" id='d1'>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+<div style="float: right">
+<a href="design.html"
+                        title="previous chapter"> &lt&lt </a>
+</div>
+
+            
+  <div class="section" id="api">
+<h1>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h1>
+<p>The baud rate of the CAN component is set by the <strong>BAUD_RATE</strong> define in the CanIncludes.h
+file.</p>
+<dl class="function">
+<dt id="initPacket">
+void <tt class="descname">initPacket</tt><big>(</big>struct CanPacket<em>&nbsp;&amp;p</em><big>)</big><a class="headerlink" href="#initPacket" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear the fields in a packet structure to zero.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>p</strong> &#8211; The packet to clear</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="randomizePacket">
+void <tt class="descname">randomizePacket</tt><big>(</big>struct CanPacket<em>&nbsp;&amp;p</em>, int<em>&nbsp;bitZero</em><big>)</big><a class="headerlink" href="#randomizePacket" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produce a random packet in the given packet structure.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>p</strong> &#8211; The packet to randomize</li>
+<li><strong>bitZero</strong> &#8211; The least significant bit of the ID field</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="sendPacket">
+void <tt class="descname">sendPacket</tt><big>(</big>chanend<em>&nbsp;c</em>, struct CanPacket<em>&nbsp;&amp;p</em><big>)</big><a class="headerlink" href="#sendPacket" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a packet to the CAN PHY thread.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>c</strong> &#8211; The transmit channel linked to the CAN Phy thread</li>
+<li><strong>p</strong> &#8211; The packet structure to transmit</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Before calling this function, a single word should be pushed into the transmit channel, using outuint(c,0)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="receivePacket">
+void <tt class="descname">receivePacket</tt><big>(</big>chanend<em>&nbsp;c</em>, struct CanPacket<em>&nbsp;&amp;p</em><big>)</big><a class="headerlink" href="#receivePacket" title="Permalink to this definition">¶</a></dt>
+<dd><p>Receive a packet from the CAN Phy thread.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>c</strong> &#8211; The receive channel of the CAN Phy thread</li>
+<li><strong>p</strong> &#8211; The packet structure to receive data into</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The CAN Phy thread will preceed the packet with a single unsigned integer. This integer must be consumed, either using an <tt class="xref c c-func docutils literal"><span class="pre">inuint()</span></tt>, or by selecting on the channel in a select statement block using <tt class="xref c c-func docutils literal"><span class="pre">inuint_byref()</span></tt></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="canPhyRxTx">
+void <tt class="descname">canPhyRxTx</tt><big>(</big>chanend<em>&nbsp;rxChan</em>, chanend<em>&nbsp;txChan</em>, clock<em>&nbsp;clk</em>, buffered in port:32<em>&nbsp;canRx</em>, port<em>&nbsp;canTx</em><big>)</big><a class="headerlink" href="#canPhyRxTx" title="Permalink to this definition">¶</a></dt>
+<dd><p>The top level thread function for the CAN Phy interface.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>rxChan</strong> &#8211; The channel to receive packets from the CAN Phy thread</li>
+<li><strong>txChan</strong> &#8211; The channel to send packets to the CAN Phy thread</li>
+<li><strong>clk</strong> &#8211; A clock block for associating with the CAN interface</li>
+<li><strong>canRx</strong> &#8211; The CAN Rx port, a one bit port which is operated in buffered mode</li>
+<li><strong>canTx</strong> &#8211; The CAN Tx port, a one bit port</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" id='d2'>
+        <div class="sphinxsidebarwrapper">
+<h3><a href="index.html">CAN Component (1v0)</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#resource-usage">Resource usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">Design</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">API</a></li>
+</ul>
+
+<div id="searchbox" style="display: none;margin-bottom: 10px;">
+  <h3>Search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+
+
+    <div class="footer">
+    </div>
+  </body>
+</html>
+
+
+

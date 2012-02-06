@@ -1,0 +1,170 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Design &mdash; CAN Component v1v0 documentation</title>
+    <link rel="stylesheet" href="_static/xdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1v0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://mathjax.connectmv.com/MathJax.js"></script>
+    <script type="text/javascript" src="_static/xcomment.js"></script>
+    <link rel="top" title="CAN Component v1v0 documentation" href="index.html" />
+    <link rel="next" title="API" href="api.html" />
+    <link rel="prev" title="Overview" href="overview.html" /> 
+
+<script>
+function setheight() {
+h1 = document.getElementById('d1').style.height;
+h2 = document.getElementById('d2').style.height;
+
+if (parseInt(h1) > parseInt(h2)) {
+document.getElementById('d2').style.height=h1 + "px";
+}
+else {
+document.getElementById('d1').style.height=h2 + "px";
+}
+
+}
+</script>
+</head>
+
+<body onload="setheight();">
+
+  
+
+    <div class="document" id='d1'>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+<div style="float: right">
+<a href="overview.html"
+                        title="previous chapter"> &lt&lt </a>
+<a href="api.html"
+                        title="next chapter"> &gt&gt </a></p>
+</div>
+
+            
+  <div class="section" id="design">
+<h1>Design<a class="headerlink" href="#design" title="Permalink to this headline">¶</a></h1>
+<p>The CAN Phy component provides a thread that interfaces to a transmit and a receive port,
+and provides a two channel interface for an application thread to transmit and receive
+packets on this interface.</p>
+<div class="section" id="server">
+<h2>Server<a class="headerlink" href="#server" title="Permalink to this headline">¶</a></h2>
+<p>The thread function for the CAN Phy is called <strong>canPhyRxTx</strong>.  As parameters it
+takes a receive and a transmit channel to send a recieve packets on. It also takes
+a clock block, and a transmit and receive port.  These should both be one bit ports.</p>
+<p>An example of instantiation of the service thread.</p>
+<div class="highlight-none"><div class="highlight"><pre>on stdcore[0]: port p_can_tx = PORT_CAN_TX;
+on stdcore[0]: buffered in port:32 p_can_rx = PORT_CAN_RX;
+on stdcore[0]: clock can_clk = XS1_CLKBLK_1;
+
+int main() {
+  par {
+    on stdcore[0]: canPhyRxTx(c_rx, c_tx, can_clk, p_can_rx, p_can_tx);
+  }
+  return 0;
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="client">
+<h2>Client<a class="headerlink" href="#client" title="Permalink to this headline">¶</a></h2>
+<p>For the client, two functions provide the ability to send and receive data.</p>
+<blockquote>
+<div><ul class="simple">
+<li>sendPacket</li>
+<li>receivePacket</li>
+</ul>
+</div></blockquote>
+<p>Prior to sending a packet, a single unsigned integer should be pushed into the
+transmit channel, in order to prime the server for the reception of the packet.</p>
+<p>Below is a snippet of code that sends a packet to the CAN Phy.</p>
+<div class="highlight-none"><div class="highlight"><pre>struct CanPacket packet;
+packet.ID = 2;
+packet.DATA[0] = buttons;
+packet.DLC = 1;
+outuint(c_tx, 0);
+sendPacket(c_tx, packet);
+</pre></div>
+</div>
+<p>The packet structure can be cleared using the <strong>initPacket</strong> function, although this
+is not necessary.</p>
+<p>To send a packet using extended addressing, set the <em>EIB</em> bit in the Packet structure
+to 1.</p>
+<p>Prior to receiving a packet from the Phy thread, a single unsigned integer needs to be
+received from the Rx channel.  This unsigned integer can be used to select on a packet
+being available for reception.</p>
+<p>Below is a snippet of code showing reception.</p>
+<div class="highlight-none"><div class="highlight"><pre>int v;
+struct CanPacket packet;
+select {
+  case inuint_byref(c_rx, v): {
+    receivePacket(c_rx, packet);
+    break;
+  }
+}
+</pre></div>
+</div>
+<p>The case allows the packet reception to be event driven.</p>
+</div>
+</div>
+
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" id='d2'>
+        <div class="sphinxsidebarwrapper">
+<h3><a href="index.html">CAN Component (1v0)</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#resource-usage">Resource usage</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#server">Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#client">Client</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+
+<div id="searchbox" style="display: none;margin-bottom: 10px;">
+  <h3>Search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+
+
+    <div class="footer">
+    </div>
+  </body>
+</html>
+
+
+
