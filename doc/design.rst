@@ -52,6 +52,8 @@ Below is a snippet of code that sends a packet to the CAN Phy.
 The packet structure can be cleared using the **initPacket** function, although this
 is not necessary.
 
+To send a packet using extended addressing, set the *EIB* bit in the Packet structure
+to 1.
 
 Prior to receiving a packet from the Phy thread, a single unsigned integer needs to be
 received from the Rx channel.  This unsigned integer can be used to select on a packet
