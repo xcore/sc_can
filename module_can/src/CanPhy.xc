@@ -967,9 +967,9 @@ void waitForBusIdle(struct CanPhyState &phyState, buffered in port:32 canRx, por
  */
 void manageBusOff(struct CanPhyState &phyState, buffered in port:32 canRx, port canTx) {
 	unsigned time;
-	int done = 0;
+	int done = 128;
 
-	while (!done) {
+	while (done > 0) {
 		// Wait for bus to be high
 		canRx when pinseq(1) :> void @ time;
 
@@ -977,8 +977,8 @@ void manageBusOff(struct CanPhyState &phyState, buffered in port:32 canRx, port 
 		case canRx when pinseq(0) :> void:
 			// Bus not high for long enough
 			break;
-		case canTx @ (time + (QUANTA_TOTAL * 128 * 11)) :> void:
-			done = 1;
+		case canTx @ (time + (QUANTA_TOTAL * 11)) :> void:
+			done--;
 			break;
 		}
 	}
