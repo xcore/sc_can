@@ -43,20 +43,20 @@
 /*
  * Local functions - not designed to be used outside of this file
  */
-inline void rxStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPacket,
+static inline void rxStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPacket,
 		chanend rxChan, buffered in port:32 canRx, port canTx,
 		int &counter, unsigned int &allBits, unsigned int &dataBits, unsigned int &time);
-inline void txStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPacket, struct CanPacket &txPacket,
+static inline void txStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPacket, struct CanPacket &txPacket,
 		buffered in port:32 canRx, port canTx,
 		int &counter, unsigned int &allBits, unsigned int &dataBits, unsigned int &time);
-void handleError(struct CanPhyState &phyState, struct CanPacket &rxPacket, struct CanPacket &txPacket,
+static void handleError(struct CanPhyState &phyState, struct CanPacket &rxPacket, struct CanPacket &txPacket,
 		buffered in port:32 canRx, port canTx, unsigned int &time);
-inline void signalError(struct CanPhyState &phyState, port canTx, const ERROR error, int &done);
-void setupPorts(clock clk, buffered in port:32 canRx, port canTx);
-void waitForBusIdle(struct CanPhyState &phyState, buffered in port:32 canRx, port canTx);
-void manageBusOff(struct CanPhyState &phyState, buffered in port:32 canRx, port canTx);
-int crc15(int nxtBit, unsigned int crc_rg);
-int crc15with0(unsigned int crc_rg);
+static inline void signalError(struct CanPhyState &phyState, port canTx, const ERROR error, int &done);
+static void setupPorts(clock clk, buffered in port:32 canRx, port canTx);
+static void waitForBusIdle(struct CanPhyState &phyState, buffered in port:32 canRx, port canTx);
+static void manageBusOff(struct CanPhyState &phyState, buffered in port:32 canRx, port canTx);
+static int crc15(int nxtBit, unsigned int crc_rg);
+static int crc15with0(unsigned int crc_rg);
 
 // Varous defines related to bit periods
 #define QUANTA_SYNC      1
@@ -85,7 +85,7 @@ int crc15with0(unsigned int crc_rg);
 // element 32 applies to leading bit is zero (dominant bit is first bit).  Element 33
 // is special for aligning the leading edge of the SOF with the sample point
 
-const char alignTable[34] = {
+static const char alignTable[34] = {
  25,
 
  23,23,23,23,23,23,23,23,23,23,23,23,23,24,
@@ -213,7 +213,7 @@ void canPhyRxTx(chanend rxChan, chanend txChan, clock clk, buffered in port:32 c
 }
 
 #pragma unsafe arrays
-inline void rxStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPacket,
+static inline void rxStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPacket,
 		chanend rxChan, buffered in port:32 canRx, port canTx,
 		int &counter, unsigned int &allBits, unsigned int &dataBits, unsigned int &time) {
 
@@ -514,7 +514,7 @@ inline void rxStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPac
  * to send are kept ahead of the state machine.
  */
 #pragma unsafe arrays
-inline void txStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPacket, struct CanPacket &txPacket,
+static inline void txStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPacket, struct CanPacket &txPacket,
 		buffered in port:32 canRx, port canTx,
 		int &counter, unsigned int &allBits, unsigned int &dataBits, unsigned int &time) {
 
@@ -849,7 +849,7 @@ inline void txStateMachine(struct CanPhyState &phyState, struct CanPacket &rxPac
 }
 
 #pragma unsafe arrays
-inline void handleError(struct CanPhyState &phyState, struct CanPacket &rxPacket, struct CanPacket &txPacket,
+static inline void handleError(struct CanPhyState &phyState, struct CanPacket &rxPacket, struct CanPacket &txPacket,
 		buffered in port:32 canRx, port canTx, unsigned int &time) {
 
 	#pragma xta label "excludeHandleError"
@@ -928,7 +928,7 @@ inline void handleError(struct CanPhyState &phyState, struct CanPacket &rxPacket
 /*
  * Errors need to be flagged as soon as possible - next bit in most cases
  */
-inline void signalError(struct CanPhyState &phyState, port canTx, const ERROR error, int &done) {
+static inline void signalError(struct CanPhyState &phyState, port canTx, const ERROR error, int &done) {
 	// Send first error bit instantly
 	#pragma xta endpoint "sendError"
 	canTx <: ~phyState.activeError;
@@ -942,7 +942,7 @@ inline void signalError(struct CanPhyState &phyState, port canTx, const ERROR er
 /*
  * Ensure that the bus is in the BUS_IDLE state before starting the state machines
  */
-void waitForBusIdle(struct CanPhyState &phyState, buffered in port:32 canRx, port canTx) {
+static void waitForBusIdle(struct CanPhyState &phyState, buffered in port:32 canRx, port canTx) {
 	unsigned time;
 	int done = 0;
 
@@ -965,7 +965,7 @@ void waitForBusIdle(struct CanPhyState &phyState, buffered in port:32 canRx, por
  * When the device goes into "bus off" it needs to wait for 128 consecutive
  * sequences of 11 recessive bits before it can come out of "bus off"
  */
-void manageBusOff(struct CanPhyState &phyState, buffered in port:32 canRx, port canTx) {
+static void manageBusOff(struct CanPhyState &phyState, buffered in port:32 canRx, port canTx) {
 	unsigned time;
 	int done = 128;
 
@@ -993,7 +993,7 @@ void manageBusOff(struct CanPhyState &phyState, buffered in port:32 canRx, port 
  * The clock block is divided down to ensure there are 25 (QUANTA_TOTAL)
  * samples per bit time.
  */
-void setupPorts(clock clk, buffered in port:32 canRx, port canTx) {
+static void setupPorts(clock clk, buffered in port:32 canRx, port canTx) {
 
 	configure_clock_ref(clk, CLOCK_DIV);
 	configure_in_port_no_ready(canRx, clk);
@@ -1015,7 +1015,7 @@ void setupPorts(clock clk, buffered in port:32 canRx, port canTx) {
  *       save this computation on every path. Masking done when
  *       comparing the CRC with packet CRC.
  */
-int crc15(int nxtBit, unsigned int crc_rg) {
+static int crc15(int nxtBit, unsigned int crc_rg) {
 	#pragma xta label "excludeCrc"
 	int crc_nxt = (nxtBit ^ (crc_rg >> 14)) & 0x1;
 	crc_rg = crc_rg << 1;
@@ -1028,7 +1028,7 @@ int crc15(int nxtBit, unsigned int crc_rg) {
 /*
  * Special case when the data is known to be 0
  */
-int crc15with0(unsigned int crc_rg) {
+static int crc15with0(unsigned int crc_rg) {
 	#pragma xta label "excludeCrc"
 	int crc_nxt = (crc_rg >> 14) & 0x1;
 	crc_rg = crc_rg << 1;
