@@ -1,15 +1,11 @@
-BUILD_SUBDIRS = app_xc1_firmware app_can_phy_example
-TEST_SUBDIRS = app_test
 
-%.all:
-	cd $* && xmake all
+# This variable should contain a space separated list of all
+# the directories containing buildable applications (usually
+# prefixed with the app_ prefix)
+#
+# If the variable is set to "all" then all directories that start with app_
+# are built.
+BUILD_SUBDIRS = all
 
-%.clean:
-	cd $* && xmake clean
-
-%.test:
-	cd $* && xmake test
-
-all: $(foreach x, $(BUILD_SUBDIRS), $x.all)
-clean: $(foreach x, $(BUILD_SUBDIRS) $(TEST_SUBDIRS), $x.clean)
-test: $(foreach x, $(TEST_SUBDIRS), $x.test)
+XMOS_MAKE_PATH ?= ..
+include $(XMOS_MAKE_PATH)/xcommon/module_xcommon/build/Makefile.toplevel

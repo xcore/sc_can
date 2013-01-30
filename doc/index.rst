@@ -1,9 +1,10 @@
-XMOS CAN Component
-==================
+XMOS CAN Bus Component
+======================
 
 .. toctree::
 
-   overview
-   design
-   api
-
+   Overview <overview>
+   Hardware Requirements <hw>
+   API <api>
+   Programming Guide <programming>
+   Example Applications <examples>

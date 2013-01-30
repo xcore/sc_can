@@ -1,0 +1,111 @@
+# This is from when the rx goes low to when the rx is sampled
+remove exclusion *
+add exclusion tx_begin
+add exclusion bus_off
+add exclusion tx_mode
+add exclusion start_tx_output_bit
+analyze endpoints rx_begin rx_sample_bus
+set required - 1460 ns
+
+#------------------------------------------------------
+
+remove exclusion *
+add exclusion do_crc
+analyze endpoints tx_output_bit rx_clock_drift
+set required - 480 ns
+
+#------------------------------------------------------
+
+remove exclusion *
+add exclusion tx_mode
+analyze endpoints rx_clock_drift rx_sample_bus
+set required - 880 ns
+
+remove exclusion *
+add exclusion rx_sample_bus
+add exclusion expecting_recessive_bit
+analyze endpoints rx_clock_drift tx_0_sample_bus
+set required - 880 ns
+
+remove exclusion *
+add exclusion rx_sample_bus
+add exclusion tx_0_sample_bus
+add exclusion tx_2_sample_bus
+analyze endpoints rx_clock_drift tx_1_sample_bus
+set required - 880 ns
+
+remove exclusion *
+add exclusion rx_sample_bus
+add exclusion tx_0_sample_bus
+add exclusion tx_1_sample_bus
+analyze endpoints rx_clock_drift tx_2_sample_bus
+set required - 880 ns
+
+#------------------------------------------------------
+# 1 sec / 500KHz * 1*10^9 = 2000ns per bit
+# 2000*9 bits * 0.0158 = 284.4ns max drift
+# 2000ns * (50-34)/50 - 300ns = 340ns
+
+remove exclusion *
+add exclusion bit_stuff
+add exclusion start_error_frame
+add exclusion crc_delim
+add exclusion end_tx
+add exclusion exit_rxtx
+analyze endpoints tx_0_sample_bus tx_output_bit
+set required - 356 ns
+
+analyze endpoints tx_2_sample_bus tx_output_bit
+set required - 356 ns
+
+add exclusion DATA_n_or_CRC
+add exclusion CRC_0
+analyze endpoints tx_1_sample_bus tx_output_bit
+set required - 356 ns
+
+#------------------
+remove exclusion *
+add exclusion begin_state
+add exclusion no_bit_stuff_tx
+add exclusion start_error_frame
+analyze endpoints tx_0_sample_bus bit_stuff_tx_output_bit
+set required - 340 ns
+analyze endpoints tx_1_sample_bus bit_stuff_tx_output_bit
+set required - 340 ns
+analyze endpoints tx_2_sample_bus bit_stuff_tx_output_bit
+set required - 340 ns
+analyze endpoints rx_sample_bus bit_stuff_tx_output_bit
+set required - 340 ns
+
+#------------------
+
+remove exclusion *
+add exclusion bs_no_resync
+analyze endpoints bit_stuff_tx_output_bit bit_stuff_rx_clock_drift
+set required - 480 ns
+
+#------------------
+
+remove exclusion *
+add exclusion bit_stuff_sample_bus_1
+analyze endpoints bit_stuff_rx_clock_drift bit_stuff_sample_bus_0
+set required - 880 ns
+
+remove exclusion *
+add exclusion bit_stuff_sample_bus_0
+analyze endpoints bit_stuff_rx_clock_drift bit_stuff_sample_bus_1
+set required - 880 ns
+
+#------------------
+
+remove exclusion *
+add exclusion start_error_frame
+add exclusion crc_delim
+add exclusion end_tx
+add exclusion exit_rxtx
+analyze endpoints bit_stuff_sample_bus_0 tx_output_bit
+set required - 340 ns
+analyze endpoints bit_stuff_sample_bus_1 tx_output_bit
+set required - 340 ns
+
+

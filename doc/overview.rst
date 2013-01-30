@@ -1,70 +1,61 @@
 Overview
 ========
 
-The XMOS CAN component implements the CAN 2.0 specification. This specification is available
-at http://www.can-cia.org/fileadmin/cia/specifications/CAN20B.pdf
-
-The following parts of the specification are implemented in the core CAN Phy component.
-
-  * Transmit and receive timing and synchronization
-  * Bit stuffing
-  * Arbitration
-  * Error detection
-  * Error signalling
-  * Acknowledgement
-  * Bus-Off Fault recovery
-  
-A CAN LLC layer is provided, but is not complete.  It handles.
-
-  * Message filtering
-  * Responding to REMOTE frames
-  * Overload management
+CAN Bus Controller Component
+----------------------------
+CAN bus is a multi-master broadcast serial bus standard designed specifically for automotive applications where a noisy environment is present but now also used in other areas such as industrial automation and medical equipment. The CAN Bus module is designed for XCore devices to interface directly with a CAN phy in order to communicate on a CAN bus. It requires the minimum two pins, fits in less than 3KB and is fully CAN 2.0 compilant. 
 
 
-Resource usage
-==============
+CAN Bus Component Features
+++++++++++++++++++++++++++
 
-The following applies to the use of the CAN Phy thread.
+The CAN Bus component has the following features:
 
-+-----------+-------------+
-| Resource  | Requirement |
-+===========+=============+
-| Threads   | 1           |
-+-----------+-------------+
-| Channels  | 2           |
-+-----------+-------------+
-| Ports     | 2 x 1 bit   |
-+-----------+-------------+
-| Clocks    | 1           |
-+-----------+-------------+
+  * Configurability of 
+     * segment time quantum,
+     * bus baud rate,
+     * maximum filter entries.
+  * Supports
+     * frame id filtering,
+     * configurable size frame buffer,
+     * Fully CAN 2.0 compilant,
+     * Up to 1Mb baud rate,
+     * Support for extended identifier(29-bit) for PHY layer,
+  * Low XCore resource usage
+     * The function ``can_server`` requires just one core, the client functions, located in ``can.h`` are very low overhead and are called from the application,
+     * No timers used,
+     * A single channel,
+     * Two one bit pins.
 
-Memory usage
-++++++++++++
+Memory requirements
++++++++++++++++++++
 
-+------------------+----------------------+
-| Component        | Memory usage / Bytes |
-+==================+======================+
-| CAN Phy thread   | 5600                 |
-+------------------+----------------------+
-| Client functions | 140                  |
-+------------------+----------------------+
-| Memory buffer    | Minimum 1 of 16      |
-+------------------+----------------------+
++------------------+----------------------------------------+
+| Resource         | Usage                            	    |
++==================+========================================+
+| Stack            | 30 bytes                               |
++------------------+----------------------------------------+
+| Program          | 2800 bytes                             |
++------------------+----------------------------------------+
 
+Resource requirements
++++++++++++++++++++++
 
++---------------+-------+
+| Resource      | Usage |
++===============+=======+
+| Channels      |   1   |
++---------------+-------+
+| Timers        |   0   |
++---------------+-------+
+| Clocks        |   1   |
++---------------+-------+
+| Logical Cores |   1   |
++---------------+-------+
 
-MIPS required
-+++++++++++++
+Performance
++++++++++++
 
-+-------------+------------------+
-| Bit rate    | MIPS required    |
-+=============+==================+
-| 500 kbps    | 25               |
-+-------------+------------------+
-| 1 Mbps      | 100              |
-+-------------+------------------+
-
-
-
+The achievable effective bandwidth varies according to the available XCore MIPS and CAN bus speed.
 
 
