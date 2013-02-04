@@ -1,0 +1,12 @@
+#Wed Jan 30 12:34:21 GMT 2013
+eclipse.preferences.version=1
+environment/project/com.xmos.cdt.toolchain.283335968/XMOS_MODULE_PATH/delimiter=\:
+environment/project/com.xmos.cdt.toolchain.283335968/XMOS_MODULE_PATH/operation=append
+environment/project/com.xmos.cdt.toolchain.283335968/XMOS_MODULE_PATH/value=/home/andrew/sc_can/app_can_demo\:/home/andrew/sc_can/app_can_relay\:/home/andrew/sc_can/module_can
+environment/project/com.xmos.cdt.toolchain.283335968/append=true
+environment/project/com.xmos.cdt.toolchain.283335968/appendContributed=true
+environment/project/com.xmos.cdt.toolchain.499846513/XMOS_MODULE_PATH/delimiter=\:
+environment/project/com.xmos.cdt.toolchain.499846513/XMOS_MODULE_PATH/operation=append
+environment/project/com.xmos.cdt.toolchain.499846513/XMOS_MODULE_PATH/value=/home/andrew/sc_can/app_can_demo\:/home/andrew/sc_can/app_can_relay\:/home/andrew/sc_can/module_can
+environment/project/com.xmos.cdt.toolchain.499846513/append=true
+environment/project/com.xmos.cdt.toolchain.499846513/appendContributed=true
