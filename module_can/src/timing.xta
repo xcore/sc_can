@@ -44,7 +44,7 @@ set required - 880 ns
 #------------------------------------------------------
 # 1 sec / 500KHz * 1*10^9 = 2000ns per bit
 # 2000*9 bits * 0.0158 = 284.4ns max drift
-# 2000ns * (50-34)/50 - 300ns = 340ns
+# 2000ns * (50-34)/50 - 284.4ns = 356ns
 
 remove exclusion *
 add exclusion bit_stuff

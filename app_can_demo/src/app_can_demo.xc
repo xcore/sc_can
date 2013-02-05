@@ -46,6 +46,7 @@ int main() {
       shutdown <: 0;
     	can_server(p, c_rx_tx);
     }
+    on tile[0]: par(int i=0;i<6;i++) while(1);
   }
   return 0;
 }

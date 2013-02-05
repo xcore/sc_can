@@ -429,6 +429,7 @@ bt r10, expecting_recessive_bit
 expecting_recessive_bit:
 //if transmitted a 1
 ldw r10, sp[S_ARB]	    //load the arb from sp[10]
+#if 1
 bf r10, no_arb
   mkmsk r10, 5
   tx_1_sample_bus:
@@ -444,6 +445,23 @@ no_arb:
   bt r8, rx_no_change
     ldc r11, ERROR_BIT_ERROR    // received a 0
     bu start_error_frame		// BIT_ERROR
+#else
+bt r10, no_no_arb
+  mkmsk r10, 5
+  tx_2_sample_bus:
+  in r8, res[r2]		// @ time + 34
+  shr r8, r8, r10		// r8 is the most recent bit (rx_bit)
+  bt r8, rx_no_change
+    ldc r11, ERROR_BIT_ERROR    // received a 0
+    bu start_error_frame		// BIT_ERROR
+no_no_arb:
+  mkmsk r10, 5
+  tx_1_sample_bus:
+  in r8, res[r2]		// @ time + 34
+  shr r8, r8, r10		// r8 is the most recent bit (rx_bit)
+  and r0, r0, r8		// if arbitrating then: tx &= (rx_bit == tx_bit)
+  nop
+#endif
 rx_no_change:
 
 lda16 r7, r8[r7]	//save rx_bit to r_data

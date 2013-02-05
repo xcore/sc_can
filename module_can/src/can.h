@@ -2,6 +2,7 @@
 #define CAN_H_
 #include <xs1.h>
 #include "can_conf.h"
+#include "mutual_thread_comm.h"
 
 #ifndef CAN_FRAME_BUFFER_SIZE
 #define CAN_FRAME_BUFFER_SIZE 16.
@@ -25,6 +26,9 @@
 
 #define CAN_TX_SUCCESS            (0)
 #define CAN_TX_FAIL               (1)
+
+#define CAN_RX_SUCCESS            (0)
+#define CAN_RX_FAIL               (1)
 
 typedef struct can_frame {
   unsigned remote;   //true for remote
@@ -57,6 +61,16 @@ typedef enum {
  * /param c_client The chanend connecting the server to the client of the CAN Bus server.
  */
 void can_server(struct can_ports &p, chanend server);
+
+/**
+ * Receive the next CAN Bus frame.
+ *
+ * /param c_can_server The chanend connecting the client to the CAN Bus server.
+ * /param frm A CAN Bus frame passed by reference.
+ * /param success CAN_RX_SUCCESS or CAN_RX_FAIL.
+ */
+#pragma select handler
+void can_rx_frame(chanend c_can_server, const can_frame &frm, int &success);
 
 /**
  * Send a CAN Bus frame. This function will block until the frame has been successfully

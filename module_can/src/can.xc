@@ -20,8 +20,9 @@ typedef struct RxTxFrame {
 } RxTxFrame;
 
 //#define DEBUG
-
+#ifdef DEBUG
 #include "debug.h"
+#endif
 
 #ifndef CAN_CLOCK_DIVIDE
 #error CAN_CLOCK_DIVIDE is undefined.
