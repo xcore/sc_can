@@ -1,6 +1,8 @@
 #ifndef CAN_UTILS_H_
 #define CAN_UTILS_H_
 
+#include <print.h>
+
 unsigned m = 0xffffffff;
 
 static unsigned super_pattern() {
@@ -8,7 +10,8 @@ static unsigned super_pattern() {
   return m;
 }
 
-static void can_utils_print_frame(can_frame f){
+static void can_utils_print_frame(can_frame f, char prepend[]){
+  printstr(prepend);
   printhex(f.id);
   printstr("\t");
   if(f.extended)
@@ -38,7 +41,24 @@ static void can_utils_make_random_frame(can_frame &f){
   if(f.extended)
     f.id = super_pattern()&0x3ffff;
   else
-    f.id = super_pattern()&0x7ff;
+    f.
+    id = super_pattern()&0x7ff;
 }
-
+static int can_utils_equal(can_frame &a, can_frame &b) {
+  if (a.id != b.id)
+    return 0;
+  if (a.extended != b.extended)
+    return 0;
+  if (a.remote != b.remote)
+    return 0;
+  if (a.dlc != b.dlc)
+    return 0;
+  if (!a.remote) {
+    for (unsigned i = 0; i < a.dlc; i++) {
+      if (a.data[i] != b.data[i])
+        return 0;
+    }
+  }
+  return 1;
+}
 #endif /* CAN_UTILS_H_ */

@@ -47,6 +47,7 @@ These are the functions that are called from the application and are included in
 
 .. doxygenfunction:: can_phy_server
 .. doxygenfunction:: can_send_frame
+.. doxygenfunction:: can_send_frame_nonblocking
 .. doxygenfunction:: can_reset
 .. doxygenfunction:: can_remove_filter
 .. doxygenfunction:: can_pop_frame

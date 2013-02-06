@@ -88,19 +88,27 @@ void seq_rx(chanend c_server, chanend c_internal) {
 
           while(repeat){
             unsigned then, now;
-            unsigned panic = 0;
+            unsigned panic = 0, done = 0;
             timer T;
             T:> then;
             repeat = 0;
-            while(can_pop_frame(c_server, f)==-1){
-              T:> now;
-              if(now-then > 0x3fffffff){
-                printint(count);printstr(" \t");
-                can_utils_print_frame(frm);
-                printintln(can_get_status(c_server));
-                panic=1;
-                break;
-              }
+            while(!done){
+				#pragma ordered
+				select {
+					case can_rx_frame(c_server, f):{
+						T:> now;
+						if(now-then > 0x3fffffff){
+							printint(count);printstr(" \t");
+							can_utils_print_frame(frm, "");
+							panic=1;
+
+					  }
+					  break;
+					}
+					default:
+						done = 1;
+						break;
+				}
             }
             if(panic) break;
             if (!can_utils_equal(f, frm)) {
@@ -109,11 +117,11 @@ void seq_rx(chanend c_server, chanend c_internal) {
                 double_frame++;
               } else {
                 printstr("expected: ");
-                can_utils_print_frame(frm);
+                can_utils_print_frame(frm, "");
                 printstr("recieved: ");
-                can_utils_print_frame(f);
+                can_utils_print_frame(f, "");
                 printstr("last_frame: ");
-                can_utils_print_frame(last_frame);
+                can_utils_print_frame(last_frame, "");
                 printf("error in recieving frame\n");
                 _Exit(1);
               }
@@ -179,7 +187,7 @@ int main() {
     on tile[1]: {
       spare_3 <: 0;
       p_3.tx <: 1;
-      //can_random_error(p_3);
+      can_random_error(p_3);
     }
     on tile[1]: par(int i=0;i<7;i++)while (1);
   }

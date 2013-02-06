@@ -51,7 +51,9 @@ typedef enum {
   ADD_FILTER      = 3,
   REMOVE_FILTER   = 4,
   GET_STATUS      = 5,
-  RESET           = 6
+  RESET           = 6,
+  PEEK_LATEST     = 7,
+  RX_FRAME        = 8
 } CAN_COMMANDS;
 
 /**
@@ -63,14 +65,13 @@ typedef enum {
 void can_server(struct can_ports &p, chanend server);
 
 /**
- * Receive the next CAN Bus frame.
+ * Take the oldest frame from the RX buffer. If it is empty then it will block until a frame is avaliable.
  *
  * /param c_can_server The chanend connecting the client to the CAN Bus server.
  * /param frm A CAN Bus frame passed by reference.
- * /param success CAN_RX_SUCCESS or CAN_RX_FAIL.
  */
 #pragma select handler
-void can_rx_frame(chanend c_can_server, const can_frame &frm, int &success);
+void can_rx_frame(chanend c_can_server, can_frame &frm);
 
 /**
  * Send a CAN Bus frame. This function will block until the frame has been successfully
@@ -102,12 +103,13 @@ void can_send_frame_nonblocking(chanend c_can_server, const can_frame &frm);
 void can_reset(chanend c_can_server);
 
 /**
- * This takes the oldest frame from the CAN Bus server's internal FIFO frame buffer.
+ * Presents the latest received frame to the client without removing it from the
+ * internal FIFO of the CAN Bus server.
  *
  * /param c_can_server The chanend connecting the client to the CAN Bus server.
- * /return Returns the number of frames that are in the buffer after this one is out and -1 for the buffer was empty.
+ * /return Returns the number of frames that are currently in the buffer.
  */
-int can_pop_frame(chanend c_can_phy, can_frame &frm);
+int can_peek_latest(chanend c_can_server, can_frame &frm);
 
 /**
  * This returns the status of the CAN Bus server. Can be in state  CAN_STATE_ACTIVE,
@@ -116,7 +118,7 @@ int can_pop_frame(chanend c_can_phy, can_frame &frm);
  * /param c_can_server The chanend connecting the client to the CAN Bus server.
  * /return The state of the server.
  */
-unsigned can_get_status(chanend c_can_phy);
+unsigned can_get_status(chanend c_can_server);
 
 /**
  * This adds a filter to the CAN transiever. The filter will reject any frames with
@@ -126,7 +128,7 @@ unsigned can_get_status(chanend c_can_phy);
  * /param id The id to be added to the frame filter.
  * /return CAN_FILTER_ADD_SUCCESS or CAN_FILTER_ADD_FAIL.
  */
-unsigned can_add_filter(chanend c_can_phy, unsigned id);
+unsigned can_add_filter(chanend c_can_server, unsigned id);
 
 /**
  * This removed a filter from the CAN transiever.
@@ -135,6 +137,6 @@ unsigned can_add_filter(chanend c_can_phy, unsigned id);
  * /param id The id to be removed from the frame filter.
  * /return CAN_FILTER_REMOVE_SUCCESS or CAN_FILTER_REMOVE_FAIL.
  */
-unsigned can_remove_filter(chanend c_can_phy, unsigned id);
+unsigned can_remove_filter(chanend c_can_server, unsigned id);
 
 #endif /* CAN_H_ */

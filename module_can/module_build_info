@@ -11,3 +11,5 @@
 
 MODULE_XCC_XC_FLAGS = $(XCC_XC_FLAGS)
 OPTIONAL_HEADERS += can_conf.h
+
+DEPENDENT_MODULES = module_mutual_thread_comm 

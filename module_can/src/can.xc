@@ -1,5 +1,6 @@
 #include "can.h"
 #include "can_defines.h"
+#include "mutual_thread_comm.h"
 #include <xclib.h>
 #include <stdlib.h>
 
@@ -210,7 +211,7 @@ static int reject_message(unsigned message_filters[CAN_MAX_FILTER_SIZE],
   return 0;
 }
 
-static void rx_success(RxTxFrame &r, can_frame rx_buf[CAN_FRAME_BUFFER_SIZE],
+static int rx_success(RxTxFrame &r, can_frame rx_buf[CAN_FRAME_BUFFER_SIZE],
 		unsigned &buffer_head, unsigned &buffer_tail, unsigned message_filters[CAN_MAX_FILTER_SIZE], unsigned message_filter_count,
     unsigned &receive_error_counter){
   unsigned buf_head_index = buffer_head % CAN_FRAME_BUFFER_SIZE;
@@ -220,14 +221,19 @@ static void rx_success(RxTxFrame &r, can_frame rx_buf[CAN_FRAME_BUFFER_SIZE],
 #ifdef DEBUG
   printstrln("rx success");
 #endif
+
+  adjust_successful_receive_error_counter(receive_error_counter);
   if(CAN_MAX_FILTER_SIZE){
     if(!reject_message(message_filters, message_filter_count, rx_buf[buf_head_index].id)){
       buffer_head++;
+      return CAN_RX_SUCCESS;
     }
+    return CAN_RX_FAIL;
   } else {
     buffer_head++;
+    return CAN_RX_SUCCESS;
   }
-  adjust_successful_receive_error_counter(receive_error_counter);
+
 }
 
 #pragma unsafe arrays
@@ -252,6 +258,10 @@ void can_server(struct can_ports &p, chanend server){
   unsigned tx_enabled = 1;
   unsigned tx_back_on;
   timer bit_timer;
+
+  mutual_comm_state_t mstate;
+  int is_response_to_notification;
+  mutual_comm_init_state(mstate);
 
   init(p);
   zeroFrame(r);
@@ -282,13 +292,11 @@ void can_server(struct can_ports &p, chanend server){
           tx_back_on += 3*CAN_CLOCK_DIVIDE*2*50;
           tx_enabled = 0;
           if (RXTX_RET_TO_ERROR_TYPE(e) == CAN_ERROR_RX_NONE) {
-        	  rx_success(r, rx_buf, buffer_head, buffer_tail, message_filters,
+        	  int rx_succ = rx_success(r, rx_buf, buffer_head, buffer_tail, message_filters,
         			  message_filter_count, receive_error_counter);
+        	  if(rx_succ == CAN_RX_SUCCESS)
+        		  mutual_comm_notify(server, mstate);
           } else {
-#ifdef DEBUG
-            printstrln("rx error");
-            report_error(RXTX_RET_TO_ERROR_CLASS(e));
-#endif
             receive_error_counter += RXTX_RET_TO_ERROR_COUNTER(e);
           }
           zeroFrame(r);
@@ -303,8 +311,33 @@ void can_server(struct can_ports &p, chanend server){
       }
 
 #pragma xta endpoint "tx_begin"
-      case server :> cmd:{
+
+      case mutual_comm_transaction(server, is_response_to_notification, mstate):{
+    	  if (is_response_to_notification) {
+    		  unsigned count = (buffer_head - buffer_tail);
+			unsigned buf_tail_index;
+			if(count > CAN_FRAME_BUFFER_SIZE)
+			  buffer_tail = buffer_head - CAN_FRAME_BUFFER_SIZE;
+			buf_tail_index = buffer_tail%CAN_FRAME_BUFFER_SIZE;
+			slave {
+			  server <: rx_buf[buf_tail_index].remote;
+			  server <: rx_buf[buf_tail_index].extended;
+			  server <: rx_buf[buf_tail_index].id;
+			  server <: rx_buf[buf_tail_index].dlc;
+			  server <: (rx_buf[buf_tail_index].data, unsigned[])[0];
+			  server <: (rx_buf[buf_tail_index].data, unsigned[])[1];
+			}
+			buffer_tail++;
+
+			mutual_comm_complete_transaction(server,
+											is_response_to_notification,
+											mstate);
+			if(count>1)
+			  mutual_comm_notify(server, mstate);
+      } else {
         int e;
+        int rx_succ = CAN_RX_FAIL;
+        server :> cmd;
         switch(cmd){
         case TX_FRAME:
         case TX_FRAME_NB:{
@@ -355,18 +388,18 @@ void can_server(struct can_ports &p, chanend server){
               if(cmd == TX_FRAME)
                 server <: CAN_TX_SUCCESS;
               if(error_status == CAN_STATE_PASSIVE)
-				        tx_back_on += 8*CAN_CLOCK_DIVIDE*2*50;
+                tx_back_on += 8*CAN_CLOCK_DIVIDE*2*50;
               break;
             }
             case CAN_ERROR_RX_NONE:{
-        	  rx_success(r, rx_buf, buffer_head, buffer_tail, message_filters,
-        			  message_filter_count, receive_error_counter);
+              rx_succ = rx_success(r, rx_buf, buffer_head, buffer_tail, message_filters,
+                message_filter_count, receive_error_counter);
               break;
             }
             case CAN_ERROR_TX_ERROR:{
               transmit_error_counter += RXTX_RET_TO_ERROR_COUNTER(e);
               if(error_status == CAN_STATE_PASSIVE)
-				        tx_back_on += 8*CAN_CLOCK_DIVIDE*2*50;
+                tx_back_on += 8*CAN_CLOCK_DIVIDE*2*50;
               break;
             }
             case CAN_ERROR_RX_ERROR:{
@@ -384,24 +417,22 @@ void can_server(struct can_ports &p, chanend server){
           }
           break;
         }
-
-        case POP_FRAME:{
+        case PEEK_LATEST:{
           unsigned count = (buffer_head - buffer_tail);
-          unsigned buf_tail_index;
+          unsigned buf_head_index;
           if(count > CAN_FRAME_BUFFER_SIZE)
             buffer_tail = buffer_head - CAN_FRAME_BUFFER_SIZE;
-          buf_tail_index = buffer_tail%CAN_FRAME_BUFFER_SIZE;
+          buf_head_index = buffer_head%CAN_FRAME_BUFFER_SIZE;
           server <: count;
           if(count){
             slave {
-            server <: rx_buf[buf_tail_index].remote;
-            server <: rx_buf[buf_tail_index].extended;
-            server <: rx_buf[buf_tail_index].id;
-            server <: rx_buf[buf_tail_index].dlc;
-            server <: (rx_buf[buf_tail_index].data, unsigned[])[0];
-            server <: (rx_buf[buf_tail_index].data, unsigned[])[1];
+            server <: rx_buf[buf_head_index].remote;
+            server <: rx_buf[buf_head_index].extended;
+            server <: rx_buf[buf_head_index].id;
+            server <: rx_buf[buf_head_index].dlc;
+            server <: (rx_buf[buf_head_index].data, unsigned[])[0];
+            server <: (rx_buf[buf_head_index].data, unsigned[])[1];
             }
-            buffer_tail++;
           }
           break;
         }
@@ -457,7 +488,15 @@ void can_server(struct can_ports &p, chanend server){
           break;
         }
         }
-        break;
+        mutual_comm_complete_transaction(server,
+ 										  is_response_to_notification,
+ 										  mstate);
+      if(rx_succ == CAN_RX_SUCCESS)
+                    mutual_comm_notify(server, mstate);
+      }
+
+
+		  break;
       }
     }
   }

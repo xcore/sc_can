@@ -131,7 +131,7 @@ void seq_rx(chanend c_server, chanend c_internal) {
         for (unsigned id = 0; id < size[extended]; id++) {
           frm.id = id;
           c_internal :> int;
-          can_pop_frame(c_server, f);
+          can_rx_frame(c_server, f);
           if (!equal(f, frm)) {
             printstr("expected: ");
             print_frame(frm);
@@ -148,87 +148,6 @@ void seq_rx(chanend c_server, chanend c_internal) {
     }
   }
   printstrln("rx test complete");
-}
-
-void buffer_test_tx(chanend c_server, chanend c_internal) {
-  unsigned id = 0;
-  for (unsigned tx_size = 0; tx_size < CAN_FRAME_BUFFER_SIZE + 2; tx_size++) {
-    for (unsigned i = 0; i < tx_size; i++) {
-      can_frame frm;
-      frm.id = id++;
-      frm.remote = 1;
-      frm.extended = 0;
-      frm.dlc = 0;
-      can_send_frame(c_server, frm);
-    }
-    c_internal <: 1;
-    c_internal :> int;
-  }
-}
-
-void buffer_test_rx(chanend c_server, chanend c_internal) {
-  unsigned id = 0;
-  can_reset(c_server);
-  for (unsigned tx_size = 0; tx_size < CAN_FRAME_BUFFER_SIZE + 2; tx_size++) {
-    c_internal :> int;
-    if (CAN_FRAME_BUFFER_SIZE  < tx_size)
-      id += tx_size - (CAN_FRAME_BUFFER_SIZE );
-    for (unsigned i = 0; i < tx_size; i++) {
-      can_frame frm;
-      if (can_pop_frame(c_server, frm) != -1) {
-        if (frm.id != id++) {
-          printstrln("broken rx buffer\n");
-          _Exit(1);
-        }
-      }
-    }
-    c_internal <: 1;
-  }
-  printstrln("rx buffer test complete");
-}
-
-void buffer_filter_tx(chanend c_server, chanend c_internal) {
-  can_frame frm;
-  c_internal <: 1;
-  frm.remote = 0;
-  frm.data[0] = 0x12;
-  frm.data[1] = 0xab;
-  frm.data[2] = 0xcd;
-  frm.data[3] = 0xef;
-  frm.extended = 1;
-  frm.dlc = 4;
-  for(unsigned filter_size=0;filter_size<CAN_MAX_FILTER_SIZE; filter_size++){
-    c_internal :> int;
-    for(unsigned id=0;id<filter_size+1;id++){
-       frm.id = id;
-       can_send_frame(c_server, frm);
-     }
-    c_internal <: 1;
-    c_internal :> int;
-  }
-  c_internal <: 1;
-  c_internal :> int;
-}
-
-void buffer_filter_rx(chanend c_server, chanend c_internal) {
-  can_frame frm;
-  c_internal :> int;
-  can_reset(c_server);
-  for(unsigned filter_size=0;filter_size<CAN_MAX_FILTER_SIZE; filter_size++){
-    can_add_filter(c_server, filter_size);
-     c_internal <: 1;
-     c_internal :> int;
-     for(unsigned i=0;i<CAN_FRAME_BUFFER_SIZE;i++)
-       if(can_pop_frame(c_server, frm)!=-1){
-         printstrln("error in filtering\n");
-         _Exit(1);
-       }
-     c_internal <: 1;
-
-  }
-  printstrln("rx filter test complete");
-  c_internal :> int;
-  c_internal <: 1;
 }
 
 void filter_remove_rx(chanend c_server, chanend c_internal) {
@@ -274,14 +193,10 @@ void filter_remove_rx(chanend c_server, chanend c_internal) {
 }
 
 void can_tx(chanend c_server, chanend c_internal) {
- buffer_test_tx(c_server, c_internal);
-  buffer_filter_tx(c_server, c_internal);
   seq_tx(c_server, c_internal);
 }
 
 void can_rx(chanend c_server, chanend c_internal) {
-  buffer_test_rx(c_server, c_internal);
-  buffer_filter_rx(c_server, c_internal);
   seq_rx(c_server, c_internal);
   filter_remove_rx(c_server, c_internal);
 }
