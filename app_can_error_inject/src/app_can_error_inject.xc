@@ -145,10 +145,10 @@ void seq_rx(chanend c_server, chanend c_internal) {
 
 void can_random_error(can_ports &p){
   timer t;
-  unsigned now;
+  unsigned now, x=1;
   t :> now;
   while(1){
-    now += (super_pattern()>>9) + 50*CAN_CLOCK_DIVIDE;
+    now += (super_pattern(x)>>9) + 50*CAN_CLOCK_DIVIDE;
     t when timerafter(now) :> now;
     p.tx <: 0;
     now += 50*CAN_CLOCK_DIVIDE;

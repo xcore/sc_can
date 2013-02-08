@@ -98,3 +98,12 @@ unsigned can_remove_filter(chanend c_can_server, unsigned id){
   mutual_comm_complete(c_can_server);
   return ret;
 }
+
+unsigned can_rx_entries(chanend c_can_server){
+  unsigned ret;
+  mutual_comm_initiate(c_can_server);
+  c_can_server <: (char)RX_BUF_ENTRIES;
+  c_can_server :> ret;
+  mutual_comm_complete(c_can_server);
+  return ret;
+}

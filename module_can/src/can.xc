@@ -3,6 +3,7 @@
 #include "mutual_thread_comm.h"
 #include <xclib.h>
 #include <stdlib.h>
+#include <assert.h>
 
 typedef struct RxTxFrame {
   unsigned rx_DATA[2];
@@ -20,7 +21,7 @@ typedef struct RxTxFrame {
   unsigned tx_dlc;
 } RxTxFrame;
 
-//#define DEBUG
+#define DEBUG
 #ifdef DEBUG
 #include "debug.h"
 #endif
@@ -218,10 +219,6 @@ static int rx_success(RxTxFrame &r, can_frame rx_buf[CAN_FRAME_BUFFER_SIZE],
   can_frame f = rx_buf[buf_head_index];
   demangle_data(r);
   rxtx_to_frame(rx_buf[buf_head_index], r);
-#ifdef DEBUG
-  printstrln("rx success");
-#endif
-
   adjust_successful_receive_error_counter(receive_error_counter);
   if(CAN_MAX_FILTER_SIZE){
     if(!reject_message(message_filters, message_filter_count, rx_buf[buf_head_index].id)){
@@ -315,25 +312,28 @@ void can_server(struct can_ports &p, chanend server){
       case mutual_comm_transaction(server, is_response_to_notification, mstate):{
     	  if (is_response_to_notification) {
     		  unsigned count = (buffer_head - buffer_tail);
-			unsigned buf_tail_index;
-			if(count > CAN_FRAME_BUFFER_SIZE)
-			  buffer_tail = buffer_head - CAN_FRAME_BUFFER_SIZE;
-			buf_tail_index = buffer_tail%CAN_FRAME_BUFFER_SIZE;
-			slave {
-			  server <: rx_buf[buf_tail_index].remote;
-			  server <: rx_buf[buf_tail_index].extended;
-			  server <: rx_buf[buf_tail_index].id;
-			  server <: rx_buf[buf_tail_index].dlc;
-			  server <: (rx_buf[buf_tail_index].data, unsigned[])[0];
-			  server <: (rx_buf[buf_tail_index].data, unsigned[])[1];
-			}
-			buffer_tail++;
+          unsigned buf_tail_index;
+          if(count > CAN_FRAME_BUFFER_SIZE)
+            buffer_tail = buffer_head - CAN_FRAME_BUFFER_SIZE;
+#ifdef DEBUG
+          assert(count);
+#endif
+          buf_tail_index = buffer_tail%CAN_FRAME_BUFFER_SIZE;
+          slave {
+            server <: rx_buf[buf_tail_index].remote;
+            server <: rx_buf[buf_tail_index].extended;
+            server <: rx_buf[buf_tail_index].id;
+            server <: rx_buf[buf_tail_index].dlc;
+            server <: (rx_buf[buf_tail_index].data, unsigned[])[0];
+            server <: (rx_buf[buf_tail_index].data, unsigned[])[1];
+          }
+          buffer_tail++;
 
-			mutual_comm_complete_transaction(server,
-											is_response_to_notification,
-											mstate);
-			if(count>1)
-			  mutual_comm_notify(server, mstate);
+          mutual_comm_complete_transaction(server,
+                          is_response_to_notification,
+                          mstate);
+          if(count>1)
+            mutual_comm_notify(server, mstate);
       } else {
         int e;
         int rx_succ = CAN_RX_FAIL;
@@ -436,6 +436,14 @@ void can_server(struct can_ports &p, chanend server){
           }
           break;
         }
+        case RX_BUF_ENTRIES:{
+          unsigned count = (buffer_head - buffer_tail);
+          if(count > CAN_FRAME_BUFFER_SIZE)
+            buffer_tail = buffer_head - CAN_FRAME_BUFFER_SIZE;
+          count = (buffer_head - buffer_tail);
+          server <: count;
+          break;
+        }
         case ADD_FILTER:{
           unsigned filter_id;
           server :> filter_id;
@@ -491,9 +499,9 @@ void can_server(struct can_ports &p, chanend server){
         mutual_comm_complete_transaction(server,
  										  is_response_to_notification,
  										  mstate);
-      if(rx_succ == CAN_RX_SUCCESS)
-                    mutual_comm_notify(server, mstate);
-      }
+        if(rx_succ == CAN_RX_SUCCESS)
+          mutual_comm_notify(server, mstate);
+        }
 
 
 		  break;

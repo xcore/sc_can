@@ -38,24 +38,26 @@ typedef struct can_frame {
   char data[8];
 } can_frame;
 
+#ifdef __XC__
 typedef struct can_ports {
   out port tx;
   in buffered port:32 rx;
   clock cb;
 } can_ports;
-
+#endif
 typedef enum {
   TX_FRAME        = 0,
   TX_FRAME_NB     = 1,
-  POP_FRAME       = 2,
-  ADD_FILTER      = 3,
-  REMOVE_FILTER   = 4,
-  GET_STATUS      = 5,
-  RESET           = 6,
-  PEEK_LATEST     = 7,
+  ADD_FILTER      = 2,
+  REMOVE_FILTER   = 3,
+  GET_STATUS      = 4,
+  RESET           = 5,
+  PEEK_LATEST     = 6,
+  RX_BUF_ENTRIES  = 7,
   RX_FRAME        = 8
 } CAN_COMMANDS;
 
+#ifdef __XC__
 /**
  * This is the CAN Bus server.
  *
@@ -139,4 +141,12 @@ unsigned can_add_filter(chanend c_can_server, unsigned id);
  */
 unsigned can_remove_filter(chanend c_can_server, unsigned id);
 
+/**
+ * Used for finding the number of frames currently in the RX buffer.
+ *
+ * /param c_can_server The chanend connecting the client to the CAN Bus server.
+ * /return The count of frames in the RX buffer.
+ */
+unsigned can_rx_entries(chanend c_can_server);
+#endif
 #endif /* CAN_H_ */

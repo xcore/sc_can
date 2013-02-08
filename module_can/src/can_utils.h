@@ -3,9 +3,7 @@
 
 #include <print.h>
 
-unsigned m = 0xffffffff;
-
-static unsigned super_pattern() {
+static unsigned super_pattern(unsigned &m) {
   crc32(m, 0xf, 0x82F63B78);
   return m;
 }
@@ -31,19 +29,20 @@ static void can_utils_print_frame(can_frame f, char prepend[]){
     }
   printstrln("");
 }
-static void can_utils_make_random_frame(can_frame &f){
-  f.extended = super_pattern()&1;
-  f.remote = super_pattern()&1;
-  f.dlc = super_pattern()%8;
+static void can_utils_make_random_frame(can_frame &f, unsigned &x){
+  f.extended = super_pattern(x)&1;
+  f.remote = super_pattern(x)&1;
+  f.dlc = super_pattern(x)%8;
   if(!f.remote)
     for(unsigned i=0;i<f.dlc;i++)
-      f.data[i] = super_pattern()&0xff;
+      f.data[i] = super_pattern(x)&0xff;
   if(f.extended)
-    f.id = super_pattern()&0x3ffff;
+    f.id = super_pattern(x)&0x3ffff;
   else
     f.
-    id = super_pattern()&0x7ff;
+    id = super_pattern(x)&0x7ff;
 }
+
 static int can_utils_equal(can_frame &a, can_frame &b) {
   if (a.id != b.id)
     return 0;

@@ -8,11 +8,11 @@ on tile[0]: port shutdown = XS1_PORT_4A;
 void application(chanend c_rx_tx) {
   timer t;
   unsigned now;
-  int success;
+  unsigned seed = 0x12345678;
   t:> now;
   while(1){
 	can_frame f;
-	can_utils_make_random_frame(f);
+	can_utils_make_random_frame(f, seed);
     can_send_frame(c_rx_tx, f);
     can_utils_print_frame(f, "tx: ");
     select {
