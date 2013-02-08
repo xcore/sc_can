@@ -20,6 +20,13 @@ To setup up the system:
    #. Connect the XTAG-2 to host PC. Note that the USB cable is not provided with the Slicekit starter kit.
    #. Set the ``XMOS LINK`` to ``ON`` on the XTAG Adapter.
    #. Switch on the power supply to the Slicekit Core board.
+   #. Connect the XA-SK-ISBUS to the CANdo USB interface via a //FIXME cable.
+   #. Install the CANdo application on a Windows machine and connect the CANdo dongle to that machine.
+   #. Within the CANdo application:
+           #. Click the ``CAN Setup`` tab and set the baud rate to 500k.
+           #. Click ``View -> Options`` then ensure the ``Display On `CAN View` Page`` is checked. Then click ``OK``.
+           #. Switch to the ``CAN View`` tab.
+           #. Click the green run button.
 
 .. figure:: images/hardware_setup.jpg
    :width: 400px
@@ -48,16 +55,21 @@ Now that the application has been compiled, the next step is to run it on the Sl
    #. Click on the ``Run`` icon (the white arrow in the green circle). 
    #. At the ``Select Device`` dialog select ``XMOS XTAG-2 connect to L1[0..1]`` and click ``OK``.
    #. The debug console window in xTIMEcomposer should then display the frames as it transmits and recieves them.
+   #. To send a frame from the CANdo to the XA-SK-ISBUS enter a frame ID in the ``CAN Transmit Editor`` then click ``Now``.
     
 Next Steps
 ++++++++++
 
-Now that the demo has been run you could try and adjust the ``BUF_WORDS`` setting. Note, if you try to allocate more than 64KB of internal XCore memory then the demo will not compile as the Xcore wont be able to hold the image.
+Now that the demo has been run you could try and add filters to the can server. To do this add the line::
+
+  can_add_filter(c_rx_tx, id);
+
+before the ``while(1)`` loop, where ``id`` is the ID of the frame you want to filter out. After this filter has been applied the CAN server will recieve all frames but not place filtered frames in the RX buffer.  
 
 Look at the Code
 ................
 
    #. Examine the application code. In xTIMEcomposer navigate to the ``src`` directory under app_can_demo and double click on the ``app_can_demo.xc`` file within it. The file will open in the central editor window.
    #. Find the main function and note that it runs the ``application()`` function on a single logical core. 
-   #. This example uses a polling loop. After transmitting a frame it polls the server for new frames or waits for a 2 second delay to end. This functionality is achieved using a ``select`` statement.
+   #. After transmitting a frame the application waits on the server for new frames or waits for a 5 second delay to end. This functionality is achieved using a ``select`` statement.
    #. The demo uses xscope for fast printing. The user can swich to JTAG output but it will be slower.

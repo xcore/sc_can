@@ -486,6 +486,15 @@ void can_server(struct can_ports &p, chanend server){
           break;
         }
         case RESET:{
+          int is_data_request;
+          mutual_comm_complete_transaction(server, is_data_request, mstate);
+          // At this point the notification flag may or may not be set.
+          // Set the notification flag so that the client can unconditionally
+          // call mutual_comm_notified() to clear the flag without blocking.
+          mutual_comm_notify(server, mstate);
+          mutual_comm_transaction(server, is_data_request, mstate);
+          assert(!is_data_request);
+          mutual_comm_complete_transaction(server, is_data_request, mstate);
           error_status = CAN_STATE_ACTIVE;
           transmit_error_counter = 0;
           receive_error_counter = 0;

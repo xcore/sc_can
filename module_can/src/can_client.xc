@@ -77,6 +77,9 @@ void can_reset(chanend c_can_server){
   mutual_comm_initiate(c_can_server);
   c_can_server <: (char)RESET;
   mutual_comm_complete(c_can_server);
+  // Clear notification flag.
+  mutual_comm_notified(c_can_server);
+  mutual_comm_complete(c_can_server);
 }
 
 unsigned can_add_filter(chanend c_can_server, unsigned id){
