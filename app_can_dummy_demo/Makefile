@@ -9,7 +9,7 @@ TARGET = SLICEKIT-L2
 APP_NAME = app_can_demo
 
 # The USED_MODULES variable lists other module used by the application.
-USED_MODULES = module_can
+USED_MODULES = module_can_dummy
 
 # The flags passed to xcc when building the application
 # You can also set the following to override flags for a particular language:
