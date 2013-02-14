@@ -111,7 +111,7 @@ ports = {
   },
  
 }
-chanend rxChan
+
 channels = {
   c_client = {
     short = "CAN Server channel",
