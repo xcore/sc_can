@@ -7,25 +7,26 @@ on tile[0]: port shutdown = XS1_PORT_4A;
 
 void application(chanend c_rx_tx) {
   timer t;
-  unsigned now;
-  unsigned seed = 0x12345678;
+  unsigned now, seed = 0x12345678;
   t:> now;
   while(1){
-	can_frame f;
-	int done = 0;
-	can_utils_make_random_frame(f, seed);
+	  can_frame f;
+	  int done = 0;
+	  can_utils_make_random_frame(f, seed);
     can_send_frame(c_rx_tx, f);
     can_utils_print_frame(f, "tx: ");
     while(!done){
-	  select {
-	    case t when timerafter (now + 500000000) :> now:
+      select {
+	      //wait for half a second
+	      case t when timerafter (now + 50000000) :> now:
           done = 1;
 	      break;
-	    case can_rx_frame(c_rx_tx, f):{
-		  can_utils_print_frame(f, "rx: ");
-		  break;
+	      //or report any frames received
+	      case can_rx_frame(c_rx_tx, f):{
+		      can_utils_print_frame(f, "rx: ");
+		    break;
+	      }
 	    }
-	  }
     }
   }
 }

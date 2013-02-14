@@ -57,6 +57,27 @@ Next create a ``main`` function with a par of both the ``can_server`` function a
 
 Now the ``application`` function is able to use the CAN Bus server.
 
+Clock Divider
+-------------
+In order to set the baud rate of the device to match the CAN bus it will connect to the user has to set the define CAN_CLOCK_DIVIDER. Below is a table of the clock divider against the baud rate::
+
++------------------+----------------------+
+| Clock Divider    | Baud Rate            |
++==================+======================+
+| 1                | 1Mb/s                |
++------------------+----------------------+
+| 2                | 500 Kb/s             |
++------------------+----------------------+
+| 4                | 250 Kb/s             |
++------------------+----------------------+  
+| 8                | 125 Kb/s             |
++------------------+----------------------+ 
+
+In general the baud rate is::
+
+  1/CAN_CLOCK_DIVIDER Mb/s
+
+where only integer valuse can be defined.
 
 Software Requirements
 ---------------------

@@ -10,14 +10,15 @@ Key Features
 
    * Baud Rates up to 1Mbps,
    * Support for extended identifier(29-bit) for PHY layer,
-   * Fully CAN 2.0 compatable.
+   * Fully CAN 2.0A and 2.0B compatable.
+   * Includes a dummy CAN server for testing without hardware.
    
 A demo appliction is included.
 
 Known Issues
 ============
 
-TODO
+None
 
 Support
 =======

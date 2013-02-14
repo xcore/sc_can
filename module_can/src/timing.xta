@@ -41,10 +41,7 @@ add exclusion tx_1_sample_bus
 analyze endpoints rx_clock_drift tx_2_sample_bus
 set required - 880 ns
 
-#------------------------------------------------------
-# 1 sec / 500KHz * 1*10^9 = 2000ns per bit
-# 2000*9 bits * 0.0158 = 284.4ns max drift
-# 2000ns * (50-34)/50 - 284.4ns = 356ns
+
 
 remove exclusion *
 add exclusion bit_stuff
@@ -52,16 +49,33 @@ add exclusion start_error_frame
 add exclusion crc_delim
 add exclusion end_tx
 add exclusion exit_rxtx
+
+# tx_0_sample_bus is dominant to recessive non-bitstuff
+# 1 sec / 500KHz * 1*10^9 = 2000ns per bit
+# 2000*4 bits * 0.0158 = 126.4ns max drift
+# 2000ns * (50-34)/50 - 126.4ns = 513ns
 analyze endpoints tx_0_sample_bus tx_output_bit
-set required - 356 ns
+set required - 513 ns
 
+# tx_2_sample_bus is recessive to recessive non-bitstuff after abritration
+# this means we can exclude any state machine paths that happen during arbitration
+#------------------------------------------------------
+# 1 sec / 500KHz * 1*10^9 = 2000ns per bit
+# 2000*9 bits * 0.0158 = 284.4ns max drift
+# 2000ns * (50-34)/50 - 284.4ns = 355.6ns
 analyze endpoints tx_2_sample_bus tx_output_bit
-set required - 356 ns
+set required - 355 ns
 
+# tx_1_sample_bus is recessive to recessive non-bitstuff during arbitration
+# this means we can exclude any state machine paths that dont happen until after arbitration
 add exclusion DATA_n_or_CRC
 add exclusion CRC_0
-analyze endpoints tx_1_sample_bus tx_output_bit
-set required - 356 ns
+#------------------------------------------------------
+# 1 sec / 500KHz * 1*10^9 = 2000ns per bit
+# 2000*9 bits * 0.0158 = 284.4ns max drift
+# 2000ns * (50-34)/50 - 284.4ns = 355.6ns
+analyze endpoints tx_2_sample_bus tx_output_bit
+set required - 355 ns
 
 #------------------
 remove exclusion *

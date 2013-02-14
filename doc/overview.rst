@@ -18,7 +18,7 @@ The CAN Bus component has the following features:
   * Supports
      * frame id filtering,
      * configurable size frame buffer,
-     * Fully CAN 2.0 compilant,
+     * Fully CAN 2.0A and 2.0B compilant,
      * Up to 1Mb baud rate,
      * Support for extended identifier(29-bit) for PHY layer,
   * Low XCore resource usage
@@ -55,7 +55,6 @@ Resource requirements
 
 Performance
 +++++++++++
-
-The achievable effective bandwidth varies according to the available XCore MIPS and CAN bus speed.
+The achievable effective bandwidth varies according to the available XCore MIPS and CAN bus speed. At 125MIPs up to 1Mb/s baud rate and at 62.5MIPs up to 500Kb/s baud rate will allow the full 1.58% oscillator tollerance.
 
 
