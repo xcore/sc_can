@@ -1,0 +1,133 @@
+-------------------------------------------------------------------------------
+-- Descriptive metadata
+-------------------------------------------------------------------------------
+
+componentName = "CAN Bus Dummy Controller"
+componentFullName = ""
+alternativeNames = { }
+componentDescription = "A CAN Bus Dummy controller module."
+componentVersion = "1v0"
+
+-------------------------------------------------------------------------------
+-- Parameter descriptions.
+-------------------------------------------------------------------------------
+
+configPoints =
+{
+  can_frame_buf_size =
+  {
+    short   = "Frame buffer size",
+    long    = "",
+    help    = "The size of the frame buffer FIFO in number of frames.",
+    units   = "Frames",
+    define  = "CAN_FRAME_BUFFER_SIZE",
+    type    = "int",
+    min     = 2,
+    max     = 255,
+    resourceUsageFlags = {"noeffect"},
+    default = 16
+  },
+  can_max_filters =
+  {
+    short   = "Maximum number of filters",
+    long    = "",
+    help    = "The size of the frame filter in number of id's to be filtered.",
+    units   = "Filters",
+    define  = "CAN_MAX_FILTER_SIZE",
+    type    = "int",
+    min     = 1,
+    max     = 255,
+    resourceUsageFlags = {"noeffect"},
+    default = 2
+  },
+  can_clock_div =
+  {
+    short   = "CAN clock divide",
+    long    = "",
+    help    = "This divides the 1MHz bit clock by 2 times the value set.",
+    units   = "",
+    define  = "CAN_CLOCK_DIVIDE",
+    type    = "int",
+    min     = 1,
+    max     = 255,
+    resourceUsageFlags = {"noeffect"},
+    default = 2
+  },
+  can_prop_seg =
+  {
+    short   = "CAN prop segment",
+    long    = "",
+    help    = "This is the count of TIME QUANTUM of the PROP SEG.",
+    units   = "TIME QUANTUM",
+    define  = "PROP_SEG",
+    type    = "int",
+    min     = 1,
+    max     = 8,
+    resourceUsageFlags = {"noeffect"},
+    default = 8
+  },
+  can_phase_seg1 =
+  {
+    short   = "CAN phase segment 1",
+    long    = "",
+    help    = "This is the count of TIME QUANTUM of the PHASE_SEG1.",
+    units   = "TIME QUANTUM",
+    define  = "PHASE_SEG1",
+    type    = "int",
+    min     = 1,
+    max     = 8,
+    resourceUsageFlags = {"noeffect"},
+    default = 8
+  },
+  can_phase_seg2 =
+  {
+    short   = "CAN phase segment 2",
+    long    = "",
+    help    = "This is the count of TIME QUANTUM of the PHASE_SEG2.",
+    units   = "TIME QUANTUM",
+    define  = "PHASE_SEG2",
+    type    = "int",
+    min     = 1,
+    max     = 8,
+    resourceUsageFlags = {"noeffect"},
+    default = 8
+  },
+}
+
+derivedValues = {}
+
+channels = {
+  c_client = {
+    short = "CAN Server channel",
+    long  = "Channel for the client to send commands to the CAN server",
+    help  = "",
+  },
+}    
+
+function getConfigStatus()
+  local status = "Trusted Configuration"
+  local issues = {}
+  return status, issues
+end
+            
+-------------------------------------------------------------------------------
+-- Source generation functions
+-------------------------------------------------------------------------------
+
+generatedCode = {
+  includes = {"can_dummy.h"},
+  globals = [[
+  ]],
+  body = [[
+    can_server(${swblock.chanends.c_client});
+  ]]
+}
+
+files = {
+  ["module_can/can_dummy_conf_example.h"] = "src/can_dummy_conf.h",
+}
+
+api = {
+       'can_server'
+      }
+
