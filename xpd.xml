@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <xpd>
     <components>
-        <component description = "A regression test for arbitration" type = "demoCode" scope = "Example" path = "app_can_arbitrate" local = "false" id = "app_can_arbitrate" name = "app_can_arbitrate">
+        <component description = "A demonstration of a simple device that can send and receive data through the CAN Phy layer." type = "demoCode" scope = "Example" path = "app_can_demo" local = "false" id = "app_can_demo" name = "Slicekit CAN Bus Simple Demo">
             <board>XA-SK-ISBUS</board>
             <componentDependency>module_mutual_thread_comm</componentDependency>
             <componentDependency>module_can</componentDependency>
@@ -16,59 +16,28 @@
             <keyword>Rx</keyword>
             <keyword>Tx</keyword>
         </component>
-        <component description = "A regression test for the ability to handle bit errors" type = "demoCode" scope = "Example" path = "app_can_error_inject" local = "false" id = "app_can_error_inject" name = "app_can_error_inject">
-            <board>XA-SK-ISBUSA regression test for the ability to handle bit errors.</board>
-            <componentDependency>module_mutual_thread_comm</componentDependency>
-            <componentDependency>module_can</componentDependency>
-            <keyword>CAN</keyword>
-            <keyword>Tx</keyword>
-            <keyword>Rx</keyword>
-        </component>
-        <component description = "A regression test for the ability to handle oscillator variance" type = "demoCode" scope = "Example" path = "app_can_osc" local = "false" id = "app_can_osc" name = "app_can_osc">
-            <board>XA-SK-ISBUS</board>
-            <componentDependency>module_mutual_thread_comm</componentDependency>
-            <componentDependency>module_can</componentDependency>
-            <keyword>CAN</keyword>
-            <keyword>Tx</keyword>
-            <keyword>Rx</keyword>
-        </component>
-        <component name = "CAN Bus Dummy Module" type = "component" buildresults_path = "module_can_dummy/.module_can_dummy.buildinfo" scope = "General Use" path = "module_can_dummy" metainfo_path = "module_can_dummy/module_can_dummy.metainfo" local = "false" id = "module_can_dummy" description = "CAN Bus component">
-            <board>XA-SK-ISBUS</board>
-            <componentDependency>module_mutual_thread_comm</componentDependency>
-            <keyword>CAN</keyword>
-            <keyword>Rx</keyword>
-            <keyword>Tx</keyword>
-        </component>
-        <component description = "A demonstration of a simple device that can send and receive data through the CAN Phy layer." type = "demoCode" scope = "Example" path = "app_can_dummy_demo" local = "false" id = "app_can_dummy_demo" name = "Slicekit CAN Bus Simple Dummy Demo">
-            <board>XA-SK-ISBUS</board>
-            <componentDependency>module_can_dummy</componentDependency>
-            <componentDependency>module_mutual_thread_comm</componentDependency>
-            <keyword>CAN</keyword>
-            <keyword>Tx</keyword>
-            <keyword>Rx</keyword>
-        </component>
-        <component description = "A demonstration of a simple device that can send and receive data through the CAN Phy layer." type = "demoCode" scope = "Example" path = "app_can_demo" local = "false" id = "app_can_demo" name = "Slicekit CAN Bus Simple Demo">
-            <board>XA-SK-ISBUS</board>
-            <componentDependency>module_mutual_thread_comm</componentDependency>
-            <componentDependency>module_can</componentDependency>
-            <keyword>CAN</keyword>
-            <keyword>Tx</keyword>
-            <keyword>Rx</keyword>
-        </component>
     </components>
     <dependency repo = "xcommon">
-        <githash>fd0a7bd1dd56741e00f418b0fe9ff50e4231ed76</githash>
+        <githash>aca1d1c71887bd39d8336499d30b8233701cd2c7</githash>
         <uri>ssh://git@github.com/xcore/xcommon</uri>
     </dependency>
     <dependency repo = "sc_util">
-        <githash>3f82b846395c07e8dd32ad9951afc209b6ed7efc</githash>
+        <githash>84c4a06e1d75e12fc0e607a4d60b434e69ed1a71</githash>
         <uri>git://github.com/xcore/sc_util.git</uri>
     </dependency>
+    <xsoftip_exclude>app_can_arbitrate</xsoftip_exclude>
+    <xsoftip_exclude>app_can_dummy_demo</xsoftip_exclude>
+    <xsoftip_exclude>app_can_error_inject</xsoftip_exclude>
+    <xsoftip_exclude>app_can_osc</xsoftip_exclude>
+    <xsoftip_exclude>module_can_demo</xsoftip_exclude>
+    <xsoftip_exclude>app_xc1_firmware</xsoftip_exclude>
     <description>CAN Protocol Component</description>
     <location>git@github.com:xcore/sc_can</location>
     <name>sc_can</name>
     <maintainer>andrewstanfordjason</maintainer>
+    <partnumber>XM-002490-DH</partnumber>
     <release parenthash = "e1e1aff1991dd782e79ae4ea6e4cc73a164d270a" version = "1.0.0beta0" githash = "654d7bebe0b44803b40c2694320e79c4bdea5e7b"></release>
+    <subpartnumber>XM-002491-SM</subpartnumber>
     <vendor>XMOS</vendor>
     <xcore_repo>sc_can</xcore_repo>
     <xpd_version>1.0</xpd_version>
