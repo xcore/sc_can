@@ -35,11 +35,11 @@
     <vendor>XMOS</vendor>
     <xcore_repo>sc_can</xcore_repo>
     <xpd_version>1.0</xpd_version>
-    <xsoftip_exclude>app_can_arbitrate</xsoftip_exclude>
-    <xsoftip_exclude>app_can_dummy_demo</xsoftip_exclude>
-    <xsoftip_exclude>app_can_error_inject</xsoftip_exclude>
-    <xsoftip_exclude>app_can_osc</xsoftip_exclude>
-    <xsoftip_exclude>module_can_dummy</xsoftip_exclude>
-    <xsoftip_exclude>app_xc1_firmware</xsoftip_exclude>
+    <exclude_dir>app_can_arbitrate</exclude_dir>
+    <exclude_dir>app_can_dummy_demo</exclude_dir>
+    <exclude_dir>app_can_error_inject</exclude_dir>
+    <exclude_dir>app_can_osc</exclude_dir>
+    <exclude_dir>module_can_dummy</exclude_dir>
+    <exclude_dir>app_xc1_firmware</exclude_dir>
     <scope>example</scope>
 </xpd>
