@@ -161,212 +161,122 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                                     <listOptionValue builtIn="false" value='&quot;${XMOS_DOC_PATH}/../target/include/gcc&quot;' />
                                     <listOptionValue builtIn="false" value='&quot;${XMOS_DOC_PATH}/../target/include/c++/4.2.1&quot;' />
                                     <listOptionValue builtIn="false" value='&quot;${XMOS_DOC_PATH}/../target/include/c++/4.2.1/xcore-xmos-elf&quot;' />
-                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin/Debug}&quot;' />
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
                                 <inputType id = "com.xmos.cdt.xc.compiler.input.44453406" name="XC Sources" superClass="com.xmos.cdt.xc.compiler.input" />
                                 <option id = "gnu.c.compiler.option.include.paths.88804971" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
-                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin/Debug}&quot;' />
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
                             </tool>
                             <tool id = "com.xmos.cdt.xc.compiler.base.40410263" name="com.xmos.cdt.xc.compiler.base" superClass="com.xmos.cdt.xc.compiler.base">
                                 <option id = "gnu.c.compiler.option.include.paths.78573544" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
-                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin/Debug}&quot;' />
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
                                 <option id = "com.xmos.c.compiler.option.include.paths.17428228" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
-                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin/Debug}&quot;' />
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
                             </tool>
                             <tool id = "com.xmos.cdt.c.compiler.base.96958856" name="com.xmos.cdt.c.compiler.base" superClass="com.xmos.cdt.c.compiler.base">
                                 <option id = "gnu.c.compiler.option.include.paths.35025193" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
-                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin/Debug}&quot;' />
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
                                 <option id = "com.xmos.c.compiler.option.include.paths.90318369" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
-                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin/Debug}&quot;' />
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
                             </tool>
                             <tool id = "com.xmos.cdt.cpp.compiler.base.95645607" name="com.xmos.cdt.cpp.compiler.base" superClass="com.xmos.cdt.cpp.compiler.base">
                                 <option id = "gnu.c.compiler.option.include.paths.93262320" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
-                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin/Debug}&quot;' />
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
                                 <option id = "com.xmos.c.compiler.option.include.paths.18982858" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
-                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin/Debug}&quot;' />
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
                             </tool>
                             <tool id = "com.xmos.cdt.core.assembler.base.16734638" name="com.xmos.cdt.core.assembler.base" superClass="com.xmos.cdt.core.assembler.base">
                                 <option id = "gnu.c.compiler.option.include.paths.8010296" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
-                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin/Debug}&quot;' />
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
                                 <option id = "com.xmos.c.compiler.option.include.paths.89908301" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
-                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin/Debug}&quot;' />
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
                             </tool>
@@ -625,212 +535,122 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                                     <listOptionValue builtIn="false" value='&quot;${XMOS_DOC_PATH}/../target/include/gcc&quot;' />
                                     <listOptionValue builtIn="false" value='&quot;${XMOS_DOC_PATH}/../target/include/c++/4.2.1&quot;' />
                                     <listOptionValue builtIn="false" value='&quot;${XMOS_DOC_PATH}/../target/include/c++/4.2.1/xcore-xmos-elf&quot;' />
-                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin/Debug}&quot;' />
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
                                 <inputType id = "com.xmos.cdt.xc.compiler.input.18430846" name="XC Sources" superClass="com.xmos.cdt.xc.compiler.input" />
                                 <option id = "gnu.c.compiler.option.include.paths.89177275" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
-                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin/Debug}&quot;' />
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
                             </tool>
                             <tool id = "com.xmos.cdt.xc.compiler.base.30177050" name="com.xmos.cdt.xc.compiler.base" superClass="com.xmos.cdt.xc.compiler.base">
                                 <option id = "gnu.c.compiler.option.include.paths.86056734" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
-                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin/Debug}&quot;' />
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
                                 <option id = "com.xmos.c.compiler.option.include.paths.94506792" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
-                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin/Debug}&quot;' />
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
                             </tool>
                             <tool id = "com.xmos.cdt.c.compiler.base.46753876" name="com.xmos.cdt.c.compiler.base" superClass="com.xmos.cdt.c.compiler.base">
                                 <option id = "gnu.c.compiler.option.include.paths.94052236" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
-                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin/Debug}&quot;' />
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
                                 <option id = "com.xmos.c.compiler.option.include.paths.21606187" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
-                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin/Debug}&quot;' />
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
                             </tool>
                             <tool id = "com.xmos.cdt.cpp.compiler.base.87785313" name="com.xmos.cdt.cpp.compiler.base" superClass="com.xmos.cdt.cpp.compiler.base">
                                 <option id = "gnu.c.compiler.option.include.paths.2670393" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
-                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin/Debug}&quot;' />
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
                                 <option id = "com.xmos.c.compiler.option.include.paths.7015680" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
-                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin/Debug}&quot;' />
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
                             </tool>
                             <tool id = "com.xmos.cdt.core.assembler.base.40674219" name="com.xmos.cdt.core.assembler.base" superClass="com.xmos.cdt.core.assembler.base">
                                 <option id = "gnu.c.compiler.option.include.paths.30434484" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
-                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin/Debug}&quot;' />
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
                                 <option id = "com.xmos.c.compiler.option.include.paths.49037" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
-                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin/Debug}&quot;' />
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_arbitrate/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
                             </tool>

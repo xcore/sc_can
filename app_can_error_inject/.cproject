@@ -162,18 +162,9 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                                     <listOptionValue builtIn="false" value='&quot;${XMOS_DOC_PATH}/../target/include/c++/4.2.1&quot;' />
                                     <listOptionValue builtIn="false" value='&quot;${XMOS_DOC_PATH}/../target/include/c++/4.2.1/xcore-xmos-elf&quot;' />
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin/Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
@@ -183,18 +174,9 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                                 <inputType id = "com.xmos.cdt.xc.compiler.input.94791526" name="XC Sources" superClass="com.xmos.cdt.xc.compiler.input" />
                                 <option id = "gnu.c.compiler.option.include.paths.78649779" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin/Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
@@ -205,18 +187,9 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                             <tool id = "com.xmos.cdt.xc.compiler.base.25674960" name="com.xmos.cdt.xc.compiler.base" superClass="com.xmos.cdt.xc.compiler.base">
                                 <option id = "gnu.c.compiler.option.include.paths.60463083" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin/Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
@@ -225,18 +198,9 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                                 </option>
                                 <option id = "com.xmos.c.compiler.option.include.paths.86755214" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin/Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
@@ -247,18 +211,9 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                             <tool id = "com.xmos.cdt.c.compiler.base.6507856" name="com.xmos.cdt.c.compiler.base" superClass="com.xmos.cdt.c.compiler.base">
                                 <option id = "gnu.c.compiler.option.include.paths.57975334" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin/Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
@@ -267,18 +222,9 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                                 </option>
                                 <option id = "com.xmos.c.compiler.option.include.paths.95487424" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin/Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
@@ -289,18 +235,9 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                             <tool id = "com.xmos.cdt.cpp.compiler.base.26782623" name="com.xmos.cdt.cpp.compiler.base" superClass="com.xmos.cdt.cpp.compiler.base">
                                 <option id = "gnu.c.compiler.option.include.paths.94841663" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin/Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
@@ -309,18 +246,9 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                                 </option>
                                 <option id = "com.xmos.c.compiler.option.include.paths.85262778" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin/Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
@@ -331,18 +259,9 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                             <tool id = "com.xmos.cdt.core.assembler.base.84983662" name="com.xmos.cdt.core.assembler.base" superClass="com.xmos.cdt.core.assembler.base">
                                 <option id = "gnu.c.compiler.option.include.paths.35149825" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin/Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
@@ -351,18 +270,9 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                                 </option>
                                 <option id = "com.xmos.c.compiler.option.include.paths.38108000" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin/Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
@@ -626,18 +536,9 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                                     <listOptionValue builtIn="false" value='&quot;${XMOS_DOC_PATH}/../target/include/c++/4.2.1&quot;' />
                                     <listOptionValue builtIn="false" value='&quot;${XMOS_DOC_PATH}/../target/include/c++/4.2.1/xcore-xmos-elf&quot;' />
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin/Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
@@ -647,18 +548,9 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                                 <inputType id = "com.xmos.cdt.xc.compiler.input.17416213" name="XC Sources" superClass="com.xmos.cdt.xc.compiler.input" />
                                 <option id = "gnu.c.compiler.option.include.paths.3437365" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin/Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
@@ -669,18 +561,9 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                             <tool id = "com.xmos.cdt.xc.compiler.base.87483622" name="com.xmos.cdt.xc.compiler.base" superClass="com.xmos.cdt.xc.compiler.base">
                                 <option id = "gnu.c.compiler.option.include.paths.55243125" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin/Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
@@ -689,18 +572,9 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                                 </option>
                                 <option id = "com.xmos.c.compiler.option.include.paths.7128867" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin/Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
@@ -711,18 +585,9 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                             <tool id = "com.xmos.cdt.c.compiler.base.22662717" name="com.xmos.cdt.c.compiler.base" superClass="com.xmos.cdt.c.compiler.base">
                                 <option id = "gnu.c.compiler.option.include.paths.14652222" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin/Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
@@ -731,18 +596,9 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                                 </option>
                                 <option id = "com.xmos.c.compiler.option.include.paths.78365509" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin/Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
@@ -753,18 +609,9 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                             <tool id = "com.xmos.cdt.cpp.compiler.base.23093537" name="com.xmos.cdt.cpp.compiler.base" superClass="com.xmos.cdt.cpp.compiler.base">
                                 <option id = "gnu.c.compiler.option.include.paths.26366558" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin/Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
@@ -773,18 +620,9 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                                 </option>
                                 <option id = "com.xmos.c.compiler.option.include.paths.697530" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin/Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
@@ -795,18 +633,9 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                             <tool id = "com.xmos.cdt.core.assembler.base.65996467" name="com.xmos.cdt.core.assembler.base" superClass="com.xmos.cdt.core.assembler.base">
                                 <option id = "gnu.c.compiler.option.include.paths.64060549" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin/Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
@@ -815,18 +644,9 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                                 </option>
                                 <option id = "com.xmos.c.compiler.option.include.paths.61169751" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin/Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug/m_mutual_thread_comm/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/.build_Debug}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_error_inject/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />

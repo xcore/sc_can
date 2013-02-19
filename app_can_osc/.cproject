@@ -162,42 +162,24 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                                     <listOptionValue builtIn="false" value='&quot;${XMOS_DOC_PATH}/../target/include/c++/4.2.1&quot;' />
                                     <listOptionValue builtIn="false" value='&quot;${XMOS_DOC_PATH}/../target/include/c++/4.2.1/xcore-xmos-elf&quot;' />
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
                                 <inputType id = "com.xmos.cdt.xc.compiler.input.37125665" name="XC Sources" superClass="com.xmos.cdt.xc.compiler.input" />
                                 <option id = "gnu.c.compiler.option.include.paths.85157554" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
@@ -205,41 +187,23 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                             <tool id = "com.xmos.cdt.xc.compiler.base.40454620" name="com.xmos.cdt.xc.compiler.base" superClass="com.xmos.cdt.xc.compiler.base">
                                 <option id = "gnu.c.compiler.option.include.paths.93529998" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
                                 <option id = "com.xmos.c.compiler.option.include.paths.11459844" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
@@ -247,41 +211,23 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                             <tool id = "com.xmos.cdt.c.compiler.base.87657142" name="com.xmos.cdt.c.compiler.base" superClass="com.xmos.cdt.c.compiler.base">
                                 <option id = "gnu.c.compiler.option.include.paths.94713161" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
                                 <option id = "com.xmos.c.compiler.option.include.paths.51566872" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
@@ -289,41 +235,23 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                             <tool id = "com.xmos.cdt.cpp.compiler.base.67771309" name="com.xmos.cdt.cpp.compiler.base" superClass="com.xmos.cdt.cpp.compiler.base">
                                 <option id = "gnu.c.compiler.option.include.paths.36985166" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
                                 <option id = "com.xmos.c.compiler.option.include.paths.53584515" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
@@ -331,41 +259,23 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                             <tool id = "com.xmos.cdt.core.assembler.base.71845331" name="com.xmos.cdt.core.assembler.base" superClass="com.xmos.cdt.core.assembler.base">
                                 <option id = "gnu.c.compiler.option.include.paths.82606987" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
                                 <option id = "com.xmos.c.compiler.option.include.paths.98269029" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
@@ -626,42 +536,24 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                                     <listOptionValue builtIn="false" value='&quot;${XMOS_DOC_PATH}/../target/include/c++/4.2.1&quot;' />
                                     <listOptionValue builtIn="false" value='&quot;${XMOS_DOC_PATH}/../target/include/c++/4.2.1/xcore-xmos-elf&quot;' />
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
                                 <inputType id = "com.xmos.cdt.xc.compiler.input.73588970" name="XC Sources" superClass="com.xmos.cdt.xc.compiler.input" />
                                 <option id = "gnu.c.compiler.option.include.paths.36121408" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
@@ -669,41 +561,23 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                             <tool id = "com.xmos.cdt.xc.compiler.base.16982586" name="com.xmos.cdt.xc.compiler.base" superClass="com.xmos.cdt.xc.compiler.base">
                                 <option id = "gnu.c.compiler.option.include.paths.32926561" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
                                 <option id = "com.xmos.c.compiler.option.include.paths.4670562" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
@@ -711,41 +585,23 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                             <tool id = "com.xmos.cdt.c.compiler.base.79057990" name="com.xmos.cdt.c.compiler.base" superClass="com.xmos.cdt.c.compiler.base">
                                 <option id = "gnu.c.compiler.option.include.paths.12275516" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
                                 <option id = "com.xmos.c.compiler.option.include.paths.37805225" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
@@ -753,41 +609,23 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                             <tool id = "com.xmos.cdt.cpp.compiler.base.17712216" name="com.xmos.cdt.cpp.compiler.base" superClass="com.xmos.cdt.cpp.compiler.base">
                                 <option id = "gnu.c.compiler.option.include.paths.92645377" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
                                 <option id = "com.xmos.c.compiler.option.include.paths.81244468" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
@@ -795,41 +633,23 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                             <tool id = "com.xmos.cdt.core.assembler.base.79996640" name="com.xmos.cdt.core.assembler.base" superClass="com.xmos.cdt.core.assembler.base">
                                 <option id = "gnu.c.compiler.option.include.paths.23480940" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
                                 <option id = "com.xmos.c.compiler.option.include.paths.99964063" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/fake_inc}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_can/.settings}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_can_osc/.build_Debug/m_can}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_mutual_thread_comm/src}&quot;' />
 
                                 </option>
