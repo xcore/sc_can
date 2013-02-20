@@ -26,6 +26,12 @@
         <uri>git://github.com/xcore/sc_util.git</uri>
     </dependency>
     <description>CAN Protocol Component</description>
+    <exclude_dir>app_can_arbitrate</exclude_dir>
+    <exclude_dir>app_can_dummy_demo</exclude_dir>
+    <exclude_dir>app_can_error_inject</exclude_dir>
+    <exclude_dir>app_can_osc</exclude_dir>
+    <exclude_dir>module_can_dummy</exclude_dir>
+    <exclude_dir>app_xc1_firmware</exclude_dir>
     <location>git@github.com:xcore/sc_can</location>
     <name>sc_can</name>
     <maintainer>andrewstanfordjason</maintainer>
@@ -35,11 +41,5 @@
     <vendor>XMOS</vendor>
     <xcore_repo>sc_can</xcore_repo>
     <xpd_version>1.0</xpd_version>
-    <exclude_dir>app_can_arbitrate</exclude_dir>
-    <exclude_dir>app_can_dummy_demo</exclude_dir>
-    <exclude_dir>app_can_error_inject</exclude_dir>
-    <exclude_dir>app_can_osc</exclude_dir>
-    <exclude_dir>module_can_dummy</exclude_dir>
-    <exclude_dir>app_xc1_firmware</exclude_dir>
     <scope>example</scope>
 </xpd>
