@@ -32,6 +32,8 @@
     <exclude_dir>app_can_osc</exclude_dir>
     <exclude_dir>module_can_dummy</exclude_dir>
     <exclude_dir>app_xc1_firmware</exclude_dir>
+    <docdir>doc</docdir>
+    <docdir>app_can_demo/doc_quickstart</docdir>
     <location>git@github.com:xcore/sc_can</location>
     <name>sc_can</name>
     <maintainer>andrewstanfordjason</maintainer>
