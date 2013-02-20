@@ -22,21 +22,22 @@
         <uri>git://github.com/xcore/sc_util.git</uri>
     </dependency>
     <description>CAN Protocol Component</description>
+    <docdir>doc</docdir>
+    <docdir>app_can_demo/doc_quickstart</docdir>
     <exclude_dir>app_can_arbitrate</exclude_dir>
     <exclude_dir>app_can_dummy_demo</exclude_dir>
     <exclude_dir>app_can_error_inject</exclude_dir>
     <exclude_dir>app_can_osc</exclude_dir>
     <exclude_dir>module_can_dummy</exclude_dir>
     <exclude_dir>app_xc1_firmware</exclude_dir>
-    <docdir>doc</docdir>
-    <docdir>app_can_demo/doc_quickstart</docdir>
     <location>git@github.com:xcore/sc_can</location>
     <name>sc_can</name>
     <maintainer>andrewstanfordjason</maintainer>
     <partnumber>XM-002490-DH</partnumber>
     <release parenthash = "e1e1aff1991dd782e79ae4ea6e4cc73a164d270a" version = "1.0.0beta0" githash = "654d7bebe0b44803b40c2694320e79c4bdea5e7b"></release>
     <release parenthash = "6272e46e0617b043e550747738a0c27da34c1f2f" version = "1.0.1beta0" githash = "793cd50a1c38fc7032c568df76e547fa88494967"></release>
-    <release parenthash = "732087cb098f4731501109c62ab5d525a3195620" version = "1.0.1beta1"></release>
+    <release parenthash = "732087cb098f4731501109c62ab5d525a3195620" version = "1.0.1beta1" githash = "127704700a5bd1e81ed8c670409839bab7b304dc"></release>
+    <release parenthash = "628ab41053dcf9c50f609249deb7d51a7bf451a0" version = "1.0.1beta2"></release>
     <subpartnumber>XM-002491-SM</subpartnumber>
     <vendor>XMOS</vendor>
     <xcore_repo>sc_can</xcore_repo>
