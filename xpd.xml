@@ -37,6 +37,7 @@
     <maintainer>andrewstanfordjason</maintainer>
     <partnumber>XM-002490-DH</partnumber>
     <release parenthash = "e1e1aff1991dd782e79ae4ea6e4cc73a164d270a" version = "1.0.0beta0" githash = "654d7bebe0b44803b40c2694320e79c4bdea5e7b"></release>
+    <release parenthash = "6272e46e0617b043e550747738a0c27da34c1f2f" version = "1.0.1beta0"></release>
     <subpartnumber>XM-002491-SM</subpartnumber>
     <vendor>XMOS</vendor>
     <xcore_repo>sc_can</xcore_repo>
