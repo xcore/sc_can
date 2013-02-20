@@ -17,10 +17,6 @@
             <keyword>Tx</keyword>
         </component>
     </components>
-    <dependency repo = "xcommon">
-        <githash>aca1d1c71887bd39d8336499d30b8233701cd2c7</githash>
-        <uri>ssh://git@github.com/xcore/xcommon</uri>
-    </dependency>
     <dependency repo = "sc_util">
         <githash>84c4a06e1d75e12fc0e607a4d60b434e69ed1a71</githash>
         <uri>git://github.com/xcore/sc_util.git</uri>
