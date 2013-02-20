@@ -1,6 +1,13 @@
 <?xml version="1.0" ?>
 <xpd>
     <components>
+        <component name = "CAN Bus Module" type = "component" buildresults_path = "module_can/.module_can.buildinfo" scope = "General Use" path = "module_can" metainfo_path = "module_can/module_can.metainfo" local = "false" id = "module_can" description = "CAN Bus component">
+            <board>XA-SK-ISBUS</board>
+            <componentDependency>module_mutual_thread_comm</componentDependency>
+            <keyword>CAN</keyword>
+            <keyword>Rx</keyword>
+            <keyword>Tx</keyword>
+        </component>
         <component description = "A demonstration of a simple device that can send and receive data through the CAN Phy layer." type = "demoCode" scope = "Example" path = "app_can_demo" local = "false" id = "app_can_demo" name = "Slicekit CAN Bus Simple Demo">
             <board>XA-SK-ISBUS</board>
             <componentDependency>module_mutual_thread_comm</componentDependency>
@@ -8,13 +15,6 @@
             <keyword>CAN</keyword>
             <keyword>Tx</keyword>
             <keyword>Rx</keyword>
-        </component>
-        <component name = "CAN Bus Module" type = "component" buildresults_path = "module_can/.module_can.buildinfo" scope = "General Use" path = "module_can" metainfo_path = "module_can/module_can.metainfo" local = "false" id = "module_can" description = "CAN Bus component">
-            <board>XA-SK-ISBUS</board>
-            <componentDependency>module_mutual_thread_comm</componentDependency>
-            <keyword>CAN</keyword>
-            <keyword>Rx</keyword>
-            <keyword>Tx</keyword>
         </component>
     </components>
     <dependency repo = "sc_util">
@@ -33,7 +33,8 @@
     <maintainer>andrewstanfordjason</maintainer>
     <partnumber>XM-002490-DH</partnumber>
     <release parenthash = "e1e1aff1991dd782e79ae4ea6e4cc73a164d270a" version = "1.0.0beta0" githash = "654d7bebe0b44803b40c2694320e79c4bdea5e7b"></release>
-    <release parenthash = "6272e46e0617b043e550747738a0c27da34c1f2f" version = "1.0.1beta0"></release>
+    <release parenthash = "6272e46e0617b043e550747738a0c27da34c1f2f" version = "1.0.1beta0" githash = "793cd50a1c38fc7032c568df76e547fa88494967"></release>
+    <release parenthash = "732087cb098f4731501109c62ab5d525a3195620" version = "1.0.1beta1"></release>
     <subpartnumber>XM-002491-SM</subpartnumber>
     <vendor>XMOS</vendor>
     <xcore_repo>sc_can</xcore_repo>
