@@ -8,7 +8,9 @@ sc_can demo : Quick Start Guide
 
 This simple demonstration of xTIMEcomposer Studio functionality uses the XA-SK-ISBUS Slice Card together with the 
 xSOFTip ``module_can`` to demonstrate how the module is used to send and receive CAN Bus frames. The demonstration 
-reports all traffic on the CAN bus until the demo is ended.
+reports all traffic on the CAN bus until the demo is ended. Note: this demo requires a CAN to USB dongle for connecting
+to the ISBUS slice. This is available from http://www.cananalyser.co.uk. The demonstration will wun at 500Kb/s and 
+support CAN 2.0A and 2.0B.
 
 Hardware Setup
 ++++++++++++++
@@ -17,7 +19,7 @@ The XP-SKC-L2 Slicekit Core board has four slots with edge connectors: ``SQUARE`
 
 To setup up the system:
 
-   #. Connect XA-SK-ISBUS Slice Card to the XP-SKC-L2 Slicekit Core board using the connector marked with the ``STAR``.
+   #. Connect XA-SK-ISBUS Slice Card to the XP-SKC-L2 Slicekit Core board using the connector marked with the ``TRIANGLE``.
    #. Connect the XTAG Adapter to Slicekit Core board, and connect XTAG-2 to the Adapter. 
    #. Connect the XTAG-2 to host PC. Note that the USB cable is not provided with the Slicekit starter kit.
    #. Set the ``XMOS LINK`` to ``ON`` on the XTAG Adapter.
@@ -61,6 +63,14 @@ Now that the application has been compiled, the next step is to run it on the Sl
    #. Click on the ``Run`` button.
    #. The debug console window in xTIMEcomposer should then display the frames as it transmits and recieves them.
    #. To send a frame from the CANdo to the XA-SK-ISBUS enter a frame ID in the ``CAN Transmit Editor`` then click ``Now``.
+   
+The output from the application should look like::
+
+  tx: 2E071	 : Ext	 : D 	0	
+  tx: 190	 : Std	 : D 	6	C8	C9	44	6	72	93	
+  tx: 151	 : Std	 : R 	7	
+  tx: AE1F	 : Ext	 : D 	6	48	85	72	DE	46	BD	
+ 
     
 Next Steps
 ++++++++++

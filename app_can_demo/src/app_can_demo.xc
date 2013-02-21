@@ -2,8 +2,8 @@
 #include <xscope.h>
 #include "can.h"
 #include "can_utils.h"
-on tile[0]: can_ports p = { XS1_PORT_1F, XS1_PORT_1G, XS1_CLKBLK_1 };
-on tile[0]: port shutdown = XS1_PORT_4A;
+on tile[0]: can_ports p = { XS1_PORT_1L, XS1_PORT_1I, XS1_CLKBLK_1 };
+on tile[0]: port shutdown = XS1_PORT_4E;
 
 void application(chanend c_rx_tx) {
   timer t;

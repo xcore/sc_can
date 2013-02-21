@@ -20,7 +20,7 @@ Demonstration Applications
 CAN Bus Demo Application
 ++++++++++++++++++++++++
 
-This application demonstrates how the module is used to transmit and receive CAN Bus frames.
+This application demonstrates how the module is used to transmit and receive CAN Bus frames and is available within xSOFTip Explorer.
 
    * Package: sc_can
    * Application: app_can_demo

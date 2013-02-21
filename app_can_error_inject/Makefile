@@ -17,7 +17,7 @@ USED_MODULES = module_can
 # If the variable XCC_MAP_FLAGS is set it overrides the flags passed to
 # xcc for the final link (mapping) stage.
 XCC_FLAGS_Debug = -O3 -g -fxscope
-XCC_FLAGS_Release = -O2 -g
+XCC_FLAGS_Release = -O3 -g -fxscope
 
 # The VERBOSE variable, if set to 1, enables verbose output from the make system.
 VERBOSE = 0

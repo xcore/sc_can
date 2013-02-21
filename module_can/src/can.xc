@@ -2,8 +2,6 @@
 #include "can_defines.h"
 #include "mutual_thread_comm.h"
 #include <xclib.h>
-#include <stdlib.h>
-#include <assert.h>
 
 typedef struct RxTxFrame {
   unsigned rx_DATA[2];
@@ -21,8 +19,9 @@ typedef struct RxTxFrame {
   unsigned tx_dlc;
 } RxTxFrame;
 
-#define DEBUG
+//#define DEBUG
 #ifdef DEBUG
+#include <assert.h>
 #include "debug.h"
 #endif
 
@@ -493,7 +492,9 @@ void can_server(struct can_ports &p, chanend server){
           // call mutual_comm_notified() to clear the flag without blocking.
           mutual_comm_notify(server, mstate);
           mutual_comm_transaction(server, is_data_request, mstate);
+#ifdef DEBUG
           assert(!is_data_request);
+#endif
           mutual_comm_complete_transaction(server, is_data_request, mstate);
           error_status = CAN_STATE_ACTIVE;
           transmit_error_counter = 0;
