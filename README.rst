@@ -1,7 +1,7 @@
 CAN Bus Component
 .................
 
-:Latest release: 1.0.1beta2
+:Latest release: 1.0.1rc0
 :Maintainer: andrewstanfordjason
 :Description: CAN Protocol Component
 
