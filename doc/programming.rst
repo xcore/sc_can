@@ -44,6 +44,7 @@ Declare the ``can_ports`` structure used by the ``can_server`` in the main appli
 		XS1_CLKBLK_1 
 	}; 
 
+Note that the CAN rx and tx must use one bit ports due to the usage of buffering in the implementation.
 Next create a ``main`` function with a par of both the ``can_server`` function and an application function, these will require a channel to connect them. For example::
 
 	int main() {

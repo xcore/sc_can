@@ -38,7 +38,7 @@ in order to describe the CAN Bus that the device is connecting to. It can also b
 Port Config
 +++++++++++
 
-The port config is given in ``can.h``.
+The port config is given in ``can.h``. Note that the CAN rx and tx must use one bit ports due to the usage of buffering in the implementation.
 
 CAN Bus API
 -----------
