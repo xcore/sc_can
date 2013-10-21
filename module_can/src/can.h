@@ -64,7 +64,7 @@ typedef enum {
  * /param can_ports The ports used for CAN RX and CAN TX.
  * /param c_client The chanend connecting the server to the client of the CAN Bus server.
  */
-void can_server(struct can_ports &p, chanend server);
+void can_server(struct can_ports &p, chanend c_server);
 
 /**
  * Take the oldest frame from the RX buffer. If it is empty then it will block until a frame is avaliable.

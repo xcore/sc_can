@@ -20,9 +20,6 @@ const unsigned size[2] = { 0x800, 0x20000000 };
 
 void seq_tx(chanend c_server, chanend c_internal) {
   can_frame frm;
-  timer t;
-  unsigned now;
-  unsigned i = 0;
   unsigned j = 0;
   for (unsigned extended = 0; extended < 2; extended++) {
     frm.extended = extended;

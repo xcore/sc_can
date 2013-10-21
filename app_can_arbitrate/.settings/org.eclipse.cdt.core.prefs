@@ -1,12 +1,22 @@
-#Wed Feb 06 14:06:38 GMT 2013
+#Mon Oct 21 14:51:01 BST 2013
 eclipse.preferences.version=1
 environment/project/com.xmos.cdt.toolchain.2102353808/XMOS_MODULE_PATH/delimiter=\:
 environment/project/com.xmos.cdt.toolchain.2102353808/XMOS_MODULE_PATH/operation=append
 environment/project/com.xmos.cdt.toolchain.2102353808/XMOS_MODULE_PATH/value=
 environment/project/com.xmos.cdt.toolchain.2102353808/append=true
 environment/project/com.xmos.cdt.toolchain.2102353808/appendContributed=true
+environment/project/com.xmos.cdt.toolchain.60308002/XMOS_MODULE_PATH/delimiter=\:
+environment/project/com.xmos.cdt.toolchain.60308002/XMOS_MODULE_PATH/operation=append
+environment/project/com.xmos.cdt.toolchain.60308002/XMOS_MODULE_PATH/value=/home/andrew/bug_fixing/sc_lcd/app_lcd_demo\:/home/andrew/bug_fixing/sc_sdram_burst/app_sdram_benchmark\:/home/andrew/bug_fixing/sc_sdram_burst/app_sdram_demo\:/home/andrew/bug_fixing/sc_sdram_burst/app_sdram_mfg_tests\:/home/andrew/bug_fixing/sc_sdram_burst/app_sdram_regress\:/home/andrew/bug_fixing/sc_lcd/app_touch_controller_lib_demo\:/home/andrew/bug_fixing/sc_lcd/module_lcd\:/home/andrew/bug_fixing/sc_sdram_burst/module_sdram\:/home/andrew/bug_fixing/sc_sdram_burst/module_sdram_memory_mapper\:/home/andrew/bug_fixing/sc_lcd/module_text_display\:/home/andrew/bug_fixing/sc_lcd/module_touch_controller_lib
+environment/project/com.xmos.cdt.toolchain.60308002/append=true
+environment/project/com.xmos.cdt.toolchain.60308002/appendContributed=true
 environment/project/com.xmos.cdt.toolchain.612016960/XMOS_MODULE_PATH/delimiter=\:
 environment/project/com.xmos.cdt.toolchain.612016960/XMOS_MODULE_PATH/operation=append
 environment/project/com.xmos.cdt.toolchain.612016960/XMOS_MODULE_PATH/value=
 environment/project/com.xmos.cdt.toolchain.612016960/append=true
 environment/project/com.xmos.cdt.toolchain.612016960/appendContributed=true
+environment/project/com.xmos.cdt.toolchain.67424332/XMOS_MODULE_PATH/delimiter=\:
+environment/project/com.xmos.cdt.toolchain.67424332/XMOS_MODULE_PATH/operation=append
+environment/project/com.xmos.cdt.toolchain.67424332/XMOS_MODULE_PATH/value=/home/andrew/bug_fixing/sc_lcd/app_lcd_demo\:/home/andrew/bug_fixing/sc_sdram_burst/app_sdram_benchmark\:/home/andrew/bug_fixing/sc_sdram_burst/app_sdram_demo\:/home/andrew/bug_fixing/sc_sdram_burst/app_sdram_mfg_tests\:/home/andrew/bug_fixing/sc_sdram_burst/app_sdram_regress\:/home/andrew/bug_fixing/sc_lcd/app_touch_controller_lib_demo\:/home/andrew/bug_fixing/sc_lcd/module_lcd\:/home/andrew/bug_fixing/sc_sdram_burst/module_sdram\:/home/andrew/bug_fixing/sc_sdram_burst/module_sdram_memory_mapper\:/home/andrew/bug_fixing/sc_lcd/module_text_display\:/home/andrew/bug_fixing/sc_lcd/module_touch_controller_lib
+environment/project/com.xmos.cdt.toolchain.67424332/append=true
+environment/project/com.xmos.cdt.toolchain.67424332/appendContributed=true
