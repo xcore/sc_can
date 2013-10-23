@@ -18,12 +18,12 @@ The CAN Bus component has the following features:
   * Supports
      * frame id filtering,
      * configurable size frame buffer,
-     * Fully CAN 2.0A and 2.0B compilant,
+     * Fully CAN 2.0A and 2.0B compliant,
      * Up to 1Mb baud rate,
      * Support for extended identifier(29-bit) for PHY layer,
-  * Low XCore resource usage
+  * Low xCORE resource usage
      * The function ``can_server`` requires just one core, the client functions, located in ``can.h`` are very low overhead and are called from the application,
-     * No timers used,
+     * 2 timers used,
      * A single channel,
      * Two one bit pins.
 
@@ -55,6 +55,6 @@ Resource requirements
 
 Performance
 +++++++++++
-The achievable effective bandwidth varies according to the available XCore MIPS and CAN bus speed. At 125MIPs up to 1Mb/s baud rate and at 62.5MIPs up to 500Kb/s baud rate will allow the full 1.58% oscillator tollerance.
+The achievable effective bandwidth varies according to the available XCore MIPS and CAN bus speed. At 125MIPS up to 1Mb/s baud rate and at 62.5MIPS up to 500Kb/s baud rate will allow the full 1.58% oscillator tolerance.
 
 

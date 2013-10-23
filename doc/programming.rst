@@ -21,7 +21,7 @@ Of course the application may use other modules which can also be directories at
 Key Files
 +++++++++
 
-The following header file contains prototypes of all functions required to use use the CAN Bus 
+The following header file contains prototypes of all functions required to use the CAN Bus 
 module. The API is described in :ref:`sec_api`.
 
 .. list-table:: Key Files
@@ -36,7 +36,7 @@ Module Usage
 ------------
 
 To use the CAN Bus module first set up the directory structure as shown above. Create a file in the ``app`` folder called ``can_conf.h`` and into it insert a define for ``CAN_CLOCK_DIVIDE``, ``PROP_SEG``, ``PHASE_SEG1`` and  ``PHASE_SEG2``. These are all specific to the CAN Bus that the device will connect to. 
-Declare the ``can_ports`` structure used by the ``can_server`` in the main application code. This will look somthing like::
+Declare the ``can_ports`` structure used by the ``can_server`` in the main application code. This will look something like::
 
 	can_ports p = {
 		XS1_PORT_1A, 
@@ -65,20 +65,20 @@ In order to set the baud rate of the device to match the CAN bus it will connect
 +------------------+----------------------+
 | Clock Divider    | Baud Rate            |
 +==================+======================+
-| 1                | 1Mb/s                |
+| 1                | 1Mbps                |
 +------------------+----------------------+
-| 2                | 500 Kb/s             |
+| 2                | 500 Kbps             |
 +------------------+----------------------+
-| 4                | 250 Kb/s             |
+| 4                | 250 Kbps             |
 +------------------+----------------------+  
-| 8                | 125 Kb/s             |
+| 8                | 125 Kbps             |
 +------------------+----------------------+ 
 
 In general the baud rate is::
 
-  1/CAN_CLOCK_DIVIDER Mb/s
+  1/CAN_CLOCK_DIVIDER Mbps
 
-where only integer valuse can be defined.
+where only integer values can be defined.
 
 Software Requirements
 ---------------------
