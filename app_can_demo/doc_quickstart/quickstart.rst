@@ -19,7 +19,7 @@ The XP-SKC-L2 sliceKIT core board has four slots with edge connectors: ``SQUARE`
 
 To setup up the system:
 
-   #. Connect XA-SK-ISBUS sliceCARD to the XP-SKC-L2 sliceKIT Core board using the connector marked with the ``TRIANGLE``.
+   #. Connect XA-SK-ISBUS sliceCARD to the XP-SKC-L16 sliceKIT Core board using the connector marked with the ``TRIANGLE``.
    #. Connect the XTAG Adapter to sliceKIT Core board, and connect XTAG-2 to the Adapter. 
    #. Connect the XTAG-2 to host PC. Note that the USB cable is not provided with the sliceKIT starter kit.
    #. Set the ``XMOS LINK`` to ``ON`` on the XTAG Adapter.
@@ -58,7 +58,7 @@ Now that the application has been compiled, the next step is to run it on the sl
 
    #. Select the file ``app_can_demo.xc`` in the ``app_can_demo`` project from the Project Explorer.
    #. Click ``Run -> Run Configurations`` then double click ``xCORE Application``.
-   #. Select the new launch configuration named ``app_can_demo Debug`` and enable the ``Run XScope output server`` in the ``I/O Options``.
+   #. Select the new launch configuration named ``app_can_demo Debug`` and enable the ``Run xSCOPE output server`` in the ``I/O Options``.
    #. Click the ``xSCOPE`` tab and under ``Mode`` select ``Offline [xSCOPE] Mode``.
    #. Click on the ``Run`` button.
    #. The debug console window in xTIMEcomposer should then display the frames as it transmits and receives them.
